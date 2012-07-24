@@ -1,0 +1,57 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "auth",
+    "commit": "a07411e69d7339ef10ac2792b8b749e65e907b10"
+  },
+  "dependencies": {
+    "basePackages": {
+      "appstrap": {
+        "git": "https://github.com/possibilities/meteor-appstrap.git",
+        "branch": "master"
+      }
+    },
+    "packages": {
+      "appstrap": {
+        "git": "https://github.com/possibilities/meteor-appstrap.git",
+        "branch": "master",
+        "commit": "d59face5806e212eac7a1efcb936eb05ef39ad02"
+      },
+      "environment-hooks": {
+        "git": "https://github.com/possibilities/meteor-environment-hooks.git",
+        "branch": "master",
+        "commit": "61c8515278674a1c087bc787a3694899b5a3cb1c"
+      },
+      "dev-trix": {
+        "git": "https://github.com/possibilities/meteor-dev-trix.git",
+        "branch": "master",
+        "commit": "7d12c2e77f6b4527a1035274576a5afea870f59a"
+      },
+      "code-demo": {
+        "git": "https://github.com/possibilities/meteor-code-demo.git",
+        "branch": "master",
+        "commit": "62a6c2c36604cdf9454331b2710248e4f3a08151"
+      },
+      "simple-secure": {
+        "git": "https://github.com/possibilities/meteor-simple-secure.git",
+        "branch": "master",
+        "commit": "e0f6fe511a1d2cfe6bc67021b355076131e12461"
+      },
+      "tabs": {
+        "git": "https://github.com/possibilities/meteor-tabs.git",
+        "branch": "master",
+        "commit": "c1bdae5151f6d13108b8688634ba4f1799bda9a4"
+      },
+      "deploy-config": {
+        "git": "https://github.com/possibilities/meteor-deploy-config.git",
+        "branch": "master",
+        "commit": "86a6afc5ea34a090efc32f451beb491aca075922"
+      },
+      "party": {
+        "git": "https://github.com/possibilities/meteor-party.git",
+        "branch": "master",
+        "commit": "74a65918adf5be0add98186805c89b437915e661"
+      }
+    }
+  }
+}

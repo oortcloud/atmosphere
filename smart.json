@@ -1,0 +1,11 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "auth"
+  },
+  "packages": {
+    "appstrap": {
+      "git": "https://github.com/possibilities/meteor-appstrap.git"
+    }
+  }
+}
