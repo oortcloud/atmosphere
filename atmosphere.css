@@ -1,0 +1,7 @@
+h1 { font-family: 'Arvo', Georgia, Times, serif; font-size: 59px; line-height: 70px; }
+div.container { font-family: 'PT Sans', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 25px; }
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 700px;
+}
