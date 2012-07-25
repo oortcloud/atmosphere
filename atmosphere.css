@@ -3,14 +3,20 @@
 h1 {
   font-family: 'Arvo',
   Georgia, Times, serif;
-  font-size: 59px;
-  line-height: 70px;
+  font-size: 39px;
+  line-height: 50px;
+}
+
+div.subtitle {
+  font-family: 'PT Sans',
+  Helvetica, Arial, sans-serif;
+  font-size: 13px;
 }
 
 div.container {
   font-family: 'PT Sans',
   Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 25px;
 }
 
