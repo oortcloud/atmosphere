@@ -1,21 +1,7 @@
 
-new Appstrap({
+new MeteorEnv({
   hosts: {
     production: ['atmosphere.meteor.com']
-  },
-  github: {
-    user: 'possibilities',
-    repo: 'atmosphere',
-    forkMe: {
-      position: 'left'
-    }
-  },
-  tabs: {
-    name: 'navigation',
-    tabs: [
-      'packages',
-      'help'
-    ]
   }
 });
 

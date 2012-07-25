@@ -7,15 +7,18 @@
   "dependencies": {
     "basePackages": {
       "appstrap": {
-        "git": "https://github.com/possibilities/meteor-appstrap.git",
-        "branch": "master"
+        "path": "/Users/mike/work/m/appstrap"
+      },
+      "deploy-config": {
+        "path": "/Users/mike/work/m/deploy-config"
       }
     },
     "packages": {
       "appstrap": {
-        "git": "https://github.com/possibilities/meteor-appstrap.git",
-        "branch": "master",
-        "commit": "d59face5806e212eac7a1efcb936eb05ef39ad02"
+        "path": "/Users/mike/work/m/appstrap"
+      },
+      "deploy-config": {
+        "path": "/Users/mike/work/m/deploy-config"
       },
       "environment-hooks": {
         "git": "https://github.com/possibilities/meteor-environment-hooks.git",
@@ -42,10 +45,10 @@
         "branch": "master",
         "commit": "c1bdae5151f6d13108b8688634ba4f1799bda9a4"
       },
-      "deploy-config": {
-        "git": "https://github.com/possibilities/meteor-deploy-config.git",
+      "fork-me": {
+        "git": "https://github.com/possibilities/meteor-fork-me.git",
         "branch": "master",
-        "commit": "86a6afc5ea34a090efc32f451beb491aca075922"
+        "commit": "319b02dcf78fd8f5e06c9a961ebf4e5873c05710"
       },
       "party": {
         "git": "https://github.com/possibilities/meteor-party.git",
