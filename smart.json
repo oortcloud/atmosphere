@@ -1,14 +1,16 @@
 {
   "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "auth"
+    "path": "/Users/mike/work/m/possibilities-meteor"
   },
   "packages": {
-    "appstrap": {
-      "path": "/Users/mike/work/m/appstrap"
-    },
     "deploy-config": {
       "path": "/Users/mike/work/m/deploy-config"
+    },
+    "environment-hooks": {
+      "path": "/Users/mike/work/m/environment-hooks"
+    },
+    "fork-me": {
+      "path": "/Users/mike/work/m/fork-me"
     }
   }
 }

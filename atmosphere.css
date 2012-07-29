@@ -26,3 +26,41 @@ div.container {
 .navbar-fixed-bottom .container {
   width: 700px;
 }
+
+body {
+  padding: 20px;
+}
+
+h1, h3, h2, h4 {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.well, .tabbable {
+  margin-top: 20px;
+}
+
+p {
+  line-height: 20px !important;
+}
+
+li {
+  line-height: 25px !important;
+}
+
+.githubBanner {
+  position: absolute;
+  border: 0;
+  top: 0;
+}
+
+.githubBanner.left {
+  left: 0;
+}
+
+.githubBanner.right {
+  right: 0;
+}
