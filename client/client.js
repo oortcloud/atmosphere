@@ -22,10 +22,17 @@
 
   Packages = new Meteor.Collection('packages');
 
-  Meteor.subscribe('packages');
+  Session.set('packages.loading', true);
+  Meteor.subscribe('packages', function() {
+    Session.set('packages.loading', false);
+  });
 
   Template.packages.packages = function() {
     return Packages.find();
+  };
+
+  Template.packages.packagesLoading = function() {
+    return Session.get('packages.loading');
   };
 
 })();

@@ -18,30 +18,30 @@
 </body>
 
 <template name="packages">
-  <!-- XXX is this the right way to do this? -->
-  <!-- XXX will always show loading if db is empty -->
-  {{#ifAny packages}}
-    <table class="packages table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Current</th>
-          <th>Updated</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each packages}}
-          <tr>
-            <td>{{name}}</td>
-            <td>{{description}}</td>
-            <td>v{{latest}}</td>
-            <td>{{timeAgo updatedAt}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  {{else}}
+  {{#if packagesLoading}}
     <p>Doing something smart...</p>
-  {{/ifAny}}
+  {{else}}
+    {{#ifAny packages}}
+      <table class="packages table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Current</th>
+            <th>Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each packages}}
+            <tr>
+              <td>{{name}}</td>
+              <td>{{description}}</td>
+              <td>v{{latest}}</td>
+              <td>{{timeAgo updatedAt}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/ifAny}}
+  {{/if}}
 </template>
