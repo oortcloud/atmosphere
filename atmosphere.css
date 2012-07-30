@@ -64,3 +64,15 @@ li {
 .githubBanner.right {
   right: 0;
 }
+
+.container .content {
+  margin-top: 30px;
+}
+
+.packages {
+  width: 100%;
+}
+
+.packages th {
+  text-align: left;
+}

@@ -1,5 +1,5 @@
 <head>
-  <title>Atmosphere | Smart Package Database</title>
+  <title>Atmosphere | Smart Package Database for Meteor</title>
   <link href='//fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 </head>
@@ -9,7 +9,39 @@
     <h1 class="pull-left">Atmosphere</h1>
     <div class="pull-right">{{> loginButtons}}</div>
     <div class="subtitle" style="clear: both">
-      <em>Smart Package Database</em>
+      <em>Smart Package Database for Meteor</em>
+    </div>
+    <div class="content">
+      {{> packages}}
     </div>
   </div>
 </body>
+
+<template name="packages">
+  <!-- XXX is this the right way to do this? -->
+  <!-- XXX will always show loading if db is empty -->
+  {{#ifAny packages}}
+    <table class="packages table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Version</th>
+          <th>Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each packages}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{description}}</td>
+            <td>v{{latest}}</td>
+            <td>{{timeAgo updatedAt}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>Loading packages...</p>
+  {{/ifAny}}
+</template>

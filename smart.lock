@@ -12,6 +12,9 @@
       },
       "fork-me": {
         "path": "/Users/mike/work/m/fork-me"
+      },
+      "moment": {
+        "path": "/Users/mike/work/m/moment"
       }
     },
     "packages": {
@@ -23,6 +26,9 @@
       },
       "fork-me": {
         "path": "/Users/mike/work/m/fork-me"
+      },
+      "moment": {
+        "path": "/Users/mike/work/m/moment"
       }
     }
   }

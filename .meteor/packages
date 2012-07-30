@@ -9,3 +9,5 @@ bootstrap
 deploy-config
 environment-hooks
 fork-me
+
+moment
