@@ -4,7 +4,6 @@ force-ssl
 bootstrap
 
 deploy-config
-environment-hooks
 fork-me
 
 # 3rd party

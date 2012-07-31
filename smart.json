@@ -6,9 +6,6 @@
     "deploy-config": {
       "git": "https://github.com/possibilities/meteor-deploy-config"
     },
-    "environment-hooks": {
-      "git": "https://github.com/possibilities/meteor-environment-hooks"
-    },
     "fork-me": {
       "git": "https://github.com/possibilities/meteor-fork-me"
     },
