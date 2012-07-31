@@ -1,7 +1,4 @@
 accounts-ui
-accounts-facebook
-accounts-google
-accounts-twitter
 accounts-passwords
 force-ssl
 bootstrap
