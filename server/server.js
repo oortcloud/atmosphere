@@ -27,6 +27,21 @@ Meteor.methods({
       'git',
     ];
 
+    var cleanupPackage = function(obj) {
+      return _.reduce(allowedFields, function(newObj, key) {
+        if (obj[key])
+          newObj[key] = obj[key];
+        return newObj;
+      }, {});
+    };
+
+    var prepareForUpdate = function(obj) {
+      delete obj._id;
+      return obj;
+    };
+
+    pkgInfo = cleanupPackage(pkgInfo);
+
     // Let's see if we have a record for the package
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
 
@@ -35,8 +50,6 @@ Meteor.methods({
       
       if (pkgRecord.userId !== this.userId())
         throw new Meteor.Error(401, "That ain't yr package son!")
-      
-      pkgRecord.updatedAt.push(new Date());
       
       if (pkgRecord.latest === pkgInfo.version) {
         // Update
@@ -47,22 +60,29 @@ Meteor.methods({
         pkgRecord.versions[lastIndex].updatedAt.push(new Date());
       
       } else {
+
         // Add new version
         pkgRecord.versions.push({
           version: pkgInfo.version,
           createdAt: new Date(),
           updatedAt: [new Date()]
         });
+
         if (pkgInfo.packages)
           pkgRecord.packages = pkgInfo.packages;
+
         pkgRecord.latest = pkgInfo.version;
       }
-      
-      var id = pkgRecord._id;
-      delete pkgRecord._id;
 
+      // Timestamp it
+      pkgRecord.updatedAt.push(new Date());
+      
+      // Get the update ID before
+      var id = pkgRecord._id;
+
+      // Do the update
       Packages.update(id, {
-        $set: pkgRecord
+        $set: prepareForUpdate(pkgRecord)
       });
     } else {
 
@@ -73,16 +93,15 @@ Meteor.methods({
 
       var version = {
         version: pkgInfo.version,
-        packages: pkgInfo.packages,
         createdAt: new Date(),
         updatedAt: [new Date()]
       };
+
+      if (pkgInfo.packages)
+        version.packages = pkgInfo.packages;
       
       pkgInfo.versions = [];
       pkgInfo.versions.push(version);
-      
-      delete pkgInfo.packages;
-      delete pkgInfo.version;
       
       Packages.insert(pkgInfo);
     }
