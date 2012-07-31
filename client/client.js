@@ -25,15 +25,18 @@
 
   Session.set('packages.loading', true);
 
+  var preparePopups = function() {
+    $('td i.icon-eye-open').popover({
+      title: 'Smart Package Info',
+      placement: 'bottom',
+      content: function() {
+        return $(this).data('info');
+      }
+    });
+  };
+
   Meteor.subscribe('packages', function() {
     Session.set('packages.loading', false);
-    
-    Meteor.defer(function() {
-      $('td i.icon-eye-open').popover({
-        title: 'Smart Package Info',
-        placement: 'bottom'
-      });
-    });
   });
 
   Template.packages.events = {
@@ -43,19 +46,12 @@
   };
 
   Template.packages.packages = function() {
-    
+    Meteor.defer(preparePopups);
     return Packages.find();
   };
 
   Template.packages.packagesLoading = function() {
     return Session.get('packages.loading');
-  };
-
-  Template.packages.dump = function() {
-    var dump = _.clone(this);
-    delete dump._id;
-    delete dump.userId
-    return '<div style="width:500px;">' + JSON.stringify(dump, null, 4) + '</div>';
   };
 
 })();
