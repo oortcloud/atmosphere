@@ -24,7 +24,7 @@ Meteor.methods({
       'homepage',
       'author',
       'version',
-      'git',
+      'git'
     ];
 
     var cleanupPackage = function(obj) {
@@ -47,7 +47,11 @@ Meteor.methods({
       });
     };
 
+    // Validate
+    // TODO do a lot more
     requireFields(pkgInfo);
+    
+    // Get rid of keys we don't want
     pkgInfo = cleanupPackage(pkgInfo);
 
     // Let's see if we have a record for the package
@@ -55,7 +59,8 @@ Meteor.methods({
 
     // Ok we have one
     if (pkgRecord) {
-      
+
+      // Only the owner can update it
       if (pkgRecord.userId !== this.userId())
         throw new Meteor.Error(401, "That ain't yr package son!")
       
@@ -77,6 +82,7 @@ Meteor.methods({
           updatedAt: [new Date()]
         });
 
+        // Assign packages
         if (pkgInfo.packages)
           pkgRecord.packages = pkgInfo.packages;
 
@@ -95,22 +101,22 @@ Meteor.methods({
       });
     } else {
 
+      // Prepare new package record
       pkgInfo.userId = this.userId();
       pkgInfo.latest = pkgInfo.version;
       pkgInfo.createdAt = new Date();
       pkgInfo.updatedAt = [new Date()];
 
-      var version = {
+      // Setup first version
+      pkgInfo.versions = [{
         version: pkgInfo.version,
         createdAt: new Date(),
         updatedAt: [new Date()]
-      };
-
+      }];
+      
+      // Assign packages
       if (pkgInfo.packages)
         version.packages = pkgInfo.packages;
-      
-      pkgInfo.versions = [];
-      pkgInfo.versions.push(version);
       
       Packages.insert(pkgInfo);
     }
