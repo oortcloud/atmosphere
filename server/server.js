@@ -40,6 +40,14 @@ Meteor.methods({
       return obj;
     };
 
+    var requireFields = function(obj) {
+      _.each(requiredFields, function(reqField) {
+        if (!obj[reqField])
+          throw new Meteor.Error(500, reqField + " is a required smart.json field!");
+      });
+    };
+
+    requireFields(pkgInfo);
     pkgInfo = cleanupPackage(pkgInfo);
 
     // Let's see if we have a record for the package
@@ -52,6 +60,7 @@ Meteor.methods({
         throw new Meteor.Error(401, "That ain't yr package son!")
       
       if (pkgRecord.latest === pkgInfo.version) {
+
         // Update
         var lastIndex = pkgRecord.versions.length - 1;
         pkgRecord.versions[lastIndex].version = pkgInfo.version;
