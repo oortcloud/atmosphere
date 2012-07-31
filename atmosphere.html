@@ -38,19 +38,9 @@
         <tbody>
           {{#each packages}}
           <tr>
-            <td class="icon-cell"><a data-toggle="modal" href="#modal-{{_id}}"><i class="icon-eye-open"></i></a></td>
-            <div class="modal hide" id="modal-{{_id}}">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h3>{{name}}</h3>
-              </div>
-              <div class="modal-body">
-                <p><pre>{{{dump}}}</pre></p>
-              </div>
-              <div class="modal-footer">
-                <a href="#" class="btn" data-dismiss="modal">Close</a>
-              </div>
-            </div>
+            <td class="icon-cell">
+              <i class="icon-eye-open" data-content="{{> package}}"></i>
+            </td>
             <td><a href="{{homepage}}">{{name}}</a></td>
             <td>{{description}}</td>
             <td>v{{latest}}</td>
@@ -63,4 +53,23 @@
       <p>add some packages. or don't.</p>
     {{/ifAny}}
   {{/if}}
+</template>
+
+<template name="package">
+  <dl>
+    <dt>Name</dt>
+    <dd>{{name}}</dd>
+    <dt>Description</dt>
+    <dd>{{description}}</dd>
+    <dt>Author</dt>
+    <dd>{{author}}</dd>
+    <dt>Current version</dt>
+    <dd>v{{latest}}</dd>
+    <dt>Available versions</dt>
+    <dd>
+      {{#each versions}}
+        <p>{{version}}</p>
+      {{/each}}
+    </dd>
+  </dl>
 </template>

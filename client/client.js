@@ -27,6 +27,13 @@
 
   Meteor.subscribe('packages', function() {
     Session.set('packages.loading', false);
+    
+    Meteor.defer(function() {
+      $('td i.icon-eye-open').popover({
+        title: 'Smart Package Info',
+        placement: 'bottom'
+      });
+    });
   });
 
   Template.packages.events = {
@@ -36,6 +43,7 @@
   };
 
   Template.packages.packages = function() {
+    
     return Packages.find();
   };
 
