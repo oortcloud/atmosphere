@@ -1,7 +1,6 @@
 {
   "meteor": {
-    "git": "https://github.com/possibilities/meteor",
-    "branch": "oauth1"
+    "branch": "auth"
   },
   "packages": {
     "deploy-config": {
