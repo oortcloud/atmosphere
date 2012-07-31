@@ -1,19 +1,20 @@
 {
   "meteor": {
-    "path": "/Users/mike/work/m/possibilities-meteor"
+    "git": "https://github.com/possibilities/meteor",
+    "branch": "oauth1"
   },
   "packages": {
     "deploy-config": {
-      "path": "/Users/mike/work/m/deploy-config"
+      "git": "https://github.com/possibilities/meteor-deploy-config"
     },
     "environment-hooks": {
-      "path": "/Users/mike/work/m/environment-hooks"
+      "git": "https://github.com/possibilities/meteor-environment-hooks"
     },
     "fork-me": {
-      "path": "/Users/mike/work/m/fork-me"
+      "git": "https://github.com/possibilities/meteor-fork-me"
     },
     "moment": {
-      "path": "/Users/mike/work/m/moment"
+      "git": "https://github.com/possibilities/meteor-moment"
     }
   }
 }

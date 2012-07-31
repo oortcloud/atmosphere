@@ -1,34 +1,48 @@
 {
   "meteor": {
-    "path": "/Users/mike/work/m/possibilities-meteor"
+    "git": "https://github.com/possibilities/meteor",
+    "branch": "oauth1",
+    "commit": "406e037916657c649a0352e88cf730700b5ee187"
   },
   "dependencies": {
     "basePackages": {
       "deploy-config": {
-        "path": "/Users/mike/work/m/deploy-config"
+        "git": "https://github.com/possibilities/meteor-deploy-config",
+        "branch": "master"
       },
       "environment-hooks": {
-        "path": "/Users/mike/work/m/environment-hooks"
+        "git": "https://github.com/possibilities/meteor-environment-hooks",
+        "branch": "master"
       },
       "fork-me": {
-        "path": "/Users/mike/work/m/fork-me"
+        "git": "https://github.com/possibilities/meteor-fork-me",
+        "branch": "master"
       },
       "moment": {
-        "path": "/Users/mike/work/m/moment"
+        "git": "https://github.com/possibilities/meteor-moment",
+        "branch": "master"
       }
     },
     "packages": {
       "deploy-config": {
-        "path": "/Users/mike/work/m/deploy-config"
+        "git": "https://github.com/possibilities/meteor-deploy-config",
+        "branch": "master",
+        "commit": "2a6f52aa4830a105129210b41ef657993568f584"
       },
       "environment-hooks": {
-        "path": "/Users/mike/work/m/environment-hooks"
+        "git": "https://github.com/possibilities/meteor-environment-hooks",
+        "branch": "master",
+        "commit": "1f34c1026ee8140683cefd4fe38f43bb75806b10"
       },
       "fork-me": {
-        "path": "/Users/mike/work/m/fork-me"
+        "git": "https://github.com/possibilities/meteor-fork-me",
+        "branch": "master",
+        "commit": "862645b3c75ac8309e0434c551d710728e84bc7b"
       },
       "moment": {
-        "path": "/Users/mike/work/m/moment"
+        "git": "https://github.com/possibilities/meteor-moment",
+        "branch": "master",
+        "commit": "fb0efab5880d81c79c971d17ce236c0821330c27"
       }
     }
   }

@@ -19,12 +19,16 @@
 
 <template name="packages">
   {{#if packagesLoading}}
-    <p>Doing something smart...</p>
+    <p>
+      <i class="icon-refresh"></i>
+      doing something smart...
+    </p>
   {{else}}
     {{#ifAny packages}}
       <table class="packages table-striped">
         <thead>
           <tr>
+            <th></th>
             <th>Name</th>
             <th>Description</th>
             <th>Current</th>
@@ -34,6 +38,7 @@
         <tbody>
           {{#each packages}}
             <tr>
+              <td class="icon-cell"><i class="icon-eye-open" data-content="TODO"></i></td>
               <td>{{name}}</td>
               <td>{{description}}</td>
               <td>v{{latest}}</td>

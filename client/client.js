@@ -23,8 +23,18 @@
   Packages = new Meteor.Collection('packages');
 
   Session.set('packages.loading', true);
+
   Meteor.subscribe('packages', function() {
+
     Session.set('packages.loading', false);
+
+    Meteor.defer(function() {
+      $('.packages td.icon-cell i').popover({
+        title: 'Smart Package Info',
+        placement: 'bottom'
+      });
+    });
+
   });
 
   Template.packages.packages = function() {

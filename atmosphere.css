@@ -31,10 +31,6 @@ body {
   padding: 20px;
 }
 
-h1, h3, h2, h4 {
-  margin-bottom: 10px;
-}
-
 h2 {
   margin-top: 20px;
 }
@@ -75,4 +71,14 @@ li {
 
 .packages th {
   text-align: left;
+}
+
+td.icon-cell {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.icon-refresh {
+  margin-right: 6px;
+  margin-top: 2px;
 }

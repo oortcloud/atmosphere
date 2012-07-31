@@ -20,29 +20,45 @@ Meteor.publish('packages', function() {
 Meteor.methods({
   publish: function(pkgInfo) {
     
-    var pkg = Packages.findOne({ name: pkgInfo.name });
+    var pkgRecord = Packages.findOne({ name: pkgInfo.name });
 
-    if (pkg) {
-      pkg.latest = pkgInfo.version;
+    if (pkgRecord) {
+      
+      if (pkgRecord.userId !== this.userId())
+        throw new Meteor.Error(401, "That ain't yr package son!")
+      
       pkgInfo.updatedAt = new Date();
 
-      pkg.versions.push({
-        version: pkgInfo.version,
-        packages: pkgInfo.packages
-      });
+      if (pkgRecord.latest === pkgInfo.version) {
+        // Update
+        var lastIndex = pkgRecord.versions - 1;
+        pkgRecord.versions[lastIndex] = {
+          version: pkgInfo.version,
+          packages: pkgInfo.packages
+        };
+      } else {
+        // Add new version
+        pkgRecord.versions.push({
+          version: pkgInfo.version,
+          packages: pkgInfo.packages
+        });
+        pkgRecord.latest = pkgInfo.version;
+      }
 
       delete pkgInfo.packages;
       delete pkgInfo.version;
 
-      Packages.update(pkg._id, {
+      Packages.update(pkgRecord._id, {
         $set: pkgInfo
       });
     } else {
-      pkg = pkgInfo;
 
-      pkg.userId = this.userId();
+      pkgRecord = pkgInfo;
+
+      pkgRecord.userId = this.userId();
       pkgInfo.latest = pkgInfo.version;
       pkgInfo.createdAt = pkgInfo.updatedAt = new Date();
+
       pkgInfo.versions = [{
         version: pkgInfo.version,
         packages: pkgInfo.packages
