@@ -33,7 +33,7 @@
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment",
         "branch": "master",
-        "commit": "fb0efab5880d81c79c971d17ce236c0821330c27"
+        "commit": "c644cd9aa5bd3c9eeedd89b64b61267758e6e218"
       }
     }
   }

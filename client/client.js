@@ -9,6 +9,7 @@
     }
   });
 
+  // TODO in more than one project
   Handlebars.registerHelper('ifAny', function(data, options) {
     if (!data || (_.isArray(data) && !data.length) || (_.isFunction(data.fetch) && !data.count()))
       return options.inverse(this);
