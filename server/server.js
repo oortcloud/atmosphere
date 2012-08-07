@@ -1,8 +1,13 @@
 Packages = new Meteor.Collection('packages');
 Packages.allow({});
 
-Meteor.publish('packages', function() {
-  return Packages.find();
+Meteor.publish('packages', function(options) {
+  options || (options = {});
+  options.includeHidden = _.isUndefined(options.includeHidden) ? false : options.includeHidden;
+  var query = {};
+  if (!options.includeHidden)
+    query.visible = {$ne: false};
+  return Packages.find(query);
 });
 
 Meteor.methods({
@@ -15,7 +20,8 @@ Meteor.methods({
       'author',
       'version',
       'git',
-      'packages'
+      'packages',
+      'visible'
     ];
 
     var requiredFields = [
@@ -29,7 +35,7 @@ Meteor.methods({
 
     var cleanupPackage = function(obj) {
       return _.reduce(allowedFields, function(newObj, key) {
-        if (obj[key])
+        if (!_.isUndefined(obj[key]))
           newObj[key] = obj[key];
         return newObj;
       }, {});
@@ -53,6 +59,9 @@ Meteor.methods({
     
     // Get rid of keys we don't want
     pkgInfo = cleanupPackage(pkgInfo);
+
+    // Setup defaults
+    pkgInfo.visible = _.isUndefined(pkgInfo.visible) ? true : pkgInfo.visible;
 
     // Let's see if we have a record for the package
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
