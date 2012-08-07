@@ -7,7 +7,11 @@ Meteor.publish('packages', function(options) {
   var query = {};
   if (!options.includeHidden)
     query.visible = {$ne: false};
-  return Packages.find(query);
+  return Packages.find(query, {
+    sort: {
+      lastUpdatedAt: -1
+    }
+  });
 });
 
 Meteor.methods({
@@ -80,16 +84,21 @@ Meteor.methods({
         pkgRecord.versions[lastIndex].version = pkgInfo.version;
         if (pkgInfo.packages)
           pkgRecord.versions[lastIndex].packages = pkgInfo.packages;
-        pkgRecord.versions[lastIndex].updatedAt.push(new Date());
+        var now = new Date();
+        pkgRecord.versions[lastIndex].updatedAt.push(now);
+        pkgRecord.lastUpdatedAt = now;
       
       } else {
 
         // Add new version
+        var now = new Date();
         pkgRecord.versions.push({
           version: pkgInfo.version,
-          createdAt: new Date(),
-          updatedAt: [new Date()]
+          createdAt: now,
+          updatedAt: [now]
         });
+        pkgRecord.lastUpdatedAt = now;
+
 
         // Assign packages
         if (pkgInfo.packages)
@@ -99,7 +108,9 @@ Meteor.methods({
       }
 
       // Timestamp it
-      pkgRecord.updatedAt.push(new Date());
+      var now = new Date();
+      pkgRecord.updatedAt.push(now);
+      pkgRecord.lastUpdatedAt = now;
       
       // Get the update ID before
       var id = pkgRecord._id;
@@ -113,14 +124,16 @@ Meteor.methods({
       // Prepare new package record
       pkgInfo.userId = this.userId();
       pkgInfo.latest = pkgInfo.version;
-      pkgInfo.createdAt = new Date();
-      pkgInfo.updatedAt = [new Date()];
+      var now = new Date();
+      pkgInfo.createdAt = now;
+      pkgInfo.updatedAt = [now];
+      pkgRecord.lastUpdatedAt = now;
 
       // Setup first version
       pkgInfo.versions = [{
         version: pkgInfo.version,
-        createdAt: new Date(),
-        updatedAt: [new Date()]
+        createdAt: now,
+        updatedAt: [now]
       }];
       
       // Assign packages
