@@ -127,7 +127,7 @@ Meteor.methods({
       var now = new Date();
       pkgInfo.createdAt = now;
       pkgInfo.updatedAt = [now];
-      pkgRecord.lastUpdatedAt = now;
+      pkgInfo.lastUpdatedAt = now;
 
       // Setup first version
       pkgInfo.versions = [{
