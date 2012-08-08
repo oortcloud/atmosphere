@@ -4,6 +4,5 @@ accounts-passwords
 force-ssl
 bootstrap
 
-deploy-config
 fork-me
 moment

@@ -6,10 +6,6 @@
   },
   "dependencies": {
     "basePackages": {
-      "deploy-config": {
-        "git": "https://github.com/possibilities/meteor-deploy-config",
-        "branch": "master"
-      },
       "fork-me": {
         "git": "https://github.com/possibilities/meteor-fork-me",
         "branch": "master"
@@ -20,11 +16,6 @@
       }
     },
     "packages": {
-      "deploy-config": {
-        "git": "https://github.com/possibilities/meteor-deploy-config",
-        "branch": "master",
-        "commit": "2a6f52aa4830a105129210b41ef657993568f584"
-      },
       "fork-me": {
         "git": "https://github.com/possibilities/meteor-fork-me",
         "branch": "master",

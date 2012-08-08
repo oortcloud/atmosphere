@@ -9,7 +9,7 @@ Meteor.publish('packages', function(options) {
     query.visible = {$ne: false};
   return Packages.find(query, {
     sort: {
-      lastUpdatedAt: -1
+      updatedAt: -1
     }
   });
 });
@@ -45,6 +45,13 @@ Meteor.methods({
       }, {});
     };
 
+    var updatePackage = function(oldPkg, newPkg) {
+      return _.each(allowedFields, function(key) {
+        if (key !== 'packages')
+          newPkg[key] = oldPkg[key];
+      });
+    };
+
     var prepareForUpdate = function(obj) {
       delete obj._id;
       return obj;
@@ -75,47 +82,32 @@ Meteor.methods({
 
       // Only the owner can update it
       if (pkgRecord.userId !== this.userId())
-        throw new Meteor.Error(401, "That ain't yr package son!")
+        throw new Meteor.Error(401, "That ain't yr package son!");
+
+      // TODO this whole thing is a mess
       
-      if (pkgRecord.latest === pkgInfo.version) {
+      if (pkgRecord.latest === pkgInfo.version)
+        throw new Meteor.Error(500, "Version " + pkgInfo.version + " already exists!");
 
-        // Update
-        var lastIndex = pkgRecord.versions.length - 1;
-        pkgRecord.versions[lastIndex].version = pkgInfo.version;
-        pkgRecord.versions[lastIndex].version.git = pkgInfo.git;
-        if (pkgInfo.packages)
-          pkgRecord.versions[lastIndex].packages = pkgInfo.packages;
-        var now = new Date();
-        pkgRecord.versions[lastIndex].updatedAt.push(now);
-        pkgRecord.lastUpdatedAt = now;
-      
-      } else {
+      // Add new version
+      pkgRecord.versions.push({
+        git: pkgInfo.git,
+        version: pkgInfo.version,
+        createdAt: new Date()
+      });
 
-        // Add new version
-        var now = new Date();
-        pkgRecord.versions.push({
-          git: pkgInfo.git,
-          version: pkgInfo.version,
-          createdAt: now,
-          updatedAt: [now]
-        });
-        pkgRecord.lastUpdatedAt = now;
+      // Assign packages
+      if (pkgInfo.packages)
+        pkgRecord.packages = pkgInfo.packages;
 
-
-        // Assign packages
-        if (pkgInfo.packages)
-          pkgRecord.packages = pkgInfo.packages;
-
-        pkgRecord.latest = pkgInfo.version;
-      }
+      pkgRecord.latest = pkgInfo.version;
 
       // Timestamp it
-      var now = new Date();
-      pkgRecord.updatedAt.push(now);
-      pkgRecord.lastUpdatedAt = now;
-      pkgRecord.git = pkgInfo.git;
+      pkgRecord.updatedAt = new Date();
+
+      updatePackage(pkgRecord, pkgInfo);
       
-      // Get the update ID before
+      // Get the update ID first
       var id = pkgRecord._id;
 
       // Do the update
@@ -129,15 +121,13 @@ Meteor.methods({
       pkgInfo.latest = pkgInfo.version;
       var now = new Date();
       pkgInfo.createdAt = now;
-      pkgInfo.updatedAt = [now];
-      pkgInfo.lastUpdatedAt = now;
+      pkgInfo.updatedAt = now;
 
       // Setup first version
       pkgInfo.versions = [{
         git: pkgInfo.git,
         version: pkgInfo.version,
-        createdAt: now,
-        updatedAt: [now]
+        createdAt: now
       }];
       
       // Assign packages

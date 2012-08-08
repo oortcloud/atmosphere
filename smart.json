@@ -3,9 +3,6 @@
     "branch": "auth"
   },
   "packages": {
-    "deploy-config": {
-      "git": "https://github.com/possibilities/meteor-deploy-config"
-    },
     "fork-me": {
       "git": "https://github.com/possibilities/meteor-fork-me"
     },
