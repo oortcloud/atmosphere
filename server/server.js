@@ -77,6 +77,8 @@ Meteor.methods({
     // Let's see if we have a record for the package
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
 
+    // TODO this whole thing is a mess
+    
     // Ok we have one
     if (pkgRecord) {
 
@@ -84,8 +86,6 @@ Meteor.methods({
       if (pkgRecord.userId !== this.userId())
         throw new Meteor.Error(401, "That ain't yr package son!");
 
-      // TODO this whole thing is a mess
-      
       if (pkgRecord.latest === pkgInfo.version)
         throw new Meteor.Error(500, "Version " + pkgInfo.version + " already exists!");
 
