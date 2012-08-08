@@ -81,8 +81,8 @@ Meteor.methods({
 
         // Update
         var lastIndex = pkgRecord.versions.length - 1;
-        pkgInfo.version.git = pkgInfo.git;
         pkgRecord.versions[lastIndex].version = pkgInfo.version;
+        pkgRecord.versions[lastIndex].version.git = pkgInfo.git;
         if (pkgInfo.packages)
           pkgRecord.versions[lastIndex].packages = pkgInfo.packages;
         var now = new Date();
