@@ -81,6 +81,7 @@ Meteor.methods({
 
         // Update
         var lastIndex = pkgRecord.versions.length - 1;
+        pkgInfo.version.git = pkgInfo.git;
         pkgRecord.versions[lastIndex].version = pkgInfo.version;
         if (pkgInfo.packages)
           pkgRecord.versions[lastIndex].packages = pkgInfo.packages;
@@ -93,6 +94,7 @@ Meteor.methods({
         // Add new version
         var now = new Date();
         pkgRecord.versions.push({
+          git: pkgInfo.git,
           version: pkgInfo.version,
           createdAt: now,
           updatedAt: [now]
@@ -111,6 +113,7 @@ Meteor.methods({
       var now = new Date();
       pkgRecord.updatedAt.push(now);
       pkgRecord.lastUpdatedAt = now;
+      pkgRecord.git = pkgInfo.git;
       
       // Get the update ID before
       var id = pkgRecord._id;
@@ -131,6 +134,7 @@ Meteor.methods({
 
       // Setup first version
       pkgInfo.versions = [{
+        git: pkgInfo.git,
         version: pkgInfo.version,
         createdAt: now,
         updatedAt: [now]

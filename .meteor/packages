@@ -6,6 +6,4 @@ bootstrap
 
 deploy-config
 fork-me
-
-# 3rd party
 moment

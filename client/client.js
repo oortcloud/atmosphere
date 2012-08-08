@@ -22,6 +22,13 @@
     return moment(time).fromNow();
   });
 
+  Handlebars.registerHelper('trunc', function(str) {
+    // TODO make better
+    if (str.length <= 60)
+      return str;
+    return str.substr(0, 60) + '...';
+  });
+
   Packages = new Meteor.Collection('packages');
 
   Session.set('packages.loading', true);
