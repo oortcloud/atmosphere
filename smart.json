@@ -4,10 +4,9 @@
   },
   "packages": {
     "fork-me": {
-      "git": "https://github.com/possibilities/meteor-fork-me"
+      "git": "https://github.com/possibilities/meteor-fork-me",
+      "branch": "master"
     },
-    "moment": {
-      "git": "https://github.com/possibilities/meteor-moment"
-    }
+    "moment": {}
   }
 }

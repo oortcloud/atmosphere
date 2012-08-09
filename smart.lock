@@ -10,10 +10,7 @@
         "git": "https://github.com/possibilities/meteor-fork-me",
         "branch": "master"
       },
-      "moment": {
-        "git": "https://github.com/possibilities/meteor-moment",
-        "branch": "master"
-      }
+      "moment": {}
     },
     "packages": {
       "fork-me": {
@@ -22,9 +19,9 @@
         "commit": "862645b3c75ac8309e0434c551d710728e84bc7b"
       },
       "moment": {
-        "git": "https://github.com/possibilities/meteor-moment",
-        "branch": "master",
-        "commit": "ba6d123e4269e440227d6fa99b121ba9b5a841c9"
+        "git": "https://github.com/possibilities/meteor-moment.git",
+        "tag": "1.7.0",
+        "commit": "f2f2c1ef72cef0c66b41297e0fb04cee99258a51"
       }
     }
   }
