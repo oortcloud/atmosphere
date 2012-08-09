@@ -25,7 +25,8 @@ Meteor.methods({
       'version',
       'git',
       'packages',
-      'visible'
+      'visible',
+      'meteor'
     ];
 
     var requiredFields = [
@@ -36,15 +37,23 @@ Meteor.methods({
       'version',
       'git'
     ];
-
-    var cleanupPackage = function(obj) {
-      return _.reduce(allowedFields, function(newObj, key) {
+    
+    // these are the fields that get saved to each version
+    var versionFields = [
+      'git',
+      'version',
+      'meteor',
+      'packages'
+    ]
+    
+    var sliceObject = function(obj, fields) {
+      return _.reduce(fields, function(newObj, key) {
         if (!_.isUndefined(obj[key]))
           newObj[key] = obj[key];
         return newObj;
       }, {});
-    };
-
+    }
+    
     var updatePackage = function(oldPkg, newPkg) {
       return _.each(allowedFields, function(key) {
         if (key !== 'packages')
@@ -63,22 +72,26 @@ Meteor.methods({
           throw new Meteor.Error(500, reqField + " is a required smart.json field!");
       });
     };
-
+    
     // Validate
     // TODO do a lot more
     requireFields(pkgInfo);
     
     // Get rid of keys we don't want
-    pkgInfo = cleanupPackage(pkgInfo);
+    pkgInfo = sliceObject(pkgInfo, allowedFields);
 
     // Setup defaults
     pkgInfo.visible = _.isUndefined(pkgInfo.visible) ? true : pkgInfo.visible;
-
+    
+    // prepare version
+    var now = new Date;
+    var versionRecord = sliceObject(pkgInfo, versionFields);
+    versionFields.createdAt = now;
+    
     // Let's see if we have a record for the package
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
-
-    // TODO this whole thing is a mess
     
+    // TODO this whole thing is a mess
     // Ok we have one
     if (pkgRecord) {
 
@@ -90,11 +103,7 @@ Meteor.methods({
         throw new Meteor.Error(500, "Version " + pkgInfo.version + " already exists!");
 
       // Add new version
-      pkgRecord.versions.push({
-        git: pkgInfo.git,
-        version: pkgInfo.version,
-        createdAt: new Date()
-      });
+      pkgRecord.versions.push(versionRecord);
 
       // Assign packages
       if (pkgInfo.packages)
@@ -119,22 +128,10 @@ Meteor.methods({
       // Prepare new package record
       pkgInfo.userId = this.userId();
       pkgInfo.latest = pkgInfo.version;
-      var now = new Date();
       pkgInfo.createdAt = now;
       pkgInfo.updatedAt = now;
-
-      // Setup first version
-      var version = {
-        git: pkgInfo.git,
-        version: pkgInfo.version,
-        createdAt: now
-      };
-
-      // Assign packages
-      if (pkgInfo.packages)
-        version.packages = pkgInfo.packages;
-
-      pkgInfo.versions = [version];
+      
+      pkgInfo.versions = [versionRecord];
       
       Packages.insert(pkgInfo);
     }
