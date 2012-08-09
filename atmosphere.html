@@ -82,5 +82,8 @@
         <p>v{{version}}</p>
       {{/each}}
     </dd>
+    {{#if nonStandardMeteor}}
+      <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
+    {{/if}}
   </dl>
 </template>

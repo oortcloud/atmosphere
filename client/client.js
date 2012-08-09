@@ -61,5 +61,12 @@
   Template.packages.packagesLoading = function() {
     return Session.get('packages.loading');
   };
+  
+  Template.package.nonStandardMeteor = function() {
+    
+    // NOTE: this strictly speaking isn't true, but why would you specify a 
+    // meteor version if it wasn't standard in a package
+    return this.meteor;
+  }
 
 })();
