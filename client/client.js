@@ -55,7 +55,7 @@
 
   Template.packages.packages = function() {
     Meteor.defer(preparePopups);
-    return Packages.find();
+    return Packages.find({}, {sort: {'updatedAt': -1}});
   };
 
   Template.packages.packagesLoading = function() {
