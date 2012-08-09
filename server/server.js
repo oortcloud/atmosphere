@@ -124,15 +124,17 @@ Meteor.methods({
       pkgInfo.updatedAt = now;
 
       // Setup first version
-      pkgInfo.versions = [{
+      var version = {
         git: pkgInfo.git,
         version: pkgInfo.version,
         createdAt: now
-      }];
-      
+      };
+
       // Assign packages
       if (pkgInfo.packages)
         version.packages = pkgInfo.packages;
+
+      pkgInfo.versions = [version];
       
       Packages.insert(pkgInfo);
     }
