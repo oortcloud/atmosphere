@@ -73,12 +73,10 @@ li {
   text-align: left;
 }
 
-td.icon-cell {
-  vertical-align: middle;
-  margin-right: 5px;
+td.info-cell {
+  vertical-align: top;
 }
 
-.icon-refresh {
-  margin-right: 6px;
-  margin-top: 2px;
+td.info-cell a {
+  margin-top: -3px;
 }

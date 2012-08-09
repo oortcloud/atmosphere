@@ -28,23 +28,34 @@
       <table class="packages table-striped">
         <thead>
           <tr>
-            <th></th>
             <th>Name</th>
             <th>Description</th>
             <th>Current</th>
             <th>Updated</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {{#each packages}}
           <tr>
-            <td class="icon-cell">
-              <i class="icon-eye-open" data-info="{{> package}}"></i>
-            </td>
             <td><a href="{{homepage}}">{{name}}</a></td>
             <td>{{trunc description}}</td>
             <td>v{{latest}}</td>
             <td>{{timeAgo}}</td>
+            <td class="info-cell">
+              <a class="btn btn-mini" data-toggle="modal" href="#modal-{{name}}"><i class="icon-info-sign"></i> Info</a>
+              
+              <div class="modal hide" id="modal-{{name}}">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">×</button>
+                  <h3>Package Info</h3>
+                </div>
+                <div class="modal-body">
+                  {{> package}}
+                </div>
+              </div>
+              
+            </td>
           </tr>
           {{/each}}
         </tbody>
