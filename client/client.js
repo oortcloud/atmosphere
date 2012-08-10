@@ -33,16 +33,6 @@
 
   Session.set('packages.loading', true);
 
-  var preparePopups = function() {
-    $('td i.icon-eye-open').popover({
-      title: 'Smart Package Info',
-      placement: 'bottom',
-      content: function() {
-        return $(this).data('info');
-      }
-    });
-  };
-
   Meteor.subscribe('packages', function() {
     Session.set('packages.loading', false);
   });
@@ -54,7 +44,6 @@
   };
 
   Template.packages.packages = function() {
-    Meteor.defer(preparePopups);
     return Packages.find({}, {sort: {'updatedAt': -1}});
   };
 
