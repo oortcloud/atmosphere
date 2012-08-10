@@ -17,9 +17,12 @@
       return options.fn(this);
   });
 
+  var timeAgo = function(updatedAt) {
+    return moment(updatedAt).fromNow();
+  };
+
   Handlebars.registerHelper('timeAgo', function() {
-    var time = _.isArray(this.updatedAt) ? _.last(this.updatedAt) : this.updatedAt;
-    return moment(time).fromNow();
+    return timeAgo(this.updatedAt);
   });
 
   Handlebars.registerHelper('trunc', function(str) {
@@ -56,6 +59,14 @@
     // NOTE: this strictly speaking isn't true, but why would you specify a 
     // meteor version if it wasn't standard in a package
     return this.meteor;
-  }
+  };
+
+  Meteor.setInterval(function() {
+    $.each($('.timeAgo'), function() {
+      var $el = $(this);
+      var updatedAt = $el.data('stamp');
+      $el.text(timeAgo(new Date(updatedAt)));
+    });
+  }, 15 * 1000);
 
 })();
