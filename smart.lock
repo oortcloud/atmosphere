@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
     "branch": "auth",
-    "commit": "0a148c69d6af9832006a6f6d27cc112ed90cb3e4"
+    "commit": "0019e5f716809be759e501b12eccd295c4397016"
   },
   "dependencies": {
     "basePackages": {
@@ -20,8 +20,8 @@
       },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
-        "tag": "1.7.0",
-        "commit": "f2f2c1ef72cef0c66b41297e0fb04cee99258a51"
+        "tag": "v1.7.0",
+        "commit": "ba6d123e4269e440227d6fa99b121ba9b5a841c9"
       }
     }
   }
