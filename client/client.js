@@ -31,8 +31,18 @@
       return str;
     return str.substr(0, 60) + '...';
   });
+  
+  // redraw a template every X seconds
+  // Nice trick huh? I should put something like this in deps-extensions - T
+  Handlebars.registerHelper('refreshEvery', function(seconds) {
+    var ctx = Meteor.deps.Context.current;
+    if (!ctx)
+      return;
+      
+    Meteor.setTimeout(function() { ctx.invalidate() }, seconds * 1000);
+  });
 
-  Packages = new Meteor.Collection('packages');
+  Packages = new Meteor.Collection('packages');  
 
   Session.set('packages.loading', true);
 
@@ -60,13 +70,4 @@
     // meteor version if it wasn't standard in a package
     return this.meteor;
   };
-
-  Meteor.setInterval(function() {
-    $.each($('.timeAgo'), function() {
-      var $el = $(this);
-      var updatedAt = $el.data('stamp');
-      $el.text(timeAgo(new Date(updatedAt)));
-    });
-  }, 15 * 1000);
-
 })();
