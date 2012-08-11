@@ -6,17 +6,14 @@
   },
   "dependencies": {
     "basePackages": {
-      "fork-me": {
-        "git": "https://github.com/possibilities/meteor-fork-me",
-        "branch": "master"
-      },
+      "fork-me": {},
       "moment": {}
     },
     "packages": {
       "fork-me": {
-        "git": "https://github.com/possibilities/meteor-fork-me",
-        "branch": "master",
-        "commit": "862645b3c75ac8309e0434c551d710728e84bc7b"
+        "git": "https://github.com/possibilities/meteor-fork-me.git",
+        "tag": "v0.0.1",
+        "commit": "99878cf3332ff01e1d8a1c7f0cfa7e338b1eaf45"
       },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
