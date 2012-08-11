@@ -7,7 +7,8 @@
   "dependencies": {
     "basePackages": {
       "fork-me": {},
-      "moment": {}
+      "moment": {},
+      "ga": {}
     },
     "packages": {
       "fork-me": {
@@ -19,6 +20,11 @@
         "git": "https://github.com/possibilities/meteor-moment.git",
         "tag": "v1.7.0",
         "commit": "ba6d123e4269e440227d6fa99b121ba9b5a841c9"
+      },
+      "ga": {
+        "git": "https://github.com/possibilities/meteor-ga.git",
+        "tag": "v0.0.1",
+        "commit": "529b7d9845efdce7957b1747698a6d769209dc13"
       }
     }
   }
