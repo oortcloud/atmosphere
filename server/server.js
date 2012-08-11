@@ -46,14 +46,6 @@ Meteor.methods({
       'packages'
     ]
     
-    var sliceObject = function(obj, fields) {
-      return _.reduce(fields, function(newObj, key) {
-        if (!_.isUndefined(obj[key]))
-          newObj[key] = obj[key];
-        return newObj;
-      }, {});
-    }
-    
     var updatePackage = function(oldPkg, newPkg) {
       return _.each(allowedFields, function(key) {
         if (key !== 'packages')
@@ -78,14 +70,14 @@ Meteor.methods({
     requireFields(pkgInfo);
     
     // Get rid of keys we don't want
-    pkgInfo = sliceObject(pkgInfo, allowedFields);
+    pkgInfo = _.pick(pkgInfo, allowedFields);
 
     // Setup defaults
     pkgInfo.visible = _.isUndefined(pkgInfo.visible) ? true : pkgInfo.visible;
     
     // prepare version
     var now = new Date;
-    var versionRecord = sliceObject(pkgInfo, versionFields);
+    var versionRecord = _.pick(pkgInfo, versionFields);
     versionFields.createdAt = now;
     
     // Let's see if we have a record for the package
