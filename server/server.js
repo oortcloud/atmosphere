@@ -78,7 +78,7 @@ Meteor.methods({
     // prepare version
     var now = new Date;
     var versionRecord = _.pick(pkgInfo, versionFields);
-    versionFields.createdAt = now;
+    versionRecord.createdAt = now;
     
     // Let's see if we have a record for the package
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
