@@ -8,7 +8,8 @@
     "basePackages": {
       "fork-me": {},
       "moment": {},
-      "ga": {}
+      "ga": {},
+      "underscore-string": {}
     },
     "packages": {
       "fork-me": {
@@ -25,6 +26,11 @@
         "git": "https://github.com/possibilities/meteor-ga.git",
         "tag": "v0.0.1",
         "commit": "529b7d9845efdce7957b1747698a6d769209dc13"
+      },
+      "underscore-string": {
+        "git": "https://github.com/possibilities/meteor-underscore-string.git",
+        "tag": "v2.2.0rc",
+        "commit": "b0210162be828408985c5a95728c73b361a15e7d"
       }
     }
   }
