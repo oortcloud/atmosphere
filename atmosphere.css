@@ -7,6 +7,10 @@ h1 {
   line-height: 50px;
 }
 
+h1 a {
+  color: #333;
+}
+
 div.subtitle {
   font-family: 'PT Sans',
   Helvetica, Arial, sans-serif;
