@@ -6,7 +6,7 @@
   <h2>Installation</h2>
 
   <p>
-    To install meteorite via npm run <code>npm install -g meteorite</code>
+    To install Meteorite via npm run <code>npm install -g meteorite</code>
   </p>
 
   <h2>Adding packages</h2>
@@ -28,8 +28,12 @@ mrt add moment
 mrt add moment --version 1.6.2
 </pre>
 
+  <p class="alert">
+    Currently, unlike Meteor's <code>add</code> subcommand, you can only specify one package at a time
+  </p>
+
   <p>
-    Behind the scenes Meteorite will add the package to a file called <code>smart.json</code> in your app's root directory. This file can be manually edited and Meteorite will install/uninstall/upgrade packages as the specification changes.
+    Behind the scenes Meteorite will add package metadata to a file called <code>smart.json</code> in your app's root directory. This file can be manually edited and Meteorite will install/uninstall/upgrade packages as the specification changes.
   </p>
 
   <p>
