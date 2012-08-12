@@ -3,9 +3,9 @@
     "branch": "auth"
   },
   "packages": {
-    "fork-me": "0.0.1",
-    "moment": "1.7.0",
     "ga": "0.0.1",
+    "moment": "1.7.0",
+    "fork-me": "0.0.1",
     "underscore-string": "2.2.0rc"
   }
 }
