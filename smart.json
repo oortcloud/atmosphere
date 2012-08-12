@@ -1,10 +1,12 @@
 {
   "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
     "branch": "auth"
   },
   "packages": {
     "fork-me": {},
     "moment": {},
-    "ga": {}
+    "ga": {},
+    "underscore-string": {}
   }
 }
