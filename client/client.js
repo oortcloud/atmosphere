@@ -83,6 +83,17 @@
     return Packages.find({}, {sort: {'updatedAt': -1}});
   };
 
+  // TEMP
+  Template.dump.packages = function() {
+    return Packages.find({}, {sort: {'updatedAt': -1}});
+  };
+
+  // TEMP
+  Template.dump.dump = function() {
+    console.log(this);
+    return JSON.stringify(this, null, 2);
+  };
+
   Template.packages.packagesLoading = function() {
     return Session.get('packages.loading');
   };
@@ -94,11 +105,6 @@
     return this.meteor;
   };
 
-  Template.package.dump = function() {
-    console.log(this);
-    return JSON.stringify(this, null, 2);
-  };
-  
   Template.content.events = {
     'click .nav a': function(e) {
       e.preventDefault();
@@ -112,7 +118,9 @@
       '': 'packages',
       'wtf': 'wtfApp',
       'wtf/app': 'wtfApp',
-      'wtf/package': 'wtfPackage'
+      'wtf/package': 'wtfPackage',
+      // TEMP
+      'dump': 'dump'
     },
 
     packages: function() {
@@ -125,6 +133,11 @@
 
     wtfPackage: function() {
       this.goto('wtf/package');
+    },
+
+    // TEMP
+    dump: function() {
+      this.goto('dump');
     }
   });
 
