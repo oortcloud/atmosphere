@@ -6,10 +6,18 @@
   },
   "dependencies": {
     "basePackages": {
-      "fork-me": {},
-      "moment": {},
-      "ga": {},
-      "underscore-string": {}
+      "fork-me": {
+        "version": "0.0.1"
+      },
+      "moment": {
+        "version": "1.7.0"
+      },
+      "ga": {
+        "version": "0.0.1"
+      },
+      "underscore-string": {
+        "version": "2.2.0rc"
+      }
     },
     "packages": {
       "fork-me": {
