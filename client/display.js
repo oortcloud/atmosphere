@@ -1,14 +1,5 @@
 (function() {
 
-  new ForkMe({
-    user: 'possibilities',
-    repo: 'atmosphere',
-    ribbon: {
-      position: 'left',
-      color: 'gray'
-    }
-  });
-
   // TODO in more than one project
   Handlebars.registerHelper('ifAny', function(data, options) {
     if (!data || (_.isArray(data) && !data.length) || (_.isFunction(data.fetch) && !data.count()))
@@ -63,14 +54,6 @@
     if (str.length <= 60)
       return str;
     return str.substr(0, 60) + '...';
-  });
-
-  Packages = new Meteor.Collection('packages');
-
-  Session.set('packages.loading', true);
-
-  Meteor.subscribe('packages', function() {
-    Session.set('packages.loading', false);
   });
 
   Template.packages.events = {
