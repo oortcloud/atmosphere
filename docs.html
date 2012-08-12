@@ -1,0 +1,121 @@
+<template name="wtf/app">
+  {{> wtfNav}}
+
+  {{> meteoriteCallout}}
+
+  <h2>Installation</h2>
+
+  <p>
+    To install meteorite via npm run <code>npm install -g meteorite</code>
+  </p>
+
+  <h2>Adding packages</h2>
+  
+  <h3>From the command line</h3>
+  <p>
+    The easiest way to install a smart package is to use Meteorite's <code>add</code> command
+  </p>
+
+<pre>
+mrt add moment
+</pre>
+
+  <p>
+    Or if you want a specific version
+  </p>
+
+<pre>
+mrt add moment --version 1.6.2
+</pre>
+
+  <p>
+    Behind the scenes Meteorite will add the package to a file called <code>smart.json</code> in your app's root directory. This file can be manually edited and Meteorite will install/uninstall/upgrade packages as the specification changes.
+  </p>
+
+  <p>
+    With the smart package installed you can now run your app using Meteorite to start using the newly installed package
+  </p>
+
+<pre>
+mrt -p 3333
+</pre>
+
+  <h3>Manually</h3>
+  
+  <p>
+    As mentioned above <code>smart.json</code> can be maintained manually as. For example <a href="https://github.com/possibilities/atmosphere/blob/master/smart.json">see Atmosphere's <code>smart.json</code></a> and <a href="http://possibilities.github.com/meteorite">Meteorite's detailed documentation</a>.
+  </p>
+  
+</template>
+  
+<template name="wtf/package">
+  {{> wtfNav}}
+
+  {{> meteoriteCallout}}
+
+  <h2>Preparing <code>smart.json</code></h2>
+
+  <p>
+    Atmosphere's smart packages are <em>vanilla</em> smart packages that conform to Meteor's current (private) smart package API. If you can put it in Meteor's <code>packages/</code> dir and it works it will also work with Meteorite and Atmosphere by default. If your package has no dependencies of it's own and lives in a git repo people it's already installable Meteorite. 
+  </p>
+
+  <p>
+    There are two reasons you might want to add a <code>smart.json</code> to your smart package:
+    <ol>
+      <li>It has dependencies you want to tell Meteorite about so end users of your smart package won't have to worry about installing them</li>
+      <li>You want to share your package via Atmosphere</li>
+    </ol>
+  </p>
+
+  <h3><code>smart.json</code> example</h3>
+  
+<pre>
+  {
+    "name": "cool-pkg",
+    "description": "Super cool package with dependencies",
+    "homepage": "https://github.com/possibilities/meteor-cool-pkg",
+    "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)",
+    "version": "0.1.0",
+    "git": "https://github.com/possibilities/meteor-cool-pkg.git",
+    "packages": {
+      "another-cool-pkg": "0.1.1"
+    }
+  }
+</pre>
+
+  <h2>Publishing</h2>
+
+  <p>Once you have a <code>smart.json</code> in place and you've pushed the code to it's origin (yes, everything is git based right now) you can use Meteorite to publish the repository to Atmosphere (or any compatible server).</p>
+
+  <p class="alert">
+    At this point you'll need an account on Atmosphere to continue. If you don't have one click on "Sign in" in the upper right hand corner to get started!
+  </p>
+
+  <h3><code>mrt release &lt;path&gt;</code></h3>
+
+  <p>
+    Meteorite's <code>release</code> subcommand will verify the repo is committed, push, add a tag for the current version, push the tag and publish the package to Atmosphere.
+  </p>
+
+  <h3><code>mrt publish &lt;path&gt;</code></h3>
+
+  <p>
+    If you need more control over the release process you can use Meteorite's <code>publish</code> subcommand to publish the package to Atmosphere after you've tagged and pushed the repo.
+  </p>
+
+  <h2>Curating 3rd party packages</h2>
+  <p>
+    TODO
+  </p>
+</template>
+
+<template name="wtfNav">
+  <ul class="nav nav-pills nav-wtf">
+    <li class="{{isActive "wtf/app"}}">
+      <a href="wtf/app">Building an app?</a>
+    </li>
+    <li class="{{isActive "wtf/package"}}">
+      <a href="wtf/package">Building a smart package?</a>
+    </li>
+  </ul>
+</template>
