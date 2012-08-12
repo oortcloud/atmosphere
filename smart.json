@@ -6,6 +6,9 @@
     "ga": "0.0.1",
     "moment": "1.7.0",
     "fork-me": "0.0.1",
-    "underscore-string": "2.2.0rc"
+    "underscore-string": "2.2.0rc",
+    "validation": {
+      "path": "/Users/mike/work/m/validation"
+    }
   }
 }

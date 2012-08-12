@@ -4,7 +4,8 @@ accounts-passwords
 force-ssl
 bootstrap
 
-fork-me
-moment
 ga
+moment
+fork-me
+validation
 underscore-string
