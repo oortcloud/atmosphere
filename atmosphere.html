@@ -32,8 +32,54 @@
 
 <template name="wtf/app">
   {{> wtfNav}}
+
+  <h2>Installation</h2>
+
+  <p>
+    Atmosphere smart packages are installed and managed by the Meteorite command line tool. Visit <a href="http://possibilities.github.com/meteorite">Meteorite's home page</a> to learn more.
+  </p>
+
+  <p>
+    To install meteorite via npm run <code>npm install -g meteorite</code>
+  </p>
+
   <h2>Adding packages</h2>
-  <p>TODO</p>
+  
+  <h3>From the command line</h3>
+  <p>
+    The easiest way to install a smart package is to use Meteorite's <code>add</code> command
+  </p>
+
+<pre>
+mrt add moment
+</pre>
+
+  <p>
+    Or if you want a specific version
+  </p>
+
+<pre>
+mrt add moment --version 1.6.2
+</pre>
+
+  <p>
+    Behind the scenes Meteorite will add the package to a file called <code>smart.json</code> in your app's root directory. This file can be manually edited and Meteorite will install/uninstall/upgrade packages as the specification changes.
+  </p>
+
+  <p>
+    With the smart package installed you can now run your app using Meteorite to start using the newly installed package
+  </p>
+
+<pre>
+mrt -p 3333
+</pre>
+
+  <h3>Manually</h3>
+  
+  <p>
+    As mentioned above <code>smart.json</code> can be maintained manually as. For example <a href="https://github.com/possibilities/atmosphere/blob/master/smart.json">see Atmosphere's <code>smart.json</code></a> and <a href="http://possibilities.github.com/meteorite">Meteorite's detailed documentation</a>.
+  </p>
+  
 </template>
   
 <template name="wtf/package">

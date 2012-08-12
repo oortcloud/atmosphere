@@ -35,6 +35,10 @@ h2 {
   margin-top: 20px;
 }
 
+.container h2, .container h3 {
+  margin-bottom: 10px;
+}
+
 .well, .tabbable {
   margin-top: 20px;
 }
