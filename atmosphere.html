@@ -55,8 +55,7 @@
             <td>{{trunc description}}</td>
             <td>v{{latest}}</td>
             <td>
-              {{refreshEvery 15}}
-              <span class="timeAgo">{{timeAgo}}</span>
+              <span class="timeAgo" data-stamp="{{updatedAt}}">{{timeAgo}}</span>
             </td>
             <td class="info-cell">
               <a class="btn btn-mini" data-toggle="modal" href="#modal-{{name}}"><i class="icon-info-sign"></i> Info</a>
