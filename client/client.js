@@ -115,6 +115,7 @@
   AtmosRouter = ReactiveRouter.extend({
     routes: {
       '': 'packages',
+      'wtf': 'wtfApp',
       'wtf/app': 'wtfApp',
       'wtf/package': 'wtfPackage'
     },
