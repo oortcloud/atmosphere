@@ -104,7 +104,7 @@ Meteor.methods({
       'version',
       'meteor',
       'packages'
-    ]
+    ];
     
     var updatePackage = function(oldPkg, newPkg) {
       return _.each(packageFields, function(key) {
