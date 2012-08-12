@@ -6,39 +6,45 @@
   },
   "dependencies": {
     "basePackages": {
-      "fork-me": {
+      "ga": {
         "version": "0.0.1"
       },
       "moment": {
         "version": "1.7.0"
       },
-      "ga": {
+      "fork-me": {
         "version": "0.0.1"
       },
       "underscore-string": {
         "version": "2.2.0rc"
+      },
+      "validation": {
+        "path": "/Users/mike/work/m/validation"
       }
     },
     "packages": {
-      "fork-me": {
-        "git": "https://github.com/possibilities/meteor-fork-me.git",
+      "ga": {
+        "git": "https://github.com/possibilities/meteor-ga.git",
         "tag": "v0.0.1",
-        "commit": "99878cf3332ff01e1d8a1c7f0cfa7e338b1eaf45"
+        "commit": "529b7d9845efdce7957b1747698a6d769209dc13"
       },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
         "tag": "v1.7.0",
         "commit": "ba6d123e4269e440227d6fa99b121ba9b5a841c9"
       },
-      "ga": {
-        "git": "https://github.com/possibilities/meteor-ga.git",
+      "fork-me": {
+        "git": "https://github.com/possibilities/meteor-fork-me.git",
         "tag": "v0.0.1",
-        "commit": "529b7d9845efdce7957b1747698a6d769209dc13"
+        "commit": "99878cf3332ff01e1d8a1c7f0cfa7e338b1eaf45"
       },
       "underscore-string": {
         "git": "https://github.com/possibilities/meteor-underscore-string.git",
         "tag": "v2.2.0rc",
         "commit": "b0210162be828408985c5a95728c73b361a15e7d"
+      },
+      "validation": {
+        "path": "/Users/mike/work/m/validation"
       }
     }
   }
