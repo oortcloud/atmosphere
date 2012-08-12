@@ -30,6 +30,12 @@
   </div>
 </template>
 
+<template name="dump">
+  {{#each packages}}
+    <pre>{{dump}}</pre>
+  {{/each}}
+</template>
+
 <template name="packages">
   {{#if packagesLoading}}
     <p>
@@ -109,6 +115,4 @@
       <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
     {{/if}}
   </dl>
-  <p><strong>Raw</strong></p>
-  <pre>{{dump}}</pre>
 </template>
