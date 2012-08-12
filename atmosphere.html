@@ -31,6 +31,22 @@
 </template>
 
 <template name="wtf/app">
+  {{> wtfNav}}
+  <h2>Adding packages</h2>
+  <p>TODO</p>
+</template>
+  
+<template name="wtf/package">
+  {{> wtfNav}}
+  <h2>Preparation</h2>
+  <p>TODO</p>
+  <h2>Publishing</h2>
+  <p>TODO</p>
+  <h2>Curating</h2>
+  <p>TODO</p>
+</template>
+
+<template name="wtfNav">
   <ul class="nav nav-pills nav-wtf">
     <li class="{{isActive "wtf/app"}}">
       <a href="wtf/app">Building an app?</a>
@@ -39,25 +55,6 @@
       <a href="wtf/package">Building a smart package?</a>
     </li>
   </ul>
-  <h2>Adding packages</h2>
-  <p>TODO</p>
-</template>
-  
-<template name="wtf/package">
-  <ul class="nav nav-pills">
-    <li class="{{isActive "wtf/app"}}">
-      <a href="wtf/app">Building an app?</a>
-    </li>
-    <li class="{{isActive "wtf/package"}}">
-      <a href="wtf/package">Building a smart package?</a>
-    </li>
-  </ul>
-  <h2>Preparation</h2>
-  <p>TODO</p>
-  <h2>Publishing</h2>
-  <p>TODO</p>
-  <h2>Curating</h2>
-  <p>TODO</p>
 </template>
   
 <template name="packages">
