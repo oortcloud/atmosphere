@@ -17,6 +17,8 @@
       return options.fn(this);
   });
 
+  // Time ago helpers
+
   var timeAgo = function(updatedAt) {
     return moment(updatedAt).fromNow();
   };
@@ -24,6 +26,37 @@
   Handlebars.registerHelper('timeAgo', function() {
     return timeAgo(this.updatedAt);
   });
+
+  // Navigation helpers
+
+  var isNavActive = function(page, matchTop) {
+    var isActive = false;
+
+    // If desired check that the top level matches
+    if (matchTop) {
+      var pathTop = page.split('/')[0];
+      var currentPageTop = Router.current_page().split('/')[0];
+      if (pathTop === currentPageTop)
+        isActive = true;
+    }
+    
+    // Is it a perfect match
+    var currentPage = Router.current_page();
+    if (currentPage === page)
+      isActive = true;
+    
+    return isActive;
+  };
+
+  Handlebars.registerHelper('isActive', function(page) {
+    return isNavActive(page, false) ? 'active' : '';
+  });
+
+  Handlebars.registerHelper('isActiveTop', function(page) {
+    return isNavActive(page, true) ? 'active' : '';
+  });
+
+  // Display helpers
 
   Handlebars.registerHelper('trunc', function(str) {
     // TODO make better
@@ -70,4 +103,41 @@
     // meteor version if it wasn't standard in a package
     return this.meteor;
   };
+
+  Template.content.events = {
+    'click .nav a': function(e) {
+      e.preventDefault();
+      var path = $(e.target).attr('href') || '';
+      Router.navigate(path, { trigger: true });
+    }
+  };
+  
+  AtmosRouter = ReactiveRouter.extend({
+    routes: {
+      '': 'packages',
+      'wtf/app': 'wtfApp',
+      'wtf/package': 'wtfPackage'
+    },
+
+    packages: function() {
+      this.goto('packages');
+    },
+    
+    wtfApp: function() {
+      this.goto('wtf/app');
+    },
+
+    wtfPackage: function() {
+      this.goto('wtf/package');
+    }
+  });
+
+  Router = new AtmosRouter();
+
+  Meteor.startup(function() {
+    Backbone.history.start({
+      pushState: true
+    });
+  });
+
 })();

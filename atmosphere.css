@@ -61,10 +61,6 @@ li {
   right: 0;
 }
 
-.container .content {
-  margin-top: 30px;
-}
-
 .packages {
   width: 100%;
 }
@@ -79,4 +75,8 @@ td.info-cell {
 
 td.info-cell a {
   margin-top: -3px;
+}
+
+.nav-wtf a {
+  margin-left: 5px;
 }

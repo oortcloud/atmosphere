@@ -5,19 +5,61 @@
 </head>
 
 <body>
+  <div class="pull-right">{{> loginButtons}}</div>
   <div class="container">
     <h1 class="pull-left">Atmosphere</h1>
-    <div class="pull-right">{{> loginButtons}}</div>
     <div class="subtitle" style="clear: both">
       <em>Beer. Wings. Smart Packages.</em>
     </div>
     <div class="content">
-      {{> packages}}
+      {{> content}}
     </div>
   </div>
   {{ga "UA-34025267-1"}}
 </body>
 
+<template name="content">
+  <ul class="nav nav-tabs nav-main">
+    <li class="{{isActiveTop "wtf"}} pull-right"><a href="wtf/app">WTF¿</a></li>
+    <li class="{{isActiveTop "packages"}} pull-right"><a href="">Packages</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active">
+      {{{render currentPage}}}
+    </div>
+  </div>
+</template>
+
+<template name="wtf/app">
+  <ul class="nav nav-pills nav-wtf">
+    <li class="{{isActive "wtf/app"}}">
+      <a href="wtf/app">Building an app?</a>
+    </li>
+    <li class="{{isActive "wtf/package"}}">
+      <a href="wtf/package">Building a smart package?</a>
+    </li>
+  </ul>
+  <h2>Adding packages</h2>
+  <p>TODO</p>
+</template>
+  
+<template name="wtf/package">
+  <ul class="nav nav-pills">
+    <li class="{{isActive "wtf/app"}}">
+      <a href="wtf/app">Building an app?</a>
+    </li>
+    <li class="{{isActive "wtf/package"}}">
+      <a href="wtf/package">Building a smart package?</a>
+    </li>
+  </ul>
+  <h2>Preparation</h2>
+  <p>TODO</p>
+  <h2>Publishing</h2>
+  <p>TODO</p>
+  <h2>Curating</h2>
+  <p>TODO</p>
+</template>
+  
 <template name="packages">
   {{#if packagesLoading}}
     <p>
