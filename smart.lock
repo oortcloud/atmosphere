@@ -19,7 +19,7 @@
         "version": "2.2.0rc"
       },
       "validation": {
-        "path": "/Users/mike/work/m/validation"
+        "version": "0.0.4"
       }
     },
     "packages": {
@@ -44,7 +44,9 @@
         "commit": "b0210162be828408985c5a95728c73b361a15e7d"
       },
       "validation": {
-        "path": "/Users/mike/work/m/validation"
+        "git": "https://github.com/possibilities/meteor-validation.git",
+        "tag": "v0.0.4",
+        "commit": "ec9b10e2e2403efab7cc9dcecbe2cc73eeb1c976"
       }
     }
   }
