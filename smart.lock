@@ -20,6 +20,9 @@
       },
       "validation": {
         "version": "0.0.4"
+      },
+      "router": {
+        "version": "0.1.0"
       }
     },
     "packages": {
@@ -47,6 +50,16 @@
         "git": "https://github.com/possibilities/meteor-validation.git",
         "tag": "v0.0.4",
         "commit": "ec9b10e2e2403efab7cc9dcecbe2cc73eeb1c976"
+      },
+      "router": {
+        "git": "https://github.com/tmeasday/meteor-router.git",
+        "tag": "v0.1.0",
+        "commit": "c73515515f1d267108f78b4928a6866952290761"
+      },
+      "deps-extensions": {
+        "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
+        "branch": "master",
+        "commit": "110462c0ba33aaeb35e55069134287325cc453e5"
       }
     }
   }
