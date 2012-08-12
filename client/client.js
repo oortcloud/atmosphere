@@ -96,7 +96,7 @@
   Template.packages.packagesLoading = function() {
     return Session.get('packages.loading');
   };
-  
+
   Template.package.nonStandardMeteor = function() {
     
     // NOTE: this strictly speaking isn't true, but why would you specify a 
@@ -104,6 +104,11 @@
     return this.meteor;
   };
 
+  Template.package.dump = function() {
+    console.log(this);
+    return JSON.stringify(this, null, 2);
+  };
+  
   Template.content.events = {
     'click .nav a': function(e) {
       e.preventDefault();
