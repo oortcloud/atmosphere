@@ -102,7 +102,13 @@
     <dt><p>Description</p></dt>
     <dd><p>{{description}}</p></dd>
     <dt><p>Author</p></dt>
-    <dd><p>{{author}}</p></dd>
+    <dd>
+      <p>
+        {{#if author/url}}<a href="{{author/url}}">{{/if}}
+          {{author/name}}
+        {{#if author/url}}</a>{{/if}}
+      </p>
+    </dd>
     <dt><p>Current version</p></dt>
     <dd><p>v{{latest}}</p></dd>
     <dt><p>Available versions</p></dt>
