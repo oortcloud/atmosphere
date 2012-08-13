@@ -1,5 +1,8 @@
 Meteor.methods({
   publish: function(pkgInfo) {
+
+    var pkgRecord = Packages.findOne({ name: pkgInfo.name });
+    
     pkgInfo.author = _.parseAuthor(pkgInfo.author);
 
     var versionFormat = /^\d{1,3}\.\d{1,3}\.\d{1,3}[\.\d\w]*$/;
@@ -9,7 +12,6 @@ Meteor.methods({
       // Name
       _.presenceOf   ('name'),
       _.lengthOf     ('name', { gte: 1, lte: 30 }),
-      _.uniquenessOf ('name', { in: Packages }),
 
       // Description
       _.presenceOf   ('description'),
@@ -84,9 +86,6 @@ Meteor.methods({
     versionRecord.createdAt = now;
     versionRecord.updatedAt = now;
     
-    // Let's see if we have a record for the package
-    var pkgRecord = Packages.findOne({ name: pkgInfo.name });
-    
     // Ok we have one
     if (pkgRecord) {
 
@@ -119,6 +118,16 @@ Meteor.methods({
         $set: _.removeId(pkgRecord)
       });
     } else {
+
+      var errors = _.validate(pkgInfo, [
+        // Name
+        _.uniquenessOf ('name', { in: Packages }),
+      ]);
+
+      var errorMessages = _.flatErrors(errors);
+
+      if (errorMessages.length > 0)
+        throw new Meteor.Error(422, "Package could not be saved", errorMessages);
 
       // Setup new package record
       var newPackage = _.extend(pkgInfo, {
