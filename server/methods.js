@@ -19,11 +19,14 @@ Meteor.methods({
       _.presenceOf   ('homepage'),
       _.validUrl     ('homepage'),
 
-      // Author
+      // Author name
       _.presenceOf   ('author.name'),
       _.lengthOf     ('author.name', { gte: 5, lte: 50 }),
-      _.presenceOf   ('author.email'),
+
+      // Author email
       _.validEmail   ('author.email'),
+
+      // Author url
       _.validUrl     ('author.url'),
 
       // Version
@@ -58,7 +61,8 @@ Meteor.methods({
       'git',
       'version',
       'meteor',
-      'packages'
+      'packages',
+      'createdAt'
     ];
     
     var updatePackage = function(oldPkg, newPkg) {
@@ -78,6 +82,7 @@ Meteor.methods({
     var now = new Date;
     var versionRecord = _.pick(pkgInfo, versionFields);
     versionRecord.createdAt = now;
+    versionRecord.updatedAt = now;
     
     // Let's see if we have a record for the package
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
