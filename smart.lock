@@ -19,7 +19,7 @@
         "version": "2.2.0rc"
       },
       "validation": {
-        "version": "0.0.4"
+        "version": "0.0.5"
       },
       "router": {
         "version": "0.1.0"
@@ -48,8 +48,8 @@
       },
       "validation": {
         "git": "https://github.com/possibilities/meteor-validation.git",
-        "tag": "v0.0.4",
-        "commit": "ec9b10e2e2403efab7cc9dcecbe2cc73eeb1c976"
+        "tag": "v0.0.5",
+        "commit": "71857f85c4a4143e4b772ddbbaf69d99a1d43718"
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",

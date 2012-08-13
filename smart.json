@@ -7,7 +7,7 @@
     "moment": "1.7.0",
     "fork-me": "0.0.1",
     "underscore-string": "2.2.0rc",
-    "validation": "0.0.4",
+    "validation": "0.0.5",
     "router": "0.1.0"
   }
 }
