@@ -16,11 +16,15 @@ _.mixin({
       var author = rawAuthor;
       if (_.isString(rawAuthor)) {
         var authorParts = /([\w\s]+)(<\w+@[\w\.]+>)?\s*(\(.+\))?/gi.exec(rawAuthor);
-        return {
-          name: _.trim(authorParts[1]),
-          email: _.trim(authorParts[2], '<>'),
-          url: _.trim(authorParts[3], '()'),
+        author = {
+          name: _.trim(authorParts[1])
         };
+        
+        if (authorParts[2])
+          author.email = _.trim(authorParts[2], '<>');
+
+        if (authorParts[3])
+          author.url = _.trim(authorParts[3], '()');
       }
 
       return author;
