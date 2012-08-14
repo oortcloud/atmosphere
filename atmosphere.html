@@ -28,6 +28,7 @@
       {{{render currentPage}}}
     </div>
   </div>
+  <div id="modal-backdrop" class="modal-backdrop {{modalHidden}}"></div>
 </template>
 
 <template name="dump">
@@ -61,14 +62,15 @@
             <td>{{trunc description}}</td>
             <td>v{{latest}}</td>
             <td>
-              <span class="timeAgo" data-stamp="{{updatedAt}}">{{timeAgo}}</span>
+              {{refreshEvery "15s"}}
+              <span class="timeAgo">{{timeAgo}}</span>
             </td>
             <td class="info-cell">
-              <a class="btn btn-mini" data-toggle="modal" href="#modal-{{name}}"><i class="icon-info-sign"></i> Info</a>
+              <a class="btn btn-mini details"><i class="icon-info-sign"></i> Info</a>
               
-              <div class="modal hide" id="modal-{{name}}">
+              <div class="modal {{detailsModalClass}}">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">×</button>
+                  <button type="button" class="close">×</button>
                   <h3>Package Info</h3>
                 </div>
                 <div class="modal-body">
