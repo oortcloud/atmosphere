@@ -55,11 +55,31 @@
       return str;
     return str.substr(0, 60) + '...';
   });
-
+  
+  // redraw a template every X seconds
+  // Nice trick huh? I should put something like this in deps-extensions - T
+  Handlebars.registerHelper('refreshEvery', function(seconds) {
+    var ctx = Meteor.deps.Context.current;
+    if (!ctx)
+      return;
+      
+    Meteor.setTimeout(function() { ctx.invalidate() }, parseInt(seconds) * 1000);
+  });
+  
+  Template.content.modalHidden = function() {
+    return Session.equals('modal-dialog', null) ? 'hidden' : '';
+  };
+  
   Template.packages.events = {
     'click td.icon-cell': function(e) {
       e.preventDefault();
-    } 
+    }, 
+    'click .btn.details': function(e) {
+      Session.set('modal-dialog', 'details-' + this._id);
+    },
+    'click .modal .close': function(e) {
+      Session.set('modal-dialog', null);;
+    }
   };
 
   Template.packages.packages = function() {
@@ -80,6 +100,10 @@
   Template.packages.packagesLoading = function() {
     return Session.get('packages.loading');
   };
+  
+  Template.packages.detailsModalClass = function() {
+    return Session.equals('modal-dialog', 'details-' + this._id) ? '' : 'hide';
+  }
 
   Template.package.nonStandardMeteor = function() {
     
@@ -96,12 +120,4 @@
     }
   };
   
-  Meteor.setInterval(function() {
-    $.each($('.timeAgo'), function() {
-      var $el = $(this);
-      var updatedAt = $el.data('stamp');
-      $el.text(timeAgo(new Date(updatedAt)));
-    });
-  }, 15 * 1000);
-
 })();
