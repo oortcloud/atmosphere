@@ -7,7 +7,7 @@
   "dependencies": {
     "basePackages": {
       "ga": {
-        "version": "0.0.1"
+        "version": "0.0.2"
       },
       "moment": {
         "version": "1.7.0"
@@ -28,13 +28,13 @@
     "packages": {
       "ga": {
         "git": "https://github.com/possibilities/meteor-ga.git",
-        "tag": "v0.0.1",
-        "commit": "529b7d9845efdce7957b1747698a6d769209dc13"
+        "tag": "v0.0.2",
+        "commit": "2da5f3d15e94c9630bbd1a87dfa21a323857e2b3"
       },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
         "tag": "v1.7.0",
-        "commit": "ba6d123e4269e440227d6fa99b121ba9b5a841c9"
+        "commit": "bbdf5c60624d47d6d546fdf06126571545a2d7dd"
       },
       "fork-me": {
         "git": "https://github.com/possibilities/meteor-fork-me.git",
