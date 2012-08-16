@@ -6,9 +6,6 @@
   },
   "dependencies": {
     "basePackages": {
-      "ga": {
-        "version": "0.0.2"
-      },
       "moment": {
         "version": "1.7.0"
       },
@@ -26,11 +23,6 @@
       }
     },
     "packages": {
-      "ga": {
-        "git": "https://github.com/possibilities/meteor-ga.git",
-        "tag": "v0.0.2",
-        "commit": "2da5f3d15e94c9630bbd1a87dfa21a323857e2b3"
-      },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
         "tag": "v1.7.0",
