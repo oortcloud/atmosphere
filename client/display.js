@@ -67,7 +67,7 @@
   });
   
   Template.content.modalHidden = function() {
-    return Session.equals('modal-dialog', null) ? 'hidden' : '';
+    return Session.get('modal-dialog') ? '' : 'hidden';
   };
   
   Template.packages.events = {
