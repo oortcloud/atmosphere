@@ -6,7 +6,7 @@
 
 <body>
   <div class="pull-right">{{> loginButtons}}</div>
-  <div class="container">
+  <div class="container" role="main">
     <h1 class="pull-left"><a href="/">Atmosphere</a></h1>
     <div class="subtitle" style="clear: both">
       <em>Beer. Wings. Smart Packages.</em>
@@ -15,6 +15,7 @@
       {{> content}}
     </div>
   </div>
+  {{> bottomBar}}
 </body>
 
 <template name="content">
@@ -120,6 +121,16 @@
       <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
     {{/if}}
   </dl>
+</template>
+
+<template name="bottomBar">
+  <div class="bottom-bar">
+    <div class="bottombar-inner">
+      <ul class="nav">
+        <li><nobr>Built with <a href="http://meteor.com">Meteor</a> by <a href="https://github.com/possibilities">@possibilities</a> and <a href="https://github.com/tmeasday">@tmeasday</a></nobr></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <head>
