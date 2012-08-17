@@ -1,8 +1,7 @@
 
 /* Some nice fonts */
 h1 {
-  font-family: 'Arvo',
-  Georgia, Times, serif;
+  font-family: 'Arvo', Georgia, Times, serif;
   font-size: 39px;
   line-height: 50px;
 }
@@ -12,16 +11,19 @@ h1 a {
 }
 
 div.subtitle {
-  font-family: 'PT Sans',
-  Helvetica, Arial, sans-serif;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
   font-size: 13px;
 }
 
 div.container {
-  font-family: 'PT Sans',
-  Helvetica, Arial, sans-serif;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 25px;
+}
+
+div.bottom-bar {
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-size: 12px;
 }
 
 /* Make page skinny */
