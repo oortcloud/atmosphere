@@ -81,7 +81,7 @@ Meteor.methods({
     pkgInfo.visible = _.isUndefined(pkgInfo.visible) ? true : pkgInfo.visible;
     
     // prepare version
-    var now = new Date;
+    var now = new Date().getTime();
     var versionRecord = _.pick(pkgInfo, versionFields);
     versionRecord.createdAt = now;
     versionRecord.updatedAt = now;
@@ -109,7 +109,7 @@ Meteor.methods({
       pkgRecord.latest = pkgInfo.version;
 
       // Timestamp it
-      pkgRecord.updatedAt = new Date();
+      pkgRecord.updatedAt = new Date().getTime();
 
       updatePackage(pkgRecord, pkgInfo);
       
