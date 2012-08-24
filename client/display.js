@@ -51,9 +51,9 @@
 
   Handlebars.registerHelper('trunc', function(str) {
     // TODO make better
-    if (str.length <= 60)
+    if (str.length <= 55)
       return str;
-    return str.substr(0, 60) + '...';
+    return str.substr(0, 55) + '…';
   });
   
   // redraw a template every X seconds
