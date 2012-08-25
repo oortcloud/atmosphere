@@ -1,7 +1,7 @@
 (function() {
 
   new ForkMe({
-    user: 'possibilities',
+    user: 'oortcloud',
     repo: 'atmosphere',
     ribbon: {
       position: 'left',
