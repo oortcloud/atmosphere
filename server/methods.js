@@ -1,4 +1,13 @@
 Meteor.methods({
+  handshake: function(agent) {
+    var minimumVersion = '0.0.16';
+    var agentParts = agent.split('-');
+    var name = agentParts[0];
+    var version = agentParts[1];
+    if (!version || version < minimumVersion)
+      throw new Meteor.Error(422, "Meteorite v" + minimumVersion + " or greater required! (v" + version + " installed)\n  Install with: npm install -g meteorite");
+  },
+
   publish: function(pkgInfo) {
 
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
