@@ -58,8 +58,8 @@
         <tbody>
           {{#each packages}}
           <tr>
-            <td><a href="{{homepage}}">{{name}}</a></td>
-            <td>{{trunc description}}</td>
+            <td><a href="{{homepage}}">{{trunc name 20}}</a></td>
+            <td>{{trunc description 55}}</td>
             <td>v{{latest}}</td>
             <td>
               {{refreshEvery "15s"}}
