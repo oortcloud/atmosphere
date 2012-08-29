@@ -1,3 +1,4 @@
+// TODO make an allPackage sub/pub rather than this options bullshit
 Meteor.publish('packages', function(options) {
   options || (options = {});
   options.includeHidden = _.isUndefined(options.includeHidden) ? false : options.includeHidden;
