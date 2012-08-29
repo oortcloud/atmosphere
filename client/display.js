@@ -49,11 +49,11 @@
 
   // Display helpers
 
-  Handlebars.registerHelper('trunc', function(str) {
+  Handlebars.registerHelper('trunc', function(str, length, options) {
     // TODO make better
-    if (str.length <= 55)
+    if (str.length <= length)
       return str;
-    return str.substr(0, 55) + '…';
+    return str.substr(0, length) + '…';
   });
   
   // redraw a template every X seconds
