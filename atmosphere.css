@@ -79,6 +79,36 @@ li {
   text-align: left;
 }
 
+.packages td {
+    padding: 5px;
+}
+
+dl.package-title {
+    margin: 0;
+    padding: 0;
+}
+
+.package-title dt {
+  font-weight: bold;
+}
+
+.package-title dd {
+  color: #777;
+}
+
+dl.version-title {
+    margin: 0;
+    padding: 0;
+}
+
+.version-title dt {
+    font-weight: bold;
+}
+
+.version-title dd {
+    color: #777;
+}
+
 td.info-cell {
   vertical-align: top;
 }

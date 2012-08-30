@@ -48,22 +48,28 @@
       <table class="packages table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Current</th>
-            <th>Updated</th>
-            <th></th>
+            <th>Smart Package</th>
+            <th>Version</th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {{#each packages}}
           <tr>
-            <td><a href="{{homepage}}">{{trunc name 20}}</a></td>
-            <td>{{trunc description 55}}</td>
-            <td>v{{latest}}</td>
             <td>
-              {{refreshEvery "15s"}}
-              <span class="timeAgo">{{timeAgo}}</span>
+                <dl class="package-title">
+                    <dt><a href="{{homepage}}">{{trunc name 80}}</a></dt>
+                    <dd>{{trunc description 95}}</dd>
+                </dl>
+            </td>
+            <td>
+                <dl class="version-title">
+                    <dt>v{{latest}}</dt>
+                    <dd>
+                        {{refreshEvery "15s"}}
+                        <span class="timeAgo">{{timeAgo}}</span>
+                    </dd>
+                </dl>
             </td>
             <td class="info-cell">
               <a class="btn btn-mini details"><i class="icon-info-sign"></i> Info</a>
