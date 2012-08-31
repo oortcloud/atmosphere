@@ -93,12 +93,6 @@ Meteor.methods({
       if (pkgRecord.userId !== this.userId())
         throw new Meteor.Error(401, "That ain't yr package son!");
 
-      // TODO We used to not let you republish the same version
-      // here. Obviously that's no good but maybe we should prompt
-      // user to let them know they're overwriting. The point is 
-      // we potentially want to deter people making their package
-      // unstable
-
       // Add new version
       pkgRecord.versions.push(versionRecord);
 
