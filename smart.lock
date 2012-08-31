@@ -1,16 +1,19 @@
 {
   "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "auth",
-    "commit": "729e45003b25d40a02905da9e1255af8b86de654"
+    "git": "https://github.com/possibilities/meteor",
+    "branch": "devel-auth",
+    "commit": "ac0a0374f3e4035575664ad4fc7950ef356505c3"
   },
   "dependencies": {
     "basePackages": {
+      "bootstrap.less": {
+        "version": "2.1.0"
+      },
       "moment": {
         "version": "1.7.0"
       },
       "fork-me": {
-        "version": "0.0.1"
+        "version": "0.0.2"
       },
       "underscore-string": {
         "version": "2.2.0rc"
@@ -23,15 +26,20 @@
       }
     },
     "packages": {
+      "bootstrap.less": {
+        "git": "https://github.com/lvbreda/meteor_bootstrapless",
+        "tag": "v2.1.0",
+        "commit": "05dab8a4f07ef0f457fd4af4ea897c9d72129a2b"
+      },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
         "tag": "v1.7.0",
-        "commit": "bbdf5c60624d47d6d546fdf06126571545a2d7dd"
+        "commit": "c64b6ec0e714b9556f4b6643d430b868ba69d3d7"
       },
       "fork-me": {
         "git": "https://github.com/possibilities/meteor-fork-me.git",
-        "tag": "v0.0.1",
-        "commit": "99878cf3332ff01e1d8a1c7f0cfa7e338b1eaf45"
+        "tag": "v0.0.2",
+        "commit": "7a0e4043d482d157a5b5dc9eee69160d759d506e"
       },
       "underscore-string": {
         "git": "https://github.com/possibilities/meteor-underscore-string.git",

@@ -2,7 +2,7 @@ accounts-ui
 accounts-passwords
 
 force-ssl
-bootstrap
+bootstrap.less
 
 moment
 fork-me

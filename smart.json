@@ -1,10 +1,12 @@
 {
   "meteor": {
-    "branch": "auth"
+    "git": "https://github.com/possibilities/meteor",
+    "branch": "devel-auth"
   },
   "packages": {
+    "bootstrap.less": "2.1.0",
     "moment": "1.7.0",
-    "fork-me": "0.0.1",
+    "fork-me": "0.0.2",
     "underscore-string": "2.2.0rc",
     "validation": "0.0.5",
     "router": "0.1.0"

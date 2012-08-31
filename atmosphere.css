@@ -26,13 +26,6 @@ div.bottom-bar {
   font-size: 12px;
 }
 
-/* Make page skinny */
-.container,
-.navbar-fixed-top .container,
-.navbar-fixed-bottom .container {
-  width: 800px;
-}
-
 body {
   padding: 20px;
 }
@@ -55,20 +48,6 @@ p {
 
 li {
   line-height: 25px !important;
-}
-
-.githubBanner {
-  position: absolute;
-  border: 0;
-  top: 0;
-}
-
-.githubBanner.left {
-  left: 0;
-}
-
-.githubBanner.right {
-  right: 0;
 }
 
 .packages {
@@ -136,4 +115,13 @@ td.info-cell a {
 
 .bottom-bar ul.nav {
   margin: 10px;
+}
+
+.page-header {
+  border-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.page-header h1 {
+  margin-bottom: 0 !important;
 }
