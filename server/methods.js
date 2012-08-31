@@ -70,7 +70,7 @@ Meteor.methods({
     var updatePackage = function(oldPkg, newPkg) {
       return _.each(packageFields, function(key) {
         if (key !== 'packages')
-          newPkg[key] = oldPkg[key];
+          oldPkg[key] = newPkg[key];
       });
     };
 
