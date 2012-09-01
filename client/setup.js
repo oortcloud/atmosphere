@@ -9,4 +9,8 @@
     }
   });
 
+  Meteor.startup(function() {
+    Meteor.accounts._enableAutoLogin();
+  });
+
 })();

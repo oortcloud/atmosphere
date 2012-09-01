@@ -1,3 +1,7 @@
+# `filters` needs to be first until it gets fixed
+filters
+
+disable-auto-login
 accounts-ui
 accounts-passwords
 

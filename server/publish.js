@@ -1,11 +1,15 @@
-// TODO make an allPackage sub/pub rather than this options bullshit
-Meteor.publish('packages', function(options) {
-  options || (options = {});
-  options.includeHidden = _.isUndefined(options.includeHidden) ? false : options.includeHidden;
-  var query = {};
-  if (!options.includeHidden)
-    query.visible = {$ne: false};
-  return Packages.find(query, {
+Meteor.publish('packages', function() {
+  return Packages.find({
+    visible: { $ne: false }
+  }, {
+    sort: {
+      updatedAt: -1
+    }
+  });
+});
+
+Meteor.publish('allPackages', function() {
+  return Packages.find({}, {
     sort: {
       updatedAt: -1
     }

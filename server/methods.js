@@ -100,10 +100,11 @@ Meteor.methods({
       if (pkgInfo.packages)
         pkgRecord.packages = pkgInfo.packages;
 
-      pkgRecord.latest = pkgInfo.version;
-
       // Timestamp it
-      pkgRecord.updatedAt = new Date().getTime();
+      if (pkgRecord.version > pkgRecord.latest)
+        pkgRecord.updatedAt = new Date().getTime();
+
+      pkgRecord.latest = pkgInfo.version;
 
       updatePackage(pkgRecord, pkgInfo);
       

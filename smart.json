@@ -1,9 +1,12 @@
 {
   "meteor": {
-    "git": "https://github.com/possibilities/meteor",
-    "branch": "devel-auth"
+    "path": "/Users/mike/work/m/meteor"
   },
   "packages": {
+    "disable-auto-login": {
+      "path": "/Users/mike/work/m/disable-auto-login"
+    },
+    "filters": "0.0.2",
     "bootstrap.less": "2.1.0",
     "moment": "1.7.0",
     "fork-me": "0.0.2",

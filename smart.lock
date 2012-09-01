@@ -1,11 +1,15 @@
 {
   "meteor": {
-    "git": "https://github.com/possibilities/meteor",
-    "branch": "devel-auth",
-    "commit": "ac0a0374f3e4035575664ad4fc7950ef356505c3"
+    "path": "/Users/mike/work/m/meteor"
   },
   "dependencies": {
     "basePackages": {
+      "disable-auto-login": {
+        "path": "/Users/mike/work/m/disable-auto-login"
+      },
+      "filters": {
+        "version": "0.0.2"
+      },
       "bootstrap.less": {
         "version": "2.1.0"
       },
@@ -26,6 +30,14 @@
       }
     },
     "packages": {
+      "disable-auto-login": {
+        "path": "/Users/mike/work/m/disable-auto-login"
+      },
+      "filters": {
+        "git": "https://github.com/possibilities/meteor-filters.git",
+        "tag": "v0.0.2",
+        "commit": "6a92d3b53eef6eeeda3a79f6fd7b2edee4f43240"
+      },
       "bootstrap.less": {
         "git": "https://github.com/lvbreda/meteor_bootstrapless",
         "tag": "v2.1.0",

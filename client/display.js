@@ -93,7 +93,6 @@
 
   // TEMP
   Template.dump.dump = function() {
-    console.log(this);
     return JSON.stringify(this, null, 2);
   };
 
