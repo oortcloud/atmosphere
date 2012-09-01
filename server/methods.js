@@ -1,6 +1,12 @@
 Meteor.methods({
   publish: function(pkgInfo) {
 
+    Logs.insert({
+      name: 'method.publish',
+      userId: this.userId(),
+      pkgInfo: pkgInfo
+    });
+
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });
     
     pkgInfo.author = _.parseAuthor(pkgInfo.author);
@@ -101,7 +107,7 @@ Meteor.methods({
         pkgRecord.packages = pkgInfo.packages;
 
       // Timestamp it
-      if (pkgRecord.version > pkgRecord.latest)
+      if (pkgInfo.version > pkgRecord.latest)
         pkgRecord.updatedAt = new Date().getTime();
 
       pkgRecord.latest = pkgInfo.version;

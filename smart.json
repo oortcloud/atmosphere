@@ -3,9 +3,7 @@
     "path": "/Users/mike/work/m/meteor"
   },
   "packages": {
-    "disable-auto-login": {
-      "path": "/Users/mike/work/m/disable-auto-login"
-    },
+    "disable-auto-login": "0.0.2",
     "filters": "0.0.2",
     "bootstrap.less": "2.1.0",
     "moment": "1.7.0",

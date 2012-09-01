@@ -5,7 +5,7 @@
   "dependencies": {
     "basePackages": {
       "disable-auto-login": {
-        "path": "/Users/mike/work/m/disable-auto-login"
+        "version": "0.0.2"
       },
       "filters": {
         "version": "0.0.2"
@@ -31,7 +31,9 @@
     },
     "packages": {
       "disable-auto-login": {
-        "path": "/Users/mike/work/m/disable-auto-login"
+        "git": "https://github.com/possibilities/meteor-disable-auto-login.git",
+        "tag": "v0.0.2",
+        "commit": "87d97828af79e8f26f313757f196e20cbdb35649"
       },
       "filters": {
         "git": "https://github.com/possibilities/meteor-filters.git",
