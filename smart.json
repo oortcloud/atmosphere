@@ -3,6 +3,7 @@
     "path": "/Users/mike/work/m/meteor"
   },
   "packages": {
+    "groups": "0.0.3",
     "disable-auto-login": "0.0.2",
     "filters": "0.0.2",
     "bootstrap.less": "2.1.0",

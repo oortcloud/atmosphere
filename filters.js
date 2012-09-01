@@ -27,7 +27,7 @@ if (Meteor.is_server)
   Filter.methods([
     {
       handler: function(client, version, options) {
-
+        
         Logs.insert({
           name: 'methods.login',
           client: client,
@@ -35,7 +35,7 @@ if (Meteor.is_server)
           options: options,
           stamp: new Date()
         });
-
+        
         var minVersion = '0.1.0';
         if (!_.contains(['atm', 'mrt'], client) || (client === 'mrt' && version < minVersion))
           throw new Meteor.Error(400, "Y'oopsy¡ You need a newer version of " +

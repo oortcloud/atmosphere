@@ -1,4 +1,4 @@
-# WARNING! filters needs to be before accounts (for now)!
+# WARNING! filters needs to be before accounts (for now)! 
 filters
 
 disable-auto-login
@@ -13,3 +13,4 @@ fork-me
 validation
 underscore-string
 router
+groups

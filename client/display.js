@@ -96,6 +96,10 @@
     return JSON.stringify(this, null, 2);
   };
 
+  Template.logs.logs = function() {
+    return Logs.find({});
+  };
+
   Template.packages.packagesLoading = function() {
     return Session.get('packages.loading');
   };

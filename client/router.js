@@ -4,6 +4,7 @@ AtmosRouter = ReactiveRouter.extend({
     'wtf': 'wtfApp',
     'wtf/app': 'wtfApp',
     'wtf/package': 'wtfPackage',
+    'logs': 'logs',
     // TEMP
     'dump': 'dump'
   },
@@ -23,6 +24,10 @@ AtmosRouter = ReactiveRouter.extend({
   // TEMP
   dump: function() {
     this.goto('dump');
+  },
+
+  logs: function() {
+    this.goto('logs');
   }
 });
 

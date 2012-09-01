@@ -40,6 +40,14 @@
   {{/each}}
 </template>
 
+<template name="logs">
+  {{#each logs}}
+    {{#if this/stamp}}
+      <p>{{this/stamp}} {{this/name}}</p>
+    {{/if}}
+  {{/each}}
+</template>
+
 <template name="packages">
   {{#if packagesLoading}}
     <p>
