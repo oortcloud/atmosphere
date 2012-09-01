@@ -1,4 +1,4 @@
-# `filters` needs to be first until it gets fixed
+# WARNING! filters needs to be before accounts (for now)!
 filters
 
 disable-auto-login

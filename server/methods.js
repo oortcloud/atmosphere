@@ -4,7 +4,8 @@ Meteor.methods({
     Logs.insert({
       name: 'method.publish',
       userId: this.userId(),
-      pkgInfo: pkgInfo
+      pkgInfo: pkgInfo,
+      stamp: new Date()
     });
 
     var pkgRecord = Packages.findOne({ name: pkgInfo.name });

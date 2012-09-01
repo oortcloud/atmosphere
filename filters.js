@@ -32,7 +32,8 @@ if (Meteor.is_server)
           name: 'methods.login',
           client: client,
           version: version,
-          options: options
+          options: options,
+          stamp: new Date()
         });
 
         var minVersion = '0.1.0';
