@@ -1,13 +1,16 @@
+
+// Packages
+
 Packages = new Meteor.Collection('packages');
-Logs = new Meteor.Collection('logs');
 
-Meteor.startup(function() {
-  Session.set('packages.loading', true);
+Session.set('packages.loading', true);
 
-  Meteor.subscribe('packages', function() {
-    Session.set('packages.loading', false);
-  });
+Meteor.subscribe('packages', function() {
+  Session.set('packages.loading', false);
 });
 
+// Logs
+
+Logs = new Meteor.Collection('logs');
 
 Meteor.subscribe('logs');
