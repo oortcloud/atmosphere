@@ -3,8 +3,8 @@
     {{#if currentUser}}
       <div class="login-header">
         <div class="btn-group">
-          <a class="btn" href="#" {{#if currentUser.loading}}disabled{{/if}}><i class="icon-user"></i> {{#if currentUser.loading}}loading...{{else}}{{displayName}}{{/if}}</a>
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+          <a class="btn btn-small" href="#" {{#if currentUser.loading}}disabled{{/if}}><i class="icon-user"></i> {{#if currentUser.loading}}loading...{{else}}{{displayName}}{{/if}}</a>
+          <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#" class="login-button" id="login-buttons-logout"><i class="icon-off"></i> Sign out</a></li>
           </ul>
@@ -88,8 +88,8 @@
 
 <template name="loginButtonsServicesDropdown">
   <div class="login-link-and-dropdown-list">
-    <a class="login-link-text btn"><i class="icon-user"></i> Sign in</a>
-    <a id="signup-link" class="btn"><i class="icon-plus-sign"></i> Sign up</a>
+    <a class="login-link-text btn btn-small"><i class="icon-user"></i> Sign in</a>
+    <a id="signup-link" class="btn btn-small"><i class="icon-plus-sign"></i> Sign up</a>
     {{#if dropdownVisible}}
     <div id="login-dropdown-list" class="accounts-dialog">
       <button type="button" class="login-close-text close">×</button>
