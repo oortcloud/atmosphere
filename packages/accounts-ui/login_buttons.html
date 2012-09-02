@@ -1,0 +1,181 @@
+<template name="loginButtons">
+  <div id="login-buttons">
+    {{#if currentUser}}
+      <div class="login-header">
+        <div class="btn-group">
+          <a class="btn" href="#" {{#if currentUser.loading}}disabled{{/if}}><i class="icon-user"></i> {{#if currentUser.loading}}loading...{{else}}{{displayName}}{{/if}}</a>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="login-button" id="login-buttons-logout"><i class="icon-off"></i> Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    {{else}}
+      {{#if services}}
+        {{#if dropdown}}
+          {{> loginButtonsServicesDropdown}}
+        {{else}}
+          {{> loginButtonsServicesRow}}
+        {{/if}}
+      {{else}}
+        <div class="no-services">No login services configured.</div>
+      {{/if}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="loginButtonsServicesRow">
+  {{#each services}}
+    {{#if isPasswordService}}
+      {{#if hasOtherServices}}
+        <div class="or">
+          <span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="or-text">or</span>
+          <span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+      {{/if}}
+      {{#if inForgotPasswordFlow}}
+      {{> forgotPasswordForm}}
+      {{else}}
+      <div class="login-form login-password-form">
+        {{#each fields}}
+          {{> loginButtonsFormField}}
+        {{/each}}
+
+        {{> loginButtonsMessages}}
+
+        <div class="login-button login-button-form-submit btn btn-block" id="login-buttons-password">
+          {{#if inSignupFlow}}
+          Create account
+          {{else}}
+          Sign in
+          {{/if}}
+        </div>
+
+        {{#if inLoginFlow}}
+        {{#if showForgotPasswordLink}}
+        <div class="additional-link-container">
+          <a id="forgot-password-link" class="additional-link">Forgot password</a>
+        </div>
+        {{/if}}
+        {{/if}}
+      </div>
+      {{/if}}
+    {{else}}
+      <div class="login-button" id="login-buttons-{{name}}">
+        <div class="login-image" id="login-buttons-image-{{name}}"></div>
+        Sign in with {{name}}
+      </div>
+    {{/if}}
+  {{/each}}
+</template>
+
+<template name="loginButtonsFormField">
+  <label id="login-{{fieldName}}-label" for="login-{{fieldName}}">
+    {{fieldLabel}}
+  </label>
+  <input id="login-{{fieldName}}" type="{{inputType}}" />
+</template>
+
+<template name="loginButtonsMessages">
+  {{#if errorMessage}}
+  <div class="message error-message">{{errorMessage}}</div>
+  {{/if}}
+  {{#if infoMessage}}
+  <div class="message info-message">{{infoMessage}}</div>
+  {{/if}}
+</template>
+
+<template name="loginButtonsServicesDropdown">
+  <div class="login-link-and-dropdown-list">
+    <a class="login-link-text btn"><i class="icon-user"></i> Sign in</a>
+    <a id="signup-link" class="btn"><i class="icon-plus-sign"></i> Sign up</a>
+    {{#if dropdownVisible}}
+    <div id="login-dropdown-list" class="accounts-dialog">
+      <button type="button" class="login-close-text close">×</button>
+      <div class="login-close-text-clear"></div>
+      {{> loginButtonsServicesRow}}
+    </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="forgotPasswordForm">
+  <div class="login-form">
+    <label id="forgot-password-email-label" for="forgot-password-email">Email</label>
+    <input id="forgot-password-email"/>
+
+    {{> loginButtonsMessages}}
+
+    <div class="login-button login-button-form-submit" id="login-buttons-forgot-password">
+      Reset password
+    </div>
+  </div>
+</template>
+
+<template name="resetPasswordForm">
+  {{#if inResetPasswordFlow}}
+  <div class="hide-background"></div>
+
+  <div id="reset-password-form" class="accounts-dialog">
+    <label id="reset-password-new-password-label" for="reset-password-new-password">
+      New password
+    </label>
+
+    <div>
+      <input id="reset-password-new-password" type="password" />
+    </div>
+
+    {{> loginButtonsMessages}}
+
+    <div class="login-button login-button-form-submit" id="login-buttons-reset-password-button">
+      Reset password
+    </div>
+
+    <a class="additional-link" id="login-buttons-cancel-reset-password">
+      Cancel
+    </a>
+  </div>
+  {{/if}}
+</template>
+
+<template name="enrollAccountForm">
+  {{#if inEnrollAccountFlow}}
+  <div class="hide-background"></div>
+
+  <div id="enroll-account-form" class="accounts-dialog">
+    <label id="enroll-account-password-label" for="enroll-account-password">
+      Choose a password
+    </label>
+
+    <div>
+      <input id="enroll-account-password" type="password" />
+    </div>
+
+    {{> loginButtonsMessages}}
+
+    <div class="login-button login-button-form-submit" id="login-buttons-enroll-account-button">
+      Create account
+    </div>
+
+    <a class="additional-link" id="login-buttons-cancel-enroll-account">
+      Cancel
+    </a>
+  </div>
+  {{/if}}
+</template>
+
+<template name="justValidatedUserForm">
+  {{#if visible}}
+  <div id="just-validated-user-form" class="accounts-dialog">
+    Email validated.
+    <div class="login-button" id="just-validated-dismiss-button">Dismiss</div>
+  </div>
+  {{/if}}
+</template>
+
+<body>
+  {{> resetPasswordForm}}
+  {{> enrollAccountForm}}
+  {{> justValidatedUserForm}}
+</body>

@@ -5,7 +5,7 @@
     repo: 'atmosphere',
     ribbon: {
       position: 'left',
-      color: 'gray'
+      color: 'red'
     }
   });
 

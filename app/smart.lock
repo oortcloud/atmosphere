@@ -7,8 +7,11 @@
       "login-filter": {
         "path": "/Users/mike/work/m/atmosphere/packages/login-filter"
       },
+      "atm-accounts-ui": {
+        "path": "/Users/mike/work/m/atmosphere/packages/accounts-ui"
+      },
       "groups": {
-        "path": "/Users/mike/work/m/groups"
+        "version": "0.0.3"
       },
       "disable-auto-login": {
         "version": "0.0.2"
@@ -39,8 +42,13 @@
       "login-filter": {
         "path": "/Users/mike/work/m/atmosphere/packages/login-filter"
       },
+      "atm-accounts-ui": {
+        "path": "/Users/mike/work/m/atmosphere/packages/accounts-ui"
+      },
       "groups": {
-        "path": "/Users/mike/work/m/groups"
+        "git": "https://github.com/possibilities/meteor-groups.git",
+        "tag": "v0.0.3",
+        "commit": "063a629c4db44802e8c8fe369875bbb8d1c2ff33"
       },
       "disable-auto-login": {
         "git": "https://github.com/possibilities/meteor-disable-auto-login.git",

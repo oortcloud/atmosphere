@@ -2,7 +2,7 @@
 filters
 
 login-filter
-accounts-ui
+atm-accounts-ui
 accounts-passwords
 
 force-ssl
