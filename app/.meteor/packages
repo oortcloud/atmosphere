@@ -1,7 +1,7 @@
 # WARNING! filters needs to be before accounts (for now)! 
 filters
 
-disable-auto-login
+login-filter
 accounts-ui
 accounts-passwords
 

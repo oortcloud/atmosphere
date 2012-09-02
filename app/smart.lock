@@ -4,8 +4,11 @@
   },
   "dependencies": {
     "basePackages": {
+      "login-filter": {
+        "path": "/Users/mike/work/m/atmosphere/packages/login-filter"
+      },
       "groups": {
-        "version": "0.0.3"
+        "path": "/Users/mike/work/m/groups"
       },
       "disable-auto-login": {
         "version": "0.0.2"
@@ -33,10 +36,11 @@
       }
     },
     "packages": {
+      "login-filter": {
+        "path": "/Users/mike/work/m/atmosphere/packages/login-filter"
+      },
       "groups": {
-        "git": "https://github.com/possibilities/meteor-groups.git",
-        "tag": "v0.0.3",
-        "commit": "063a629c4db44802e8c8fe369875bbb8d1c2ff33"
+        "path": "/Users/mike/work/m/groups"
       },
       "disable-auto-login": {
         "git": "https://github.com/possibilities/meteor-disable-auto-login.git",
