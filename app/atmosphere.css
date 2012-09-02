@@ -6,6 +6,10 @@ h1 {
   line-height: 50px;
 }
 
+.page-header a:hover {
+  text-decoration: none;
+}
+
 h1 a {
   color: #333;
 }
