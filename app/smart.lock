@@ -31,10 +31,10 @@
         "version": "0.0.2"
       },
       "underscore-string": {
-        "version": "2.2.0rc"
+        "version": "2.2.0rc.1"
       },
       "validation": {
-        "version": "0.0.5"
+        "version": "0.0.7"
       },
       "router": {
         "version": "0.1.0"
@@ -79,13 +79,13 @@
       },
       "underscore-string": {
         "git": "https://github.com/possibilities/meteor-underscore-string.git",
-        "tag": "v2.2.0rc",
-        "commit": "b0210162be828408985c5a95728c73b361a15e7d"
+        "tag": "v2.2.0rc.1",
+        "commit": "dec21fac23310daf76dc19f246749e7beb48af03"
       },
       "validation": {
         "git": "https://github.com/possibilities/meteor-validation.git",
-        "tag": "v0.0.5",
-        "commit": "71857f85c4a4143e4b772ddbbaf69d99a1d43718"
+        "tag": "v0.0.7",
+        "commit": "14dfdc6e08ffc0ad173d0f2ae244d9ed8dd8e18e"
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
