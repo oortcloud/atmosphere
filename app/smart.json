@@ -12,8 +12,8 @@
     "bootstrap.less": "2.1.0",
     "moment": "1.7.0",
     "fork-me": "0.0.2",
-    "underscore-string": "2.2.0rc",
-    "validation": "0.0.5",
+    "underscore-string": "2.2.0rc.1",
+    "validation": "0.0.7",
     "router": "0.1.0"
   }
 }

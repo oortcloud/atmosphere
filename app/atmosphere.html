@@ -9,9 +9,7 @@
   <div class="container" role="main">
     <div class="row">
       <div class="span8 offset2">
-        <div class="page-header">
-          <h1><a href="/">Atmosphere <small>Beer. Wings. Smart Packages</small></a></h1>
-        </div>
+        {{> header}}
         <div class="content">
           {{> content}}
         </div>
@@ -20,6 +18,12 @@
   </div>
   {{> bottomBar}}
 </body>
+
+<template name="header">
+  <div class="page-header">
+    <h1><a href="#">Atmosphere <small>Beer. Wings. Smart Packages</small></a></h1>
+  </div>
+</template>
 
 <template name="content">
   <ul class="nav nav-tabs nav-main">

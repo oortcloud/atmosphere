@@ -115,6 +115,13 @@
     return this.meteor;
   };
 
+  Template.header.events = {
+    'click .page-header a': function(e) {
+      e.preventDefault();
+      Router.navigate('/', { trigger: true });
+    }
+  };
+
   Template.content.events = {
     'click .nav a': function(e) {
       e.preventDefault();
