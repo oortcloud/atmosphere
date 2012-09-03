@@ -1,6 +1,7 @@
 {
   "meteor": {
-    "path": "/Users/mike/work/m/meteor"
+    "git": "https://github.com/possibilities/meteor",
+    "branch": "devel-auth"
   },
   "packages": {
     "login-filter": { "path": "../packages/login-filter" },

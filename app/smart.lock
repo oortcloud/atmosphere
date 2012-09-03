@@ -1,6 +1,8 @@
 {
   "meteor": {
-    "path": "/Users/mike/work/m/meteor"
+    "git": "https://github.com/possibilities/meteor",
+    "branch": "devel-auth",
+    "commit": "ac0a0374f3e4035575664ad4fc7950ef356505c3"
   },
   "dependencies": {
     "basePackages": {
