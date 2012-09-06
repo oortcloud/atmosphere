@@ -36,7 +36,7 @@ if (Meteor.is_server)
           stamp: new Date()
         });
         
-        var minVersion = '0.1.0';
+        var minVersion = '0.2.0';
         if (!_.contains(['atm', 'mrt'], client) || (client === 'mrt' && version < minVersion))
           throw new Meteor.Error(400, "Y'oopsy¡ You need a newer version of " +
                                       "Meteorite to use Atmosphere! It must be " +
