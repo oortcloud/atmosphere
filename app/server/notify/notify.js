@@ -27,9 +27,10 @@ Notify = {
         }).count();
 
         messages.push('Nice job! We now have ' + packageCount + ' community packages!');
-        notifyIrc(messages);
 
       }
+
+      notifyIrc(messages);
 
     }
   }
