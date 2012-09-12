@@ -1,15 +1,15 @@
 
 var irc = NodeModules.require('irc');
-console.log(irc);
+
 var notifyIrc = function(message) {
   var client = new irc.Client('irc.freenode.net', 'atmosphere', {
     userName: 'Atmosphere',
     realName: 'Atmosphere Smart Packages',
-    channels: ['#oortcloud'],
+    channels: ['#meteor'],
   });
   
-  client.addListener('join#oortcloud', function () {
-    client.say('#oortcloud', message);
+  client.addListener('join#meteor', function () {
+    client.say('#meteor', message);
     client.disconnect("Be smart! https://atmosphere.meteor.com");
   });
 

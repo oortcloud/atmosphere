@@ -40,7 +40,7 @@
         "version": "0.1.0"
       },
       "node-modules": {
-        "version": "0.0.4"
+        "version": "0.0.5"
       }
     },
     "packages": {
@@ -97,8 +97,8 @@
       },
       "node-modules": {
         "git": "https://github.com/possibilities/meteor-node-modules.git",
-        "tag": "v0.0.4",
-        "commit": "697a1dcda00a844bf0982fd426989b296a940740"
+        "tag": "v0.0.5",
+        "commit": "d502e5091759073a6baed856fadd93012749842d"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
