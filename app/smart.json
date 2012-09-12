@@ -14,6 +14,6 @@
     "underscore-string": "2.2.0rc.1",
     "validation": "0.0.7",
     "router": "0.1.0",
-    "node-modules": "0.0.2"
+    "node-modules": "0.0.4"
   }
 }

@@ -15,7 +15,7 @@ Notify = {
       }
       
       if (prefix) {
-        notifyIrc('[' + prefix + '] ' + pkg.name + ', version: v' + pkg.latest);
+        notifyIrc('[' + prefix + '] ' + pkg.name + ' v' + pkg.latest);
       }
     }
   }

@@ -3,7 +3,7 @@ filters
 
 login-filter
 atm-accounts-ui
-accounts-passwords
+accounts-password
 force-ssl
 bootstrap.less
 moment

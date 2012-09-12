@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
     "branch": "auth",
-    "commit": "d51d060f83c21a5581d3676df008529249895fc8"
+    "commit": "a5a3d3a94a0c35bbea7f81752e72edd3190e4842"
   },
   "dependencies": {
     "basePackages": {
@@ -40,7 +40,7 @@
         "version": "0.1.0"
       },
       "node-modules": {
-        "version": "0.0.2"
+        "version": "0.0.4"
       }
     },
     "packages": {
@@ -97,8 +97,8 @@
       },
       "node-modules": {
         "git": "https://github.com/possibilities/meteor-node-modules.git",
-        "tag": "v0.0.2",
-        "commit": "5af65f4d2d6a52a76d94a3883b539e91757f1e28"
+        "tag": "v0.0.4",
+        "commit": "697a1dcda00a844bf0982fd426989b296a940740"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
