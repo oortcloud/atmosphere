@@ -38,6 +38,9 @@
       },
       "router": {
         "version": "0.1.0"
+      },
+      "node-modules": {
+        "version": "0.0.2"
       }
     },
     "packages": {
@@ -91,6 +94,11 @@
         "git": "https://github.com/tmeasday/meteor-router.git",
         "tag": "v0.1.0",
         "commit": "c73515515f1d267108f78b4928a6866952290761"
+      },
+      "node-modules": {
+        "git": "https://github.com/possibilities/meteor-node-modules.git",
+        "tag": "v0.0.2",
+        "commit": "5af65f4d2d6a52a76d94a3883b539e91757f1e28"
       },
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",

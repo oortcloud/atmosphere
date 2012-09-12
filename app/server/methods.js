@@ -118,6 +118,8 @@ Meteor.methods({
       // Get the update ID first
       var id = pkgRecord._id;
 
+      Notify.send('package', 'update', pkgRecord);
+
       // Do the update
       Packages.update(id, {
         $set: _.removeId(pkgRecord)
@@ -142,6 +144,8 @@ Meteor.methods({
         updatedAt: now,
         versions: [versionRecord]
       });
+
+      Notify.send('package', 'new', newPackage);
 
       // Insert it
       Packages.insert(newPackage);
