@@ -14,9 +14,23 @@ Notify = {
           break;
       }
       
-      if (prefix) {
-        notifyIrc('[' + prefix + '] ' + pkg.name + ' v' + pkg.latest);
+      var messages = [];
+
+      if (prefix)
+        messages.push('[' + prefix + '] ' + pkg.name + ' v' + pkg.latest)
+
+      if (mode === 'new') {
+
+        //TODO NOT DRY!
+        var packageCount = Packages.find({
+          visible: { $ne: false }
+        }).count();
+
+        messages.push('Nice job! We now have ' + packageCount + ' community packages!');
+        notifyIrc(messages);
+
       }
+
     }
   }
 };
