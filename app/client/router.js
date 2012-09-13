@@ -1,6 +1,7 @@
 AtmosRouter = ReactiveRouter.extend({
   routes: {
     '': 'packages',
+    'package/:name': 'package',
     'wtf': 'wtfApp',
     'wtf/app': 'wtfApp',
     'wtf/package': 'wtfPackage',
@@ -11,6 +12,11 @@ AtmosRouter = ReactiveRouter.extend({
 
   packages: function() {
     this.goto('packages');
+  },
+  
+  package: function(name) {
+    Session.set('currentPackage', name);
+    this.goto('package');
   },
   
   wtfApp: function() {

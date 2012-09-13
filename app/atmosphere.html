@@ -28,14 +28,13 @@
 <template name="content">
   <ul class="nav nav-tabs nav-main">
     <li class="{{isActiveTop "wtf"}} pull-right"><a href="wtf/app">WTF¿</a></li>
-    <li class="{{isActiveTop "packages"}} pull-right"><a href="">Packages</a></li>
+    <li class="{{isActiveTop "package|packages"}} pull-right"><a href="">Packages</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active">
       {{{render currentPage}}}
     </div>
   </div>
-  <div id="modal-backdrop" class="modal-backdrop {{modalHidden}}"></div>
 </template>
 
 <template name="dump">
@@ -65,7 +64,6 @@
           <tr>
             <th>Smart Packages <span class="info">1 - {{packages.count}} of {{packages.count}}</span></th>
             <th>Version</th>
-            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -73,7 +71,7 @@
           <tr>
             <td>
                 <dl class="package-title">
-                    <dt><a href="{{homepage}}">{{trunc name 80}}</a></dt>
+                    <dt><a href="/package/{{name}}">{{trunc name 80}}</a></dt>
                     <dd>{{trunc description 75}}</dd>
                 </dl>
             </td>
@@ -85,20 +83,6 @@
                         <span class="timeAgo"><nobr>{{timeAgo}}</nobr></span>
                     </dd>
                 </dl>
-            </td>
-            <td class="info-cell">
-              <a class="btn btn-mini details"><i class="icon-info-sign"></i> Info</a>
-              
-              <div class="modal {{detailsModalClass}}">
-                <div class="modal-header">
-                  <button type="button" class="close">×</button>
-                  <h3>Package Info</h3>
-                </div>
-                <div class="modal-body">
-                  {{> package}}
-                </div>
-              </div>
-              
             </td>
           </tr>
           {{/each}}
@@ -117,31 +101,34 @@
 </template>
 
 <template name="package">
-  <dl>
-    <dt><p>Name</p></dt>
-    <dd><p><a href="{{homepage}}">{{name}}</a></p></dd>
-    <dt><p>Description</p></dt>
-    <dd><p>{{description}}</p></dd>
-    <dt><p>Author</p></dt>
-    <dd>
-      <p>
-        {{#if author/url}}<a href="{{author/url}}">{{/if}}
-          {{author/name}}
-        {{#if author/url}}</a>{{/if}}
-      </p>
-    </dd>
-    <dt><p>Current version</p></dt>
-    <dd><p>v{{latest}}</p></dd>
-    <dt><p>Available versions</p></dt>
-    <dd>
-      {{#each versions}}
-        <p>v{{version}}</p>
-      {{/each}}
-    </dd>
-    {{#if nonStandardMeteor}}
-      <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
-    {{/if}}
-  </dl>
+  {{#with package}}
+  {{#if package}}
+    <dl>
+      <dt><p>Name</p></dt>
+      <dd><p><a href="{{homepage}}">{{name}}</a></p></dd>
+      <dt><p>Description</p></dt>
+      <dd><p>{{description}}</p></dd>
+      <dt><p>Author</p></dt>
+      <dd>
+        <p>
+          {{#if author/url}}<a href="{{author/url}}">{{/if}}
+            {{author/name}}
+          {{#if author/url}}</a>{{/if}}
+        </p>
+      </dd>
+      <dt><p>Current version</p></dt>
+      <dd><p>v{{latest}}</p></dd>
+      {{#if nonStandardMeteor}}
+        <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
+      {{/if}}
+    </dl>
+  {{else}}
+    <p>
+      <i class="icon-refresh"></i>
+      loading...
+    </p>
+  {{/if}}
+  {{/with}}
 </template>
 
 <template name="bottomBar">

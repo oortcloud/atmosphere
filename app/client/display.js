@@ -27,7 +27,7 @@
     if (matchTop) {
       var pathTop = page.split('/')[0];
       var currentPageTop = Router.current_page().split('/')[0];
-      if (pathTop === currentPageTop)
+      if (pathTop === currentPageTop || _.contains(pathTop.split('|'), currentPageTop))
         isActive = true;
     }
     
@@ -66,22 +66,6 @@
     Meteor.setTimeout(function() { ctx.invalidate() }, parseInt(seconds) * 1000);
   });
   
-  Template.content.modalHidden = function() {
-    return Session.get('modal-dialog') ? '' : 'hidden';
-  };
-  
-  Template.packages.events = {
-    'click td.icon-cell': function(e) {
-      e.preventDefault();
-    }, 
-    'click .btn.details': function(e) {
-      Session.set('modal-dialog', 'details-' + this._id);
-    },
-    'click .modal .close': function(e) {
-      Session.set('modal-dialog', null);;
-    }
-  };
-
   Template.packages.packages = function() {
     return Packages.find({}, {sort: {'updatedAt': -1}});
   };
@@ -104,9 +88,9 @@
     return Session.get('packages.loading');
   };
   
-  Template.packages.detailsModalClass = function() {
-    return Session.equals('modal-dialog', 'details-' + this._id) ? '' : 'hide';
-  }
+  Template.package.package = function() {
+    return Packages.findOne({name: Session.get('currentPackage')});
+  };
 
   Template.package.nonStandardMeteor = function() {
     
@@ -123,7 +107,7 @@
   };
 
   Template.content.events = {
-    'click .nav a': function(e) {
+    'click .nav a, dt a': function(e) {
       e.preventDefault();
       var path = $(e.target).attr('href') || '';
       Router.navigate(path, { trigger: true });
