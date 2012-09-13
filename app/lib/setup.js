@@ -3,13 +3,31 @@ Meteor.accounts.config({
   requireEmail: false
 });
 
-Groups = new MeteorGroups({
-  adminGroup: 'admin'
-});
+Groups = new MeteorGroups();
 
-// TEMP
-// if (Meteor.is_server) {
-//   Groups.findOrCreateGroup('admin');
-//   var user = Meteor.users.findOne({username: 'possibilities'});
-//   Groups.addUserToGroupName(user, 'admin');
-// }
+if (Meteor.is_server) {
+
+  var user = Meteor.users.findOne({username: 'possibilities'});
+
+  Groups.groups.remove({});
+  Groups.groupsToUsers.remove({});
+
+  Groups.removeUserFromGroup(user, 'groupInsert');
+  Groups.removeUserFromGroup(user, 'groupUpdate');
+  Groups.removeUserFromGroup(user, 'groupRemove');
+  Groups.removeUserFromGroup(user, 'groupView');
+  Groups.removeUserFromGroup(user, 'logsView');
+
+  Groups.findOrCreateGroup('groupInsert');
+  Groups.findOrCreateGroup('groupUpdate');
+  Groups.findOrCreateGroup('groupRemove');
+  Groups.findOrCreateGroup('groupView');
+  Groups.findOrCreateGroup('logsView');
+  
+  Groups.addUserToGroup(user, 'groupInsert');
+  Groups.addUserToGroup(user, 'groupUpdate');
+  Groups.addUserToGroup(user, 'groupRemove');
+  Groups.addUserToGroup(user, 'groupView');
+  Groups.addUserToGroup(user, 'logsView');
+
+}

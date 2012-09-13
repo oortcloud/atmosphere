@@ -13,7 +13,7 @@
         "path": "../packages/accounts-ui"
       },
       "groups": {
-        "version": "0.0.3"
+        "version": "0.0.4"
       },
       "filters": {
         "version": "0.0.2"
@@ -49,8 +49,8 @@
       },
       "groups": {
         "git": "https://github.com/possibilities/meteor-groups.git",
-        "tag": "v0.0.3",
-        "commit": "063a629c4db44802e8c8fe369875bbb8d1c2ff33"
+        "tag": "v0.0.4",
+        "commit": "0bed006e981c257f2931384413df800503a5a0bb"
       },
       "filters": {
         "git": "https://github.com/possibilities/meteor-filters.git",
