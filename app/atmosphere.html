@@ -27,8 +27,8 @@
 
 <template name="content">
   <ul class="nav nav-tabs nav-main">
-    <li class="{{isActiveTop "wtf"}} pull-right"><a href="wtf/app">WTF¿</a></li>
-    <li class="{{isActiveTop "package|packages"}} pull-right"><a href="">Packages</a></li>
+    <li class="{{isActiveTop "wtf"}} pull-right"><a class="nav-link" href="wtf/app">WTF¿</a></li>
+    <li class="{{isActiveTop "package|packages"}} pull-right"><a class="nav-link" href="">Packages</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active">
@@ -71,7 +71,7 @@
           <tr>
             <td>
                 <dl class="package-title">
-                    <dt><a href="/package/{{name}}">{{trunc name 80}}</a></dt>
+                    <dt><a class="nav-link" href="/package/{{name}}">{{trunc name 80}}</a></dt>
                     <dd>{{trunc description 75}}</dd>
                 </dl>
             </td>
@@ -101,11 +101,12 @@
 </template>
 
 <template name="package">
+  <a href="/" class="nav-link pull-right">« Back to packages</a>
   {{#with package}}
   {{#if package}}
     <dl>
       <dt><p>Name</p></dt>
-      <dd><p><a href="{{homepage}}">{{name}}</a></p></dd>
+      <dd><p><a class="nav-link" href="{{homepage}}">{{name}}</a></p></dd>
       <dt><p>Description</p></dt>
       <dd><p>{{description}}</p></dd>
       <dt><p>Author</p></dt>

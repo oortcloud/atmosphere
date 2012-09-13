@@ -107,7 +107,7 @@
   };
 
   Template.content.events = {
-    'click .nav a, dt a': function(e) {
+    'click a.nav-link': function(e) {
       e.preventDefault();
       var path = $(e.target).attr('href') || '';
       Router.navigate(path, { trigger: true });
