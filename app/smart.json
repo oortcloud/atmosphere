@@ -6,7 +6,6 @@
     "login-filter": { "path": "../packages/login-filter" },
     "atm-accounts-ui": { "path": "../packages/accounts-ui" },
     "groups": "0.0.3",
-    "disable-auto-login": "0.0.2",
     "filters": "0.0.2",
     "bootstrap.less": "2.1.0",
     "moment": "1.7.0",
