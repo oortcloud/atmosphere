@@ -92,6 +92,12 @@
     return Packages.findOne({name: Session.get('currentPackage')});
   };
 
+  Template.package.dependencies = function() {
+    var latest = _.last(this.versions);
+    if (latest.packages)
+      return _.keys(latest.packages).join(', ');
+  };
+
   Template.package.nonStandardMeteor = function() {
     
     // NOTE: this strictly speaking isn't true, but why would you specify a 

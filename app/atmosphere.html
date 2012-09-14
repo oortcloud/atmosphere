@@ -119,6 +119,10 @@
       </dd>
       <dt><p>Current version</p></dt>
       <dd><p>v{{latest}}</p></dd>
+      {{#if dependencies}}
+        <dt><p>Dependencies</p></dt>
+        <dd><p>{{dependencies}}</p></dd>
+      {{/if}}
       {{#if nonStandardMeteor}}
         <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
       {{/if}}
