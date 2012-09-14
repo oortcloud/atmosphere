@@ -17,7 +17,7 @@ Notify = {
       var messages = [];
 
       if (prefix)
-        messages.push('[' + prefix + '] ' + pkg.name + ' v' + pkg.latest)
+        messages.push('[' + prefix + '] ' + pkg.name + ' v' + pkg.latest + ' https://atmosphere.meteor.com/package/' + pkg.name)
 
       if (mode === 'new') {
 
