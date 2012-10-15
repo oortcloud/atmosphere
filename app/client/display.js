@@ -57,7 +57,6 @@
   });
   
   // redraw a template every X seconds
-  // Nice trick huh? I should put something like this in deps-extensions - T
   Handlebars.registerHelper('refreshEvery', function(seconds) {
     var ctx = Meteor.deps.Context.current;
     if (!ctx)
@@ -107,6 +106,8 @@
 
   Template.header.events = {
     'click .page-header a': function(e) {
+      if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
+      
       e.preventDefault();
       Router.navigate('/', { trigger: true });
     }
@@ -114,6 +115,8 @@
 
   Template.content.events = {
     'click a.nav-link': function(e) {
+      if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
+      
       e.preventDefault();
       var path = $(e.target).attr('href') || '';
       Router.navigate(path, { trigger: true });
