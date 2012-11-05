@@ -102,13 +102,13 @@ mrt -p 3333
 </pre>
 
   <p>
-    Note: don't include in the `packages` declaration meteor packages that aren't on Atmosphere, such as jquery. Only include Atmospere packages there. In other words, `smart.json` is for Atmosphere, `package.js` is for meteor, and it's in `package.js` where you can have a `api.use('jquery', 'client');` statement if necessary.
+    Note: don't include in the <code>packages</code> declaration meteor packages that aren't on Atmosphere, such as jquery. Only include Atmospere packages there. In other words, <code>smart.json</code> is for Atmosphere, <code>package.js</code> is for meteor, and it's in <code>package.js</code> where you can have an <code>api.use('jquery', 'client');</code> statement if necessary.
   </p>  
 
 
   <h2>Testing your package</h2>
   <p>
-    Make sure to test your package works, before publishing it. To do that, create an app that uses your package, and in that app's root directory, have a `smart.json` that points to the local path of your package:
+    Make sure to test your package works, before publishing it. To do that, create an app that uses your package, and in that app's root directory, have a <code>smart.json</code> that points to the local path of your package:
   </p>
 
 <pre>
@@ -125,7 +125,7 @@ mrt -p 3333
 </pre>
 
   <p>
-    Make sure the app also includes your package in `.meteor/packages`. Now run the app with `mrt`. If everything goes well, you're ready to write the `README.md` file and publish.
+    Make sure the app also includes your package in <code>.meteor/packages</code>. Now run the app with <code>mrt</code>. If everything goes well, you're ready to write the <code>README.md</code> file and publish.
   </p>
   
 
