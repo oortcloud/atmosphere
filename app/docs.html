@@ -3,11 +3,13 @@
 
   {{> meteoriteCallout}}
 
+
   <h2>Installation</h2>
 
   <p>
     To install Meteorite via npm run <code>npm install -g meteorite</code>
   </p>
+
 
   <h2>Adding packages</h2>
   
@@ -42,10 +44,11 @@ mrt add moment --version 1.6.2
     As mentioned above <code>smart.json</code> can be maintained manually. For more info <a href="https://github.com/oortcloud/atmosphere/blob/master/app/smart.json">see Atmosphere's <code>smart.json</code></a> and <a href="http://oortcloud.github.com/meteorite">Meteorite's detailed documentation</a>.
   </p>
   
+
   <h2>Running the app</h2>
 
   <p>
-    With the smart package installed and <code>smart.json</code> in place you can now run your app using Meteorite to start using the newly installed package
+    With the smart package installed and <code>smart.json</code> in place you can now run your app using Meteorite to start using the newly installed package.
   </p>
 
 <pre>
@@ -71,7 +74,7 @@ mrt -p 3333
   <h2>Preparing <code>smart.json</code></h2>
 
   <p>
-    Atmosphere's smart packages are <em>vanilla</em> smart packages that conform to Meteor's current (private) smart package API. If you can put it in Meteor's <code>packages/</code> dir and it works, it will also work with Meteorite and Atmosphere by default. If your package has no dependencies of its own and lives in a git repo, it's already installable with Meteorite. 
+    Atmosphere's smart packages are <em>vanilla</em> smart packages that conform to Meteor's current (private) smart package API. If you can put it in Meteor's <code>packages/</code> dir and it works, it will also work with Meteorite and Atmosphere by default. If your package has no dependencies of its own and lives in a git repo, it's already installable with Meteorite.
   </p>
 
   <p>
@@ -98,9 +101,37 @@ mrt -p 3333
 }
 </pre>
 
+  <p>
+    Note: don't include in the `packages` declaration meteor packages that aren't on Atmosphere, such as jquery. Only include Atmospere packages there. In other words, `smart.json` is for Atmosphere, `package.js` is for meteor, and it's in `package.js` where you can have a `api.use('jquery', 'client');` statement if necessary.
+  </p>  
+
+
+  <h2>Testing your package</h2>
+  <p>
+    Make sure to test your package works, before publishing it. To do that, create an app that uses your package, and in that app's root directory, have a `smart.json` that points to the local path of your package:
+  </p>
+
+<pre>
+{
+  "meteor": {
+    "branch": "master"
+  },
+  "packages": {
+    "my-new-package" : {
+      "path": "/home/meteordev/meteor-my-new-package"
+    }
+  }
+}  
+</pre>
+
+  <p>
+    Make sure the app also includes your package in `.meteor/packages`. Now run the app with `mrt`. If everything goes well, you're ready to write the `README.md` file and publish.
+  </p>
+  
+
   <h2>Publishing</h2>
 
-  <p>Once you have a <code>smart.json</code> in place and you've pushed the code to it's origin (yes, everything is git based right now) you can use Meteorite to publish the repository to Atmosphere (or any compatible server).</p>
+  <p>Once you have a <code>smart.json</code> in place and you've pushed the code to its origin (yes, everything is git-based right now), you can use Meteorite to publish the repository to Atmosphere (or any compatible server).</p>
 
   <p class="alert">
     At this point you'll need an account on Atmosphere to continue. If you don't have one click on "Sign in" in the upper right hand corner to get started!
@@ -118,6 +149,14 @@ mrt -p 3333
     If you need more control over the release process you can use Meteorite's <code>publish</code> subcommand to publish the package to Atmosphere after you've tagged and pushed the repo.
   </p>
 
+
+  <h2>Example packages</h2>
+  
+  <p>
+    An excellent example of a package that does everything by the book, and includes CSS, images and JavaScript, is [jquery-rateit](https://atmosphere.meteor.com/package/jquery-rateit).
+  </p>
+  
+  
   <h2>Curating 3rd party packages</h2>
   <p>
     <em>TODO This section needs lots of love but for now <a href="https://gist.github.com/3327056">check out this gist</a> to see how I re-packaged <a href="https://github.com/epeli/underscore.string">underscore-string</a> as a smart package.</em>
