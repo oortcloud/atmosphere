@@ -6,5 +6,5 @@ Logs.allow({});
 
 Meteor.publish('logs', function() {
   if (Groups.isUserInGroup(this.userId(), 'logsView'))
-    return Logs.find();
+    return Logs.find({}, {limit: 300});
 });
