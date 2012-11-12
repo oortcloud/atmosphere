@@ -2,7 +2,7 @@ Meteor.publish('packages', function() {
 
   Logs.insert({
     name: 'publish.packages',
-    userId: this.userId(),
+    userId: this.userId,
     stamp: new Date()
   });
 
@@ -19,7 +19,7 @@ Meteor.publish('allPackages', function() {
 
   Logs.insert({
     name: 'publish.allPackages',
-    userId: this.userId(),
+    userId: this.userId,
     stamp: new Date()
   });
 

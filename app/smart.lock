@@ -1,8 +1,8 @@
 {
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
-    "branch": "auth",
-    "commit": "a5a3d3a94a0c35bbea7f81752e72edd3190e4842"
+    "branch": "master",
+    "commit": "68dafc94c5f1eb6cf2350ee74e9f65130f665bc5"
   },
   "dependencies": {
     "basePackages": {
@@ -33,9 +33,7 @@
       "validation": {
         "version": "0.0.7"
       },
-      "router": {
-        "version": "0.1.0"
-      },
+      "router": {},
       "node-modules": {
         "version": "0.0.5"
       }
@@ -84,18 +82,18 @@
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
-        "tag": "v0.1.0",
-        "commit": "c73515515f1d267108f78b4928a6866952290761"
+        "tag": "v0.2.3",
+        "commit": "0a6431923ba2724727233cf9300cdfe81076b9cd"
       },
       "node-modules": {
         "git": "https://github.com/possibilities/meteor-node-modules.git",
         "tag": "v0.0.5",
         "commit": "d502e5091759073a6baed856fadd93012749842d"
       },
-      "deps-extensions": {
-        "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
-        "branch": "master",
-        "commit": "110462c0ba33aaeb35e55069134287325cc453e5"
+      "page-js": {
+        "git": "https://github.com/tmeasday/meteor-page-js.git",
+        "tag": "v1.3.1",
+        "commit": "ee0b651869928abe50b5d06d7f32ccd2e657883a"
       }
     }
   }
