@@ -26,13 +26,13 @@
     // If desired check that the top level matches
     if (matchTop) {
       var pathTop = page.split('/')[0];
-      var currentPageTop = Router.current_page().split('/')[0];
+      var currentPageTop = Meteor.Router.page().split('/')[0];
       if (pathTop === currentPageTop || _.contains(pathTop.split('|'), currentPageTop))
         isActive = true;
     }
     
     // Is it a perfect match
-    var currentPage = Router.current_page();
+    var currentPage = Meteor.Router.page();
     if (currentPage === page)
       isActive = true;
     
@@ -109,18 +109,7 @@
       if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
       
       e.preventDefault();
-      Router.navigate('/', { trigger: true });
+      Meteor.Router.go('/');
     }
-  };
-
-  Template.content.events = {
-    'click a.nav-link': function(e) {
-      if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
-      
-      e.preventDefault();
-      var path = $(e.target).attr('href') || '';
-      Router.navigate(path, { trigger: true });
-    }
-  };
-  
+  };  
 })();

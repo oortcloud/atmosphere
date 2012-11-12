@@ -1,10 +1,18 @@
 Packages = new Meteor.Collection('packages');
-Packages.allow({});
+Packages.allow({
+  insert: function() { return true; },
+  update: function() { return true; },
+  remove: function() { return true; }
+});
 
 Logs = new Meteor.Collection('logs');
-Logs.allow({});
+Logs.allow({
+  insert: function() { return true; },
+  update: function() { return true; },
+  remove: function() { return true; }
+});
 
 Meteor.publish('logs', function() {
-  if (Groups.isUserInGroup(this.userId, 'logsView'))
+  if (Meteor.users.find({_id: this.userId, groups: 'logsView'}))
     return Logs.find({}, {limit: 300});
 });
