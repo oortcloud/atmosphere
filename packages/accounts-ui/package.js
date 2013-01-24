@@ -3,11 +3,8 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.use(['accounts-urls', 'accounts-base', 'underscore', 'spark', 'templating'], 'client');
-  api.use('less', 'server');
+  api.use('atm-accounts-ui-unstyled', 'client');
+  api.use('less', 'client');
 
-  api.add_files([
-    'login_buttons.less',
-    'login_buttons.html',
-    'login_buttons.js'], 'client');
+  api.add_files(['login_buttons.less'], 'client');
 });

@@ -3,7 +3,7 @@ Meteor.methods({
 
     Logs.insert({
       name: 'method.publish',
-      userId: this.userId(),
+      userId: Meteor.userId(),
       pkgInfo: pkgInfo,
       stamp: new Date()
     });
@@ -97,7 +97,7 @@ Meteor.methods({
     if (pkgRecord) {
 
       // Only the owner can update it
-      if (pkgRecord.userId !== this.userId())
+      if (pkgRecord.userId !== Meteor.userId())
         throw new Meteor.Error(401, "That ain't yr package son!");
 
       // Add new version
@@ -138,7 +138,7 @@ Meteor.methods({
 
       // Setup new package record
       var newPackage = _.extend(pkgInfo, {
-        userId: this.userId(),
+        userId: Meteor.userId(),
         latest: pkgInfo.version,
         createdAt: now,
         updatedAt: now,

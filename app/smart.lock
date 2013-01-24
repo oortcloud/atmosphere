@@ -1,19 +1,19 @@
 {
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
-    "branch": "auth",
-    "commit": "a5a3d3a94a0c35bbea7f81752e72edd3190e4842"
+    "branch": "master",
+    "commit": "4d98d8cb4e5a95e9e98953f44c872c9332a042a3"
   },
   "dependencies": {
     "basePackages": {
       "login-filter": {
         "path": "../packages/login-filter"
       },
+      "atm-accounts-ui-unstyled": {
+        "path": "../packages/accounts-ui-unstyled"
+      },
       "atm-accounts-ui": {
         "path": "../packages/accounts-ui"
-      },
-      "groups": {
-        "version": "0.0.4"
       },
       "filters": {
         "version": "0.0.2"
@@ -44,13 +44,11 @@
       "login-filter": {
         "path": "../packages/login-filter"
       },
+      "atm-accounts-ui-unstyled": {
+        "path": "../packages/accounts-ui-unstyled"
+      },
       "atm-accounts-ui": {
         "path": "../packages/accounts-ui"
-      },
-      "groups": {
-        "git": "https://github.com/possibilities/meteor-groups.git",
-        "tag": "v0.0.4",
-        "commit": "0bed006e981c257f2931384413df800503a5a0bb"
       },
       "filters": {
         "git": "https://github.com/possibilities/meteor-filters.git",
@@ -95,7 +93,7 @@
       "deps-extensions": {
         "git": "https://github.com/tmeasday/meteor-deps-extensions.git",
         "branch": "master",
-        "commit": "110462c0ba33aaeb35e55069134287325cc453e5"
+        "commit": "17fecee4e4ce44464145fe1f064d9cb6f50e166e"
       }
     }
   }

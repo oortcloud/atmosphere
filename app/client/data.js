@@ -13,4 +13,4 @@ Meteor.subscribe('packages', function() {
 
 Logs = new Meteor.Collection('logs');
 
-Meteor.subscribe('logs');
+// Meteor.subscribe('logs');
