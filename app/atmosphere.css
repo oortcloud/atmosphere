@@ -1,4 +1,3 @@
-
 /* Some nice fonts */
 h1 {
   font-family: 'Arvo', Georgia, Times, serif;
@@ -118,7 +117,6 @@ td.info-cell a {
 .bottom-bar {
   background-color: white;
   border-top: 1px solid #ddd;
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
