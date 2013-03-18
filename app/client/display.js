@@ -26,13 +26,13 @@
     // If desired check that the top level matches
     if (matchTop) {
       var pathTop = page.split('/')[0];
-      var currentPageTop = Router.current_page().split('/')[0];
+      var currentPageTop = Meteor.Router.page().split('/')[0];
       if (pathTop === currentPageTop || _.contains(pathTop.split('|'), currentPageTop))
         isActive = true;
     }
     
     // Is it a perfect match
-    var currentPage = Router.current_page();
+    var currentPage = Meteor.Router.page();
     if (currentPage === page)
       isActive = true;
     
@@ -58,11 +58,13 @@
   
   // redraw a template every X seconds
   Handlebars.registerHelper('refreshEvery', function(seconds) {
-    var ctx = Meteor.deps.Context.current;
-    if (!ctx)
-      return;
-      
-    Meteor.setTimeout(function() { ctx.invalidate() }, parseInt(seconds) * 1000);
+    if (!Deps.active)
+      return
+    
+    var computation = Deps.currentComputation
+    Meteor.setTimeout(function() { 
+      computation.invalidate();
+    }, parseInt(seconds) * 1000);
   });
   
   Template.packages.packages = function() {
@@ -109,7 +111,7 @@
       if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
       
       e.preventDefault();
-      Router.navigate('/', { trigger: true });
+      Meteor.Router.to('/');
     }
   };
 
@@ -119,7 +121,7 @@
       
       e.preventDefault();
       var path = $(e.target).attr('href') || '';
-      Router.navigate(path, { trigger: true });
+      Meteor.Router.to(path);
     }
   };
   
