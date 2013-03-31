@@ -29,7 +29,7 @@
   <ul class="nav nav-tabs nav-main">
     {{#if isPage "packages"}}
       {{#constant}}
-      <li style=""><input name="search" value="{{search_keywords}}" type="text" class="input-medium search-query" placeholder="Find a package..."></li>   {{/constant}}
+      <li style=""><input name="search" autocomplete="off" value="{{search_keywords}}" type="text" class="input-medium search-query" placeholder="Find a package..."></li>   {{/constant}}
     {{/if}}
     <li class="{{isActiveTop "wtf"}} pull-right"><a class="nav-link" href="/wtf/app">WTF¿</a></li>
     <li class="{{isActiveTop "package|packages"}} pull-right"><a class="nav-link" href="">Packages</a></li>
