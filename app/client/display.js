@@ -47,6 +47,10 @@
     return isNavActive(page, true) ? 'active' : '';
   });
 
+  Handlebars.registerHelper('isPage', function(page) {
+    return (page==Meteor.Router.page()) ? true : false;
+  });
+
   // Display helpers
 
   Handlebars.registerHelper('trunc', function(str, length, options) {
@@ -68,7 +72,8 @@
   });
   
   Template.packages.packages = function() {
-    return Packages.find({}, {sort: {'updatedAt': -1}});
+    keywords = new RegExp(Session.get("search_keywords"), "i");
+    return Packages.find({name:keywords}, {sort: {'updatedAt': -1}});
   };
 
   // TEMP
@@ -122,7 +127,14 @@
       e.preventDefault();
       var path = $(e.target).attr('href') || '';
       Meteor.Router.to(path);
+    },
+    'keyup [name=search]':function(e,context) {
+      Session.set("search_keywords", e.currentTarget.value);
     }
   };
+  
+  Template.content.search_keywords = function(){
+    return Session.get("search_keywords");
+  }
   
 })();

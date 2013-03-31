@@ -27,6 +27,10 @@
 
 <template name="content">
   <ul class="nav nav-tabs nav-main">
+    {{#if isPage "packages"}}
+      {{#constant}}
+      <li style=""><input name="search" value="{{search_keywords}}" type="text" class="input-medium search-query" placeholder="Find a package..."></li>   {{/constant}}
+    {{/if}}
     <li class="{{isActiveTop "wtf"}} pull-right"><a class="nav-link" href="/wtf/app">WTF¿</a></li>
     <li class="{{isActiveTop "package|packages"}} pull-right"><a class="nav-link" href="">Packages</a></li>
   </ul>
@@ -35,6 +39,12 @@
       {{{renderPage}}}
     </div>
   </div>
+</template>
+
+<template name="not_found">
+  <span style="position: absolute; -webkit-transform: rotate(90deg);-moz-transform: -moz-transform: rotate(-90deg);-o-transform: rotate(-90deg);writing-mode: lr-tb;font-size: 25pt;margin-left: 10px;">:(</span>
+  <span style="margin-left: 40px;font-size: 11pt;"> what you're looking for is in deeper space. Head back to the <a href="/" atmosphere="">Atmosphere</a></span>
+  
 </template>
 
 <template name="dump">
