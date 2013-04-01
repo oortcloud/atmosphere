@@ -101,7 +101,7 @@
   Template.package.dependencies = function() {
     var latest = _.last(this.versions);
     if (latest.packages)
-      return _.keys(latest.packages).join(', ');
+      return _.keys(latest.packages);
   };
 
   Template.package.nonStandardMeteor = function() {

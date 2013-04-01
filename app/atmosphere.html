@@ -131,7 +131,13 @@
       <dd><p>v{{latest}}</p></dd>
       {{#if dependencies}}
         <dt><p>Dependencies</p></dt>
-        <dd><p>{{dependencies}}</p></dd>
+        <dd>
+          {{#each dependencies}}
+            <p>
+              <a href="/package/{{this}}">{{this}}</a>
+            </p>
+          {{/each}}
+        </dd>
       {{/if}}
       {{#if nonStandardMeteor}}
         <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
