@@ -129,7 +129,7 @@
       Meteor.Router.to(path);
     },
     'keyup [name=search]':function(e,context) {
-      Session.set("search_keywords", e.currentTarget.value);
+      Session.set("search_keywords", e.currentTarget.value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&"));
     }
   };
   
