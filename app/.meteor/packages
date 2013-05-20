@@ -12,3 +12,5 @@ validation
 underscore-string
 router
 node-modules
+http
+showdown

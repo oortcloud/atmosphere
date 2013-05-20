@@ -150,5 +150,39 @@ Meteor.methods({
       // Insert it
       Packages.insert(newPackage);
     }
+  },
+  getReadMe:function(packageName) {
+    console.log("GET"+packageName);
+    var package = Packages.findOne({name:packageName});
+    
+    if(package) {
+      var github_data = /\/\/github\.com\/([\w]+)\/([\w-_\.]+)\.git/i.exec(package.git);
+      
+      if(github_data) {
+        var repo_owner = github_data[1];
+        var repo_name = github_data[2];
+        //var url = "https://api.github.com/repos/"+repo_owner+"/"+repo_name+"/readme";
+        var url = "http://raw.github.com/"+repo_owner+"/" + repo_name + "/master/README.md";
+        
+        try {
+          var result = Meteor.http.get(url,{headers:{"User-Agent":"Meteor Community Repository Bot"}});
+          console.log(result);
+        }
+        catch(err) {
+          return false;
+        }
+        
+        if(result.statusCode != 200) return false;
+        return result.content;  
+      }
+      else
+      {
+        return false;
+      }
+    }
+    else
+    {
+      return false;
+    }
   }
 });

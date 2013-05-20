@@ -143,6 +143,18 @@
         <dd>Note: This package relies on a non standard version of meteor. Be careful!</dd>
       {{/if}}
     </dl>
+    {{#if loadingreadme}}
+      <small><i class="icon-refresh"></i> Loading README.md</small>
+    {{else}}
+      {{#if readme}}
+        <hr/>
+        <div class="package-readme">
+        {{#markdown}}{{readme}}{{/markdown}}
+        </div>
+      {{else}}
+        <small>:( No README.md</small>
+      {{/if}}
+    {{/if}}
   {{else}}
     <p>
       <i class="icon-refresh"></i>

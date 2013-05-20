@@ -97,6 +97,23 @@
   Template.package.package = function() {
     return Packages.findOne({name: Session.get('currentPackage')});
   };
+  
+  Template.package.created = function() {
+    var name = Session.get("currentPackage");
+    if(Session.equals("readme_"+name, undefined)) {
+      Meteor.call("getReadMe",name,function(err,result) {
+        Session.set("readme_"+name,result);
+      });
+    }
+  }
+  
+  Template.package.readme = function() {
+    return Session.get("readme_"+Session.get('currentPackage'));
+  }
+  
+  Template.package.loadingreadme = function() {
+    return Session.equals("readme_"+Session.get('currentPackage'),undefined);
+  }
 
   Template.package.dependencies = function() {
     var latest = _.last(this.versions);
