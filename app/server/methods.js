@@ -166,7 +166,6 @@ Meteor.methods({
         
         try {
           var result = Meteor.http.get(url,{headers:{"User-Agent":"Meteor Community Repository Bot"}});
-          console.log(result);
         }
         catch(err) {
           return false;
