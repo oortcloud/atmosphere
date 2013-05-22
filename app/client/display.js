@@ -111,6 +111,10 @@
     return Session.get("readme_"+Session.get('currentPackage'));
   }
   
+  Template.package.github_hitlimit = function() {
+    return Session.equals("readme_"+Session.get('currentPackage'), 0);
+  }
+  
   Template.package.loadingreadme = function() {
     return Session.equals("readme_"+Session.get('currentPackage'),undefined);
   }

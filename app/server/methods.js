@@ -152,11 +152,10 @@ Meteor.methods({
     }
   },
   getReadMe:function(packageName) {
-    console.log("GET"+packageName);
     var package = Packages.findOne({name:packageName});
     
     if(package) {
-      var github_data = /\/\/github\.com\/([\w]+)\/([\w-_\.]+)\.git/i.exec(package.git);
+      var github_data = /\/\/github\.com\/([\w-_\.]+)\/([\w-_\.]+)\.git/i.exec(package.git);
       
       if(github_data) {
         var repo_owner = github_data[1];
@@ -166,13 +165,25 @@ Meteor.methods({
         
         try {
           var result = Meteor.http.get(url,{headers:{"User-Agent":"Meteor Community Repository Bot"}});
+          
+          if(result.statusCode != 200) return false;
+          
+          var markdown = Meteor.http.post("https://api.github.com/markdown",{headers:{"User-Agent":"Meteor Community Repository Bot"}, data:{text:result.content}});
+            
+          if(markdown.headers["x-ratelimit-remaining"] == 0) {
+            console.log("Hit githubs API limit")
+            return 0;
+          }
+          
+          return markdown.content;  
+          
+          
         }
         catch(err) {
           return false;
         }
         
-        if(result.statusCode != 200) return false;
-        return result.content;  
+        
       }
       else
       {

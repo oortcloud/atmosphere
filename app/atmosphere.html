@@ -149,10 +149,14 @@
       {{#if readme}}
         <hr/>
         <div class="package-readme">
-        {{#markdown}}{{readme}}{{/markdown}}
+        {{{readme}}}
         </div>
       {{else}}
+        {{#if github_hitlimit}}
+        <small>Hit github's api limit :/. Check back the repository for the readme</small>
+        {{else}}
         <small>:( No README.md</small>
+        {{/if}}
       {{/if}}
     {{/if}}
   {{else}}
