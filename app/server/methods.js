@@ -160,7 +160,7 @@ Meteor.methods({
       if(github_data) {
         var repo_owner = github_data[1];
         var repo_name = github_data[2];
-        //var url = "https://api.github.com/repos/"+repo_owner+"/"+repo_name+"/readme";
+        //var url = "https://api.github.com/repos/"+repo_owner+"/"+repo_name+"/readme"; //Base 64 contains binary data for some odd reason
         var url = "http://raw.github.com/"+repo_owner+"/" + repo_name + "/master/README.md";
         
         try {
