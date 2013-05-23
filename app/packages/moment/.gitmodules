@@ -1,0 +1,3 @@
+[submodule "lib/moment"]
+	path = lib/moment
+	url = https://github.com/timrwood/moment.git

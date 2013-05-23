@@ -1,0 +1,13 @@
+.githubBanner {
+  position: absolute;
+  border: 0;
+  top: 0;
+}
+
+.githubBanner.left {
+  left: 0;
+}
+
+.githubBanner.right {
+  right: 0;
+}

@@ -1,0 +1,39 @@
+<head>
+  <title>simple-routed-app</title>
+</head>
+
+<body>
+  <header>You are viewing the <strong>{{currentPage}}</strong> page now.</header>
+  {{renderPage}}
+</body>
+
+<template name="home">
+  <h1>This is the example!</h1>
+  <a href="{{welcomePath}}" class="welcome">Click here to go to your personalized welcome page</a>
+</template>
+
+<template name="sign_in">
+  <h4>Please Sign in!</h4>
+
+  <form>
+    <input name="username" placeholder="Please enter your name" autofocus="autofocus"/>
+    <button type="submit">Signin</button>
+  </form>
+</template>
+
+<template name="welcome">
+  <h1>Welcome {{username}}!</h1>
+  <form>
+    <label for="post_name">Create a post:</label>
+    <input name="post_name" id="post_name" placeholder="Please enter a post name" autofocus="autofocus"/>
+    <button type="submit">Create</button>
+  </form>
+  <a href="" class="logout">Signout</a>
+  <a href="{{homeUrl}}" class="home">Return home</a>
+</template>
+
+<template name="post">
+  <h1>Post</h1>
+  <h2>You are viewing the post: {{id}}</h2>
+  <p>Try the browser's Back button!</p>
+</template>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic</title>
+    <script src="/page.js"></script>
+  </head>
+  <body>
+    <h1>Basic</h1>
+    <p></p>
+    <ul>
+      <li><a href="./">/</a></li>
+      <li><a href="#whoop">#whoop</a></li>
+      <li><a href="./about">/about</a></li>
+      <li><a href="./contact">/contact</a></li>
+      <li><a href="./not-found?foo=bar">/not-found</a></li>
+    </ul>
+
+    <script>
+      // the "notfound" implements a catch-all
+      // with page('*', notfound). Here we have
+      // no catch-all, so page.js will redirect
+      // to the location of paths which do not
+      // match any of the following routes
+      page.base('/basic');
+      page('/', index);
+      page('/about', about);
+      page('/contact', contact);
+      page();
+
+      function index() {
+        document.querySelector('p')
+          .textContent = 'viewing index';
+      }
+      
+      function about() {
+        document.querySelector('p')
+          .textContent = 'viewing about';
+      }
+
+      function contact() {
+        document.querySelector('p')
+          .textContent = 'viewing contact';
+      }
+    </script>
+  </body>
+</html>
