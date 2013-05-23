@@ -10,4 +10,6 @@ This branch has several differences:
 - It doesn't require meteorite to deploy/run
 - The packages have been migrated to `/packages`
 
+The reason for this is several dependencies with the master branch repo are outdated and don't work with 0.6.0+
+
 Packages need to be kept up to date while the next engine compatible version of meteorite is complete
