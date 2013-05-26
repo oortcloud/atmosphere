@@ -180,3 +180,9 @@ td.info-cell a {
 .package-readme h3{
   font-size: 17px
 }
+
+@media (max-width: 767px) {
+	.githubBanner {
+		display: none;
+	}
+}
