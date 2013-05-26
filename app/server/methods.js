@@ -202,6 +202,10 @@ Meteor.methods({
         Packages.remove({name:packageName,userId:Meteor.userId()});
         return "Package removed";
       }
+      else
+      {
+        return "You're not authorized to delete this package";
+      }
     }else{
       return "You're not authorized to delete this package";
     }
