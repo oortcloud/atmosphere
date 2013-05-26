@@ -194,5 +194,16 @@ Meteor.methods({
     {
       return false;
     }
+  },
+  deletePackage:function(packageName) {
+    if(Meteor.user()) {
+      var package = Packages.findOne({name:packageName});
+      if(package.userId === Meteor.userId()) {
+        Packages.remove({name:packageName,userId:Meteor.userId()});
+        return "Package removed";
+      }
+    }else{
+      return "You're not authorized to delete this package";
+    }
   }
 });
