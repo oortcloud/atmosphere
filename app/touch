@@ -1,0 +1,15 @@
+{
+  "packages": {
+    "login-filter": { "path": "../packages/login-filter" },
+    "atm-accounts-ui-unstyled": { "path": "../packages/accounts-ui-unstyled" },
+    "atm-accounts-ui": { "path": "../packages/accounts-ui" },
+    "filters": "0.0.2",
+    "bootstrap.less": "2.1.0",
+    "moment": "1.7.0",
+    "fork-me": "0.0.2",
+    "underscore-string": "2.2.0rc.1",
+    "validation": "0.0.7",
+    "router": {},
+    "node-modules": "0.0.5"
+  }
+}

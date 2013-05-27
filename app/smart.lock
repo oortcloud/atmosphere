@@ -7,10 +7,10 @@
   "dependencies": {
     "basePackages": {
       "atm-accounts-ui-unstyled": {
-        "path": "../../../packages/accounts-ui-unstyled"
+        "path": "../packages/accounts-ui-unstyled"
       },
       "atm-accounts-ui": {
-        "path": "../../../packages/accounts-ui"
+        "path": "../packages/accounts-ui"
       },
       "moment": {
         "version": "1.7.0"
@@ -31,10 +31,10 @@
     },
     "packages": {
       "atm-accounts-ui-unstyled": {
-        "path": "../../../packages/accounts-ui-unstyled"
+        "path": "../packages/accounts-ui-unstyled"
       },
       "atm-accounts-ui": {
-        "path": "../../../packages/accounts-ui"
+        "path": "../packages/accounts-ui"
       },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
