@@ -1,11 +1,9 @@
-# WARNING! filters needs to be before accounts (for now)! 
-filters
+# WARNING! filters needs to be before accounts (for now)!
 
 login-filter
 atm-accounts-ui
 accounts-password
 force-ssl
-bootstrap.less
 moment
 fork-me
 validation
@@ -14,3 +12,5 @@ router
 node-modules
 http
 showdown
+less
+appcache

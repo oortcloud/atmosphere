@@ -12,7 +12,7 @@ var clientConfig = {
   channels: channels,
 };
 
-var notifyIrc = function(messages) {
+notifyIrc = function(messages) {
   messages = _.isArray(messages) ? messages : [messages];
 
   var client = new irc.Client('irc.freenode.net', 'atmosphere', clientConfig);
