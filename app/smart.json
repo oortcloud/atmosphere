@@ -1,7 +1,5 @@
 {
   "packages": {
-    "atm-accounts-ui-unstyled": { "path": "../packages/accounts-ui-unstyled" },
-    "atm-accounts-ui": { "path": "../packages/accounts-ui" },
     "moment": "1.7.0",
     "fork-me": "0.0.2",
     "underscore-string": "2.2.0rc.1",
