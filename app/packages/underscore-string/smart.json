@@ -1,8 +1,0 @@
-{
-  "name": "underscore-string",
-  "description": "underscore.string repackaged for Meteor",
-  "homepage": "https://github.com/possibilities/meteor-underscore-string",
-  "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)",
-  "version": "2.2.0rc.1",
-  "git": "https://github.com/possibilities/meteor-underscore-string.git"
-}
