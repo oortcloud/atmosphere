@@ -155,7 +155,7 @@ Meteor.methods({
     var package = Packages.findOne({name:packageName});
     
     if(package) {
-      var github_data = /\/\/github\.com\/([\w-_\.]+)\/([\w-_\.]+)\.git/i.exec(package.git);
+      var github_data = /\/\/github\.com\/([\w-_\.]+)\/([\w-_\.]+)/i.exec(package.git);
       
       if(github_data) {
         var repo_owner = github_data[1];
