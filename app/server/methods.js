@@ -204,7 +204,7 @@ Meteor.methods({
       stamp: new Date()
     });
     
-    Installs.insert({time:new Date(), version: version, isUpdate});
+    Installs.insert({time:new Date(), version: version, isUpdate: isUpdate});
   },
   deletePackage:function(packageName) {
     Logs.insert({
