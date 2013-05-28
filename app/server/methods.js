@@ -195,7 +195,25 @@ Meteor.methods({
       return false;
     }
   },
+  
+  CountInstall:function(packageName, version, isUpdate) {
+    Logs.insert({
+      name: 'method.countinstall',
+      userId: Meteor.userId(),
+      pkgInfo: pkgInfo,
+      stamp: new Date()
+    });
+    
+    Installs.insert({time:new Date(), version: version, isUpdate});
+  },
   deletePackage:function(packageName) {
+    Logs.insert({
+      name: 'method.deletepackage',
+      userId: Meteor.userId(),
+      packageName: packageName,
+      stamp: new Date()
+    });
+    
     if(Meteor.user()) {
       var package = Packages.findOne({name:packageName});
       if(package.userId === Meteor.userId()) {
