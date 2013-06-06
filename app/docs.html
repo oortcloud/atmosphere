@@ -150,14 +150,38 @@ mrt -p 3333
     If you need more control over the release process you can use Meteorite's <code>publish</code> subcommand to publish the package to Atmosphere after you've tagged and pushed the repo.
   </p>
 
-
   <h2>Example packages</h2>
   
   <p>
     An excellent example of a package that does everything by the book, and includes CSS, images and JavaScript, is <a href="https://atmosphere.meteor.com/package/jquery-rateit">jquery-rateit</a>.
   </p>
-  
-  
+
+  <h2>Adding <a href='https://travis-ci.org' target='_blank'>Travis-CI</a> support</h2>
+
+  <p>
+    It is really important have tests in your packages. You can do it easily with <a href='http://www.eventedmind.com/posts/meteor-testing-packages-with-tinytest' target='_blank'>tinytest</a>. With travis-ci you can build these tests on the cloud and put a small notitfication image on your packages as shown below.
+  </p>
+
+  <p>
+  <img src="https://travis-ci.org/arunoda/meteor-cluster.png?branch=master"><br>
+  </p>
+
+  <p>
+    just add following file as <code>.travis.yml</code> to your project and you are done.
+  </p>
+
+<pre>
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - "curl -L http://git.io/ejPSng | /bin/sh" 
+</pre>
+
+  <p>
+    Read more about <a href='http://meteorhacks.com/travis-ci-support-for-meteor-packages.html' target='_blank'>travis ci support for meteor packages</a>
+  </p>
+
   <h2>Curating 3rd party packages</h2>
   <p>
     <em>TODO This section needs lots of love but for now <a href="https://gist.github.com/3327056">check out this gist</a> to see how I re-packaged <a href="https://github.com/epeli/underscore.string">underscore-string</a> as a smart package.</em>
