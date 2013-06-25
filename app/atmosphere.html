@@ -27,10 +27,9 @@
 
 <template name="content">
   <ul class="nav nav-tabs nav-main">
-    {{#if isPage "packages"}}
-      {{#constant}}
-      <li style=""><input name="search" autocomplete="off" value="{{search_keywords}}" type="text" class="input-medium search-query" placeholder="Find a package..."></li>   {{/constant}}
-    {{/if}}
+    {{#constant}}
+      <li><input name="search" id="search" autocomplete="off" value="{{search_keywords}}" type="text" class="input-medium search-query" placeholder="Find a package..."></li>
+    {{/constant}}
     <li class="{{isActiveTop "wtf"}} pull-right"><a class="nav-link" href="/wtf/app">WTF¿</a></li>
     <li class="{{isActiveTop "package|packages"}} pull-right"><a class="nav-link" href="/">Packages</a></li>
   </ul>
@@ -90,7 +89,7 @@
                     <dt>v{{latest}}</dt>
                     <dd>
                         {{refreshEvery "15s"}}
-                        <span class="timeAgo"><nobr>{{timeAgo}}</nobr></span>
+                        <span class="timeAgo"><nobr><span title="{{humanizeUpdatedAt}}">{{timeAgo}}</span></nobr></span>
                     </dd>
                 </dl>
             </td>
@@ -114,11 +113,22 @@
   <a href="/" class="nav-link pull-right">« Back to packages</a>
   {{#with package}}
   {{#if package}}
+    <h2>{{name}}</h2>
     <dl>
-      <dt><p>Name</p></dt>
-      <dd><p><a href="{{homepage}}">{{name}}</a></p></dd>
       <dt><p>Description</p></dt>
       <dd><p>{{description}}</p></dd>
+      <dt><p>Homepage</p></dt>
+      <dd><p><a href="{{homepage}}">{{homepage}}</a></p></dd>
+      <dt>
+        <p>
+          Repository
+          {{#if github_data}}
+            <iframe src="http://ghbtns.com/github-btn.html?user={{github_data.repo_owner}}&repo={{github_data.repo_name}}&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20" align="top"></iframe>
+          {{/if}}
+        </p>
+        </dt>
+      <dd><p><a href="{{git}}">{{git}}</a></p></dd>
       <dt><p>Author</p></dt>
       <dd>
         <p>
@@ -128,7 +138,7 @@
         </p>
       </dd>
       <dt><p>Current version</p></dt>
-      <dd><p>v{{latest}}</p></dd>
+      <dd><p>v{{latest}}, last updated <span title="{{humanizeUpdatedAt}}">{{timeAgo}}</span></p></dd>
       {{#if dependencies}}
         <dt><p>Dependencies</p></dt>
         <dd>
