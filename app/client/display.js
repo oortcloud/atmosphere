@@ -18,6 +18,10 @@
     return timeAgo(this.updatedAt);
   });
 
+  Handlebars.registerHelper('humanizeUpdatedAt', function() {
+    return new Date(this.updatedAt);
+  });
+
   // Navigation helpers
 
   var isNavActive = function(page, matchTop) {
@@ -110,6 +114,17 @@
   Template.package.readme = function() {
     return Session.get("readme_"+Session.get('currentPackage'));
   }
+
+  Template.package.github_data = function() {
+    var github_data = /\/\/github\.com\/([\w-_\.]+)\/([\w-_\.]+)\.git/i.exec(Template.package.package().git);
+      
+      if(github_data) {
+        return {
+          "repo_owner": github_data[1],
+          "repo_name": github_data[2]
+        };
+      } else return false;
+  }
   
   Template.package.github_hitlimit = function() {
     return Session.equals("readme_"+Session.get('currentPackage'), 0);
@@ -134,7 +149,7 @@
 
   Template.header.events = {
     'click .page-header a': function(e) {
-      if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
+      if (e.shiftKey || e.ctrlKey || e.metaKey || e.which == 2) return true;
       
       e.preventDefault();
       Meteor.Router.to('/');
@@ -143,13 +158,14 @@
 
   Template.content.events = {
     'click a.nav-link': function(e) {
-      if (e.shiftKey || e.ctrlKey || e.metaKey) return true;
+      if (e.shiftKey || e.ctrlKey || e.metaKey || e.which == 2) return true;
       
       e.preventDefault();
       var path = $(e.target).attr('href') || '';
       Meteor.Router.to(path);
     },
     'keyup [name=search]':function(e,context) {
+      Meteor.Router.to('/');
       Session.set("search_keywords", e.currentTarget.value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&"));
     }
   };
