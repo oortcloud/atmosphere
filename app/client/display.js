@@ -79,6 +79,11 @@
     keywords = new RegExp(Session.get("search_keywords"), "i");
     return Packages.find({$or:[{name:keywords},{description:keywords}]}, {sort: {'updatedAt': -1}});
   };
+  
+  Template.package.ready = function() {
+    console.log(Session.get('package.ready'));
+    return Session.get('package.ready');
+  };
 
   // TEMP
   Template.dump.packages = function() {
