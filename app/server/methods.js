@@ -240,7 +240,7 @@ Meteor.methods({
     });
     
     var package = Packages.findOne({name: packageName});
-    if (! canEditPackage(package))
+    if (! package || ! canEditPackage(package))
       return "You're not authorized to change this package";
     
     var user = Meteor.users.findOne({username: username});
