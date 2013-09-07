@@ -67,10 +67,10 @@
   // redraw a template every X seconds
   Handlebars.registerHelper('refreshEvery', function(seconds) {
     if (!Deps.active)
-      return
+      return;
     
-    var computation = Deps.currentComputation
-    Meteor.setTimeout(function() { 
+    var computation = Deps.currentComputation;
+    Meteor.setTimeout(function() {
       computation.invalidate();
     }, parseInt(seconds) * 1000);
   });
@@ -78,6 +78,10 @@
   Template.packages.packages = function() {
     keywords = new RegExp(Session.get("search_keywords"), "i");
     return Packages.find({$or:[{name:keywords},{description:keywords}]}, {sort: {'updatedAt': -1}});
+  };
+
+  Template.packages.isOwner = function() {
+    return Meteor.userId() === this.userId;
   };
   
   Template.package.ready = function() {
@@ -114,11 +118,11 @@
         Session.set("readme_"+name,result);
       });
     }
-  }
+  };
   
   Template.package.readme = function() {
     return Session.get("readme_"+Session.get('currentPackage'));
-  }
+  };
 
   Template.package.github_data = function() {
     var github_data = /\/\/github\.com\/([\w-_\.]+)\/([\w-_\.]+)\.git/i.exec(Template.package.package().git);
@@ -129,15 +133,15 @@
           "repo_name": github_data[2]
         };
       } else return false;
-  }
+  };
   
   Template.package.github_hitlimit = function() {
     return Session.equals("readme_"+Session.get('currentPackage'), 0);
-  }
+  };
   
   Template.package.loadingreadme = function() {
     return Session.equals("readme_"+Session.get('currentPackage'),undefined);
-  }
+  };
 
   Template.package.dependencies = function() {
     var latest = _.last(this.versions);
@@ -177,6 +181,13 @@
   
   Template.content.search_keywords = function(){
     return Session.get("search_keywords");
-  }
+  };
+
+  Template.packages.events({
+    'click a.remove': function(event, template) {
+      if (confirm("Are you sure you wish to remove your package '" + this.name + "' ?"))
+        Packages.remove(this._id);
+    }
+  });
   
 })();

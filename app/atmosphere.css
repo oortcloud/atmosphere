@@ -90,13 +90,17 @@ dl.version-title {
     margin: 0;
     padding: 0;
 }
-
 .version-title dt {
     font-weight: bold;
 }
 
 .version-title dd {
     color: #777;
+}
+
+a.remove {
+  font-size: 11px;
+  color: #888;
 }
 
 td.info-cell {
