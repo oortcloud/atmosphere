@@ -186,7 +186,7 @@
   Template.packages.events({
     'click a.remove': function(event, template) {
       if (confirm("Are you sure you wish to remove your package '" + this.name + "' ?"))
-        Packages.remove(this._id);
+        Meteor.call('deletePackage', this.name);
     }
   });
   
