@@ -34,7 +34,7 @@ Meteor.methods({
                 message: 'You cannot have spaces in your package name.'
             };
         }
-      }
+      },
 
       // Description
       _.presenceOf   ('description'),
