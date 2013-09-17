@@ -27,6 +27,14 @@ Meteor.methods({
       // Name
       _.presenceOf   ('name'),
       _.lengthOf     ('name', { gte: 1, lte: 30 }),
+      function(doc){  
+        if(doc.name != null && doc.name.indexOf(" ") != -1){   
+            return {
+                field: 'name',
+                message: 'You cannot have spaces in your package name.'
+            };
+        }
+      }
 
       // Description
       _.presenceOf   ('description'),
