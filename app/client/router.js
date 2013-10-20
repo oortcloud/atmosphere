@@ -7,6 +7,7 @@ Meteor.Router.add({
   '/wtf': 'wtfApp',
   '/wtf/app': 'wtf/app',
   '/wtf/package': 'wtf/package',
+  '/wtf/maintain': 'wtf/maintain',
   '/logs': 'logs',
   '*':'not_found'
 });
