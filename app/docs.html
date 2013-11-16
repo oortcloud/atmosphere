@@ -206,6 +206,32 @@ before_install:
   </p>
 </template>
 
+<template name="wtf/maintain">
+  {{> wtfNav}}
+
+  {{> meteoriteCallout}}
+
+  <p>
+    This is a limited api for basic operations while maintaining packages
+  </p>
+
+  <h2>Add user as maintainer</h2>
+  <p>
+    Use the <code>addPackageMaintainer</code> command in the browser console
+<pre>
+  Meteor.call('addPackageMaintainer', 'packageName', 'username');
+</pre>
+  </p>
+  <h2>Remove package</h2>
+  <p>
+    Just <code>remove</code> or <code>rename</code> the github repo
+<!--<pre>
+  Meteor.call('deletePackage', 'mypackage');
+</pre>-->
+  </p>
+</template>
+
+
 <template name="wtfNav">
   <ul class="nav nav-pills nav-wtf">
     <li class="{{isActive "wtf/app"}}">
@@ -213,6 +239,9 @@ before_install:
     </li>
     <li class="{{isActive "wtf/package"}}">
       <a class="nav-link" href="/wtf/package">Building a smart package?</a>
+    </li>
+    <li class="{{isActive "wtf/maintain"}}">
+      <a class="nav-link" href="/wtf/maintain">Maintain a smart package?</a>
     </li>
   </ul>
 </template>
