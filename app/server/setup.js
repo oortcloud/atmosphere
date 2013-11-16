@@ -15,7 +15,7 @@ _.mixin({
     parseAuthor: function(rawAuthor) {
       var author = rawAuthor;
       if (_.isString(rawAuthor)) {
-        var authorParts = /([\w\s]+)(<\w+@[\w\.]+>)?\s*(\(.+\))?/gi.exec(rawAuthor);
+        var authorParts = /([\w\s\-]+)(<\w+@[\w\.]+>)?\s*(\(.+\))?/gi.exec(rawAuthor);
         author = {
           name: _.trim(authorParts[1])
         };
