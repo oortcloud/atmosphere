@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+ <ShortName>Atmosphere</ShortName>
+ <Description>Search the atmosphere package repo</Description>
+ <Tags>Atmosphere</Tags>
+ <Url type="text/html"
+      template="https://atmosphere.meteor.com/search/{searchTerms}"/>
+</OpenSearchDescription>

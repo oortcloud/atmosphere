@@ -9,5 +9,9 @@ Meteor.Router.add({
   '/wtf/package': 'wtf/package',
   '/wtf/maintain': 'wtf/maintain',
   '/logs': 'logs',
+  '/search/:query':function(query) {
+    Session.set("search_keywords", query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&"));
+    return 'packages';
+  },
   '*':'not_found'
 });
