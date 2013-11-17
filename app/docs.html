@@ -110,7 +110,11 @@ mrt -p 3333
 
   <h2>Testing your package</h2>
   <p>
-    Make sure to test your package works, before publishing it. To do that, create an app that uses your package, and in that app's root directory, have a <code>smart.json</code> that points to the local path of your package:
+    It helps if your package includes unit tests. See for example <a href="https://github.com/dandv/meteor-crypto-base64">crypto-base64</a> and for more on the topic, <a href="https://www.eventedmind.com/feed/e6gJZXNQWyNP2MLsb">Testing Packages with Tinytest</a>.
+    If you use <code>mrt create-package</code>, <a href="https://github.com/oortcloud/meteorite#mrt-create-package-pathtofoo">Meteorite</a> will create the scaffolding required in <code>package.js</code>, and you'll only need to add the actual test code in the <code>*_test.js</code> file it creates.
+  </p>
+  <p>
+    Make sure to test your package works when used by an app, before publishing it (aka integration testing). To do that, create an app that uses your package, and in that app's root directory, have a <code>smart.json</code> that points to the local path of your package:
   </p>
 
 <pre>
