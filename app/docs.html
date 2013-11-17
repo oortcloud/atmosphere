@@ -70,6 +70,7 @@ mrt -p 3333
   <ol>
     <li>Publish packages that you use in your apps. We want packages that are well loved by their creators/curators. If you don't depend on it don't publish it.</li>
     <li>Don't use the word `meteor` in your package name. Your repo might be called `meteor-cool-pkg` but you should register it as `cool-pkg`. All packages are for Meteor so including it in the name is redundant.</li>
+    <li>Do explain what a 3rd party package does if you're repackaging it for Meteor. For example, instead of "jQuery-Knob repackaged for Meteor", use "jQuery-Knob, the touch-friendly dial control"</li>
   </ol>
 
   <h2>Preparing <code>smart.json</code></h2>
@@ -126,7 +127,7 @@ mrt -p 3333
 </pre>
 
   <p>
-    Make sure the app also includes your package in <code>.meteor/packages</code>. Now run the app with <code>mrt</code>. If everything goes well, you're ready to write the <code>README.md</code> file and publish.
+    Make sure the app also includes your package in <code>.meteor/packages</code>. Now run the app with <code>mrt</code>. If everything goes well, you're ready to write the <code>README.md</code> file (*not* README.markdown) and publish.
   </p>
   
 
