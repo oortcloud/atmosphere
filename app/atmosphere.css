@@ -128,6 +128,13 @@ td.info-cell a {
   margin: 10px;
 }
 
+@media (min-width: 767px) {
+  .bottom-bar ul.nav li:nth-child(2) {
+    float: right;
+    margin-top: -25px;
+  }
+}
+
 .page-header {
   border-bottom: 0 !important;
   margin-bottom: 0 !important;
