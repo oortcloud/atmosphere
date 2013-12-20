@@ -115,6 +115,9 @@ Meteor.methods({
       // Only the owner can update it
       if (! canEditPackage(pkgRecord))
         throw new Meteor.Error(401, "That ain't yr package son!");
+      
+      if (pkgInfo.version <= pkgRecord.latest)
+        throw new Meteor.Error(401, "That's not a new version of the package!");
 
       // Add new version
       pkgRecord.versions.push(versionRecord);
@@ -124,9 +127,7 @@ Meteor.methods({
         pkgRecord.packages = pkgInfo.packages;
 
       // Timestamp it
-      if (pkgInfo.version > pkgRecord.latest)
-        pkgRecord.updatedAt = new Date().getTime();
-
+      pkgRecord.updatedAt = new Date().getTime();
       pkgRecord.latest = pkgInfo.version;
 
       updatePackage(pkgRecord, pkgInfo);
@@ -167,6 +168,15 @@ Meteor.methods({
       Packages.insert(newPackage);
     }
   },
+  
+  countInstall: function(name, version) {
+    // console.log('Counting install of ' + version + ' of package ' + name);
+    Packages.update(
+      {name: name, 'versions.version': version},
+      {$inc: {installCount: 1, 'versions.$.installCount': 1}}
+    )
+  },
+  
   getReadMe:function(packageName) {
     var package = Packages.findOne({name:packageName});
     
