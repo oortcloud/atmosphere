@@ -1,14 +1,9 @@
 {
   "packages": {
     "moment": "1.7.0",
-    "fork-me": "0.0.2",
     "underscore-string": "2.2.0rc.1",
     "validation": "0.0.7",
     "router": {},
     "node-modules": "0.0.5"
-  },
-  "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "master"
   }
 }

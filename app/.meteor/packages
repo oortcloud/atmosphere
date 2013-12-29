@@ -5,7 +5,6 @@ atm-accounts-ui
 accounts-password
 force-ssl
 moment
-fork-me
 validation
 underscore-string
 router
