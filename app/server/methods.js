@@ -174,7 +174,9 @@ Meteor.methods({
     Packages.update(
       {name: name, 'versions.version': version},
       {$inc: {installCount: 1, 'versions.$.installCount': 1}}
-    )
+    );
+    
+    Installs.insert({name: name, version: version, when: +(new Date)});
   },
   
   getReadMe:function(packageName) {
