@@ -11,9 +11,7 @@
       "validation": {
         "version": "0.0.7"
       },
-      "router": {
-        "version": "0.5.4.1"
-      },
+      "router": {},
       "node-modules": {
         "version": "0.0.5"
       }
