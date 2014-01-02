@@ -171,6 +171,11 @@ Meteor.methods({
   
   countInstall: function(name, version) {
     // console.log('Counting install of ' + version + ' of package ' + name);
+    if (! version) {
+      var pkg = Packages.findOne({name: name});
+      version = pkg.latest;
+    }
+    
     Packages.update(
       {name: name, 'versions.version': version},
       {$inc: {installCount: 1, 'versions.$.installCount': 1}}
