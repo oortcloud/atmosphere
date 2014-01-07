@@ -138,6 +138,10 @@
           {{#if author/url}}</a>{{/if}}
         </p>
       </dd>
+      {{#if installsCountReady}}
+      <dt><p>Downloads</p></dt>
+      <dd><p>Today: {{installCount.today}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Week: {{installCount.week}}</p></dd>
+      {{/if}}
       <dt><p>Current version</p></dt>
       <dd><p>v{{latest}}, last updated <span title="{{humanizeUpdatedAt}}">{{timeAgo}}</span></p></dd>
       {{#if dependencies}}

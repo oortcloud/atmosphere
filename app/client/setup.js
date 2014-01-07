@@ -1,5 +1,6 @@
 (function() {
 
+ try {
   new ForkMe({
     user: 'oortcloud',
     repo: 'atmosphere',
@@ -8,5 +9,8 @@
       color: 'red'
     }
   });
+}catch(e) {
+	
+}
 
 })();

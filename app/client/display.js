@@ -107,6 +107,21 @@
     return Packages.findOne({name: Session.get('currentPackage')});
   };
   
+  Template.package.installsCountReady = function() {
+    return Session.get('package.installcount');
+  }
+
+  Template.package.installCount = function() {
+    var counts = PackageInstalls.findOne({_id: Session.get('currentPackage')});
+
+    if(!counts) return;
+
+    return {
+      today: counts.today,
+      week: (counts.today + counts.week)
+    }
+  }
+
   Template.package.created = function() {
     var name = Session.get("currentPackage");
     if(Session.equals("readme_"+name, undefined)) {
