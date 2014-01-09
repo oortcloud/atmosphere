@@ -8,6 +8,7 @@ Package.on_use(function (api) {
 
   api.add_files('utils.js', ['server', 'client']);
   api.add_files('common.js', ['server', 'client']);
+  api.export("Filter");
 });
 
 Package.on_test(function (api) {

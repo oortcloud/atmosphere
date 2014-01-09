@@ -9,6 +9,8 @@ Installs.allow({});
 
 
 Meteor.publish("installsForPackage", function(packageName) {
+	if(!packageName) return [];
+
 	var self = this,
 		packageInstalls_7day = 0,	//Excludes today
 		packageInstalls_Today = 0,
@@ -43,3 +45,11 @@ Meteor.publish("installsForPackage", function(packageName) {
 
 	self.ready();
 });
+
+if(Meteor.isServer) {
+  FastRender.route('/', function(params) {
+    //assumes 'blogPost' is the publication which sends
+    //the given blog post
+    this.subscribe('packageMetadata');
+  })
+}

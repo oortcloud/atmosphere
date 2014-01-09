@@ -1,9 +1,8 @@
 {
   "packages": {
-    "moment": "1.7.0",
-    "underscore-string": "2.2.0rc.1",
-    "validation": "0.0.7",
+    "moment": {},
     "router": {},
-    "node-modules": "0.0.5"
+    "node-modules": {},
+    "fast-render": {}
   }
 }

@@ -3,34 +3,23 @@
   "dependencies": {
     "basePackages": {
       "moment": {
-        "version": "1.7.0"
+        "version": "2.2.1"
       },
-      "underscore-string": {
-        "version": "2.2.0rc.1"
+      "router": {
+        "version": "0.5.4.1"
       },
-      "validation": {
-        "version": "0.0.7"
-      },
-      "router": {},
       "node-modules": {
         "version": "0.0.5"
+      },
+      "fast-render": {
+        "version": "0.1.1"
       }
     },
     "packages": {
       "moment": {
-        "git": "https://github.com/possibilities/meteor-moment.git",
-        "tag": "v1.7.0",
-        "commit": "c64b6ec0e714b9556f4b6643d430b868ba69d3d7"
-      },
-      "underscore-string": {
-        "git": "https://github.com/possibilities/meteor-underscore-string.git",
-        "tag": "v2.2.0rc.1",
-        "commit": "dec21fac23310daf76dc19f246749e7beb48af03"
-      },
-      "validation": {
-        "git": "https://github.com/possibilities/meteor-validation.git",
-        "tag": "v0.0.7",
-        "commit": "14dfdc6e08ffc0ad173d0f2ae244d9ed8dd8e18e"
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.2.1",
+        "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
@@ -41,6 +30,11 @@
         "git": "https://github.com/possibilities/meteor-node-modules.git",
         "tag": "v0.0.5",
         "commit": "d502e5091759073a6baed856fadd93012749842d"
+      },
+      "fast-render": {
+        "git": "https://github.com/arunoda/meteor-fast-render.git",
+        "tag": "v0.1.1",
+        "commit": "f87db99e82a355a29d3d649f890af617b582f5db"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

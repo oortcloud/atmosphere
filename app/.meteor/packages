@@ -1,15 +1,18 @@
 # WARNING! filters needs to be before accounts (for now)!
 
 login-filter
-atm-accounts-ui
 accounts-password
 force-ssl
 moment
-validation
-underscore-string
 router
 node-modules
 http
 showdown
 less
 appcache
+standard-app-packages
+HTML5-History-API
+filters
+page-js-ie-support
+accounts-ui
+fast-render
