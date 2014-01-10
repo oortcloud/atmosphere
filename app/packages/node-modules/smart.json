@@ -1,8 +1,0 @@
-{
-  "name": "node-modules",
-  "description": "Node module hacks encapsulated",
-  "homepage": "https://github.com/possibilities/meteor-node-modules",
-  "author": "Mike Bannister <notimpossiblemike@gmail.com> (http://po.ssibiliti.es)",
-  "version": "0.0.5",
-  "git": "https://github.com/possibilities/meteor-node-modules.git"
-}

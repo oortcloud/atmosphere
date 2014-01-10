@@ -1,6 +1,4 @@
 
-var irc = NodeModules.require('irc');
-
 var channels = [
   '#meteor',
   '#oortcloud'

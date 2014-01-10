@@ -10,7 +10,7 @@
 // there's no security behind this, anyone can forge
 // this client info to use an incompatible client.
 
-if (Meteor.is_client)
+if (Meteor.isClient)
   Filter.methods([
     {
       callHandler: function(options) {
@@ -23,7 +23,8 @@ if (Meteor.is_client)
   ]);
 
 
-if (Meteor.is_server)
+if (Meteor.isServer)
+
   Filter.methods([
     {
       handler: function(client, version, options) {
