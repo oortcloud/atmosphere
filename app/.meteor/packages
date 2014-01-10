@@ -8,7 +8,6 @@ router
 http
 showdown
 less
-appcache
 standard-app-packages
 HTML5-History-API
 filters
