@@ -46,10 +46,8 @@ Meteor.publish("installsForPackage", function(packageName) {
 	self.ready();
 });
 
-if(Meteor.isServer) {
-  FastRender.route('/', function(params) {
+FastRender.route('/', function(params) {
     //assumes 'blogPost' is the publication which sends
     //the given blog post
     this.subscribe('packageMetadata');
-  })
-}
+});
