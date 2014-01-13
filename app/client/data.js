@@ -17,9 +17,9 @@ Deps.autorun(function() {
   Meteor.subscribe('package', Session.get('currentPackage'), function() {
     Session.set('package.ready', true);
   });
-  Meteor.subscribe("installsForPackage", Session.get('currentPackage'), function() {
-	Session.set('package.installcount', true);
-  });
+  // Meteor.subscribe("installsForPackage", Session.get('currentPackage'), function() {
+  //   Session.set('package.installcount', true);
+  // });
 })
 
 // Logs
