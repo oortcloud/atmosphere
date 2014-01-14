@@ -17,6 +17,8 @@ Filter.prepareCallMethods = function() {
   _.each(['call', 'apply'], function(methodName) {
     Meteor[methodName] = self._wrapMethod(Meteor[methodName], methodName, true);
   });
+
+
 };
 
 // Apply the actual filters (at run time)
@@ -244,17 +246,20 @@ FilterHelpers = {
   }
 };
 
-// Filter Meteor.methods
+  // Filter Meteor.methods
 
-// Cache original method
-Meteor._original_methods = Meteor.methods;
-Meteor.methods = function(methods) {
+  // Cache original method
+  Meteor._original_methods = Meteor.methods;
+  Meteor.methods = function(methods) {
 
-  // Wrap methods so we can hook into filters at run time
-  Filter.prepareMethods(methods);
-  
-  return Meteor._original_methods.call(this, methods);
-};
+    // Wrap methods so we can hook into filters at run time
+    Filter.prepareMethods(methods);
+    
+    return Meteor._original_methods.call(this, methods);
+  };
 
-if (Meteor.is_client)
-  Filter.prepareCallMethods();
+if (Meteor.isClient) {
+  Meteor.startup(function() {
+    Filter.prepareCallMethods();
+  })
+}
