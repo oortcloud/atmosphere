@@ -1,0 +1,1 @@
+Semver = Npm.require('semver');

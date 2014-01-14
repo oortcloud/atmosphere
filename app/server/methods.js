@@ -116,7 +116,7 @@ Meteor.methods({
       if (! canEditPackage(pkgRecord))
         throw new Meteor.Error(401, "That ain't yr package son!");
       
-      if (pkgInfo.version <= pkgRecord.latest)
+      if (! Semver.gt(pkgInfo.version, pkgRecord.latest))
         throw new Meteor.Error(401, "That's not a new version of the package!");
 
       // Add new version
