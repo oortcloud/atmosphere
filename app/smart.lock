@@ -4,7 +4,8 @@
     "basePackages": {
       "moment": {},
       "router": {},
-      "fast-render": {}
+      "fast-render": {},
+      "analytics": {}
     },
     "packages": {
       "moment": {
@@ -19,8 +20,13 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.1.1",
-        "commit": "f87db99e82a355a29d3d649f890af617b582f5db"
+        "tag": "v0.1.7",
+        "commit": "4bc146c8e8b879cbb0a7059f38793839da015fa4"
+      },
+      "analytics": {
+        "git": "https://github.com/Tarangp/Meteor-Analytics.git",
+        "tag": "v0.3.4",
+        "commit": "39e86f34947ea07212fad3998ead23e18bb12dcd"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

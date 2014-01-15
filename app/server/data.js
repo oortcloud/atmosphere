@@ -55,3 +55,6 @@ FastRender.route('/', function(params) {
     //the given blog post
     this.subscribe('packageMetadata');
 });
+
+//Ignores the tail setup process when running locally
+Tail.ignore(true);

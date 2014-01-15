@@ -2,6 +2,7 @@
   "packages": {
     "moment": {},
     "router": {},
-    "fast-render": {}
+    "fast-render": {},
+    "analytics": {}
   }
 }
