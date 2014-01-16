@@ -13,19 +13,22 @@ Meteor.publish('package', function(name) {
 });
 
 // for meteorite
-Meteor.publish('packages', function() {
+Meteor.publish('packages', function(lastModified) {
   // Logs.insert({
   //   name: 'publish.packages',
   //   userId: this.userId,
   //   stamp: new Date()
   // });
+  
+  var query = {
+    visible: {$ne: false}
+  };
+  
+  if (lastModified)
+    query.lastModified = {$gt: lastModified};
 
-  return Packages.find({
-    visible: { $ne: false }
-  }, {
-    sort: {
-      updatedAt: -1
-    }
+  return Packages.find(query, {
+    sort: {updatedAt: -1}
   });
 });
 
