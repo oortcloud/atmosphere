@@ -25,7 +25,7 @@ Meteor.publish('packages', function(lastModified) {
   };
   
   if (lastModified)
-    query.lastModified = {$gt: lastModified};
+    query.lastModified = {$gt: +(lastModified)};
 
   return Packages.find(query, {
     sort: {updatedAt: -1}
@@ -46,3 +46,7 @@ Meteor.publish('allPackages', function() {
     }
   });
 });
+
+Meteor.publish('installs', function(since) {
+  return Installs.find({when: {$gt: +(since)}});
+})
