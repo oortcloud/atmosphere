@@ -1,8 +1,17 @@
+// XXX: is there a better way to do this
+var channels;
+if (process.ROOT_URL === 'atmosphere.meteor.com') {
+  channels = [
+    '#meteor',
+    '#oortcloud'
+  ];
+} else {
+  // for testing
+  channels = [
+    '#oortcloud'
+  ]
+}
 
-var channels = [
-  '#meteor',
-  '#oortcloud'
-];
 
 var clientConfig = {
   userName: 'Atmosphere',
