@@ -651,5 +651,18 @@ _.mixin({
         };
       }
     };
+  },
+
+  validVersion: function(field) {
+    return function(doc) {
+      var value = _.nestedValue(doc, field);
+
+      if (value && !SemverHelper.isValidVersion(value)) {
+        return {
+          field: field,
+          message: 'Invalid version: ' + value + ', see http://semver.org/ for guidelines'
+        };
+      }
+    }
   }
 });
