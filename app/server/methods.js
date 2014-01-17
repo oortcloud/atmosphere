@@ -20,8 +20,6 @@ Meteor.methods({
     
     pkgInfo.author = _.parseAuthor(pkgInfo.author);
 
-    var versionFormat = /^\d{1,3}\.\d{1,3}\.\d{1,3}[\.\d\w]*$/;
-
     var errors = _.validate(pkgInfo, [
 
       // Name
@@ -56,7 +54,7 @@ Meteor.methods({
 
       // Version
       _.presenceOf   ('version'),
-      _.formatOf     ('version', versionFormat, 'must be correctly formatted (e.g. 0.0.3, 0.0.4rc1, etc)'),
+      _.validVersion ('version'),
 
       // Git url
       _.presenceOf   ('git'),
@@ -116,7 +114,7 @@ Meteor.methods({
       if (! canEditPackage(pkgRecord))
         throw new Meteor.Error(401, "That ain't yr package son!");
       
-      if (! Semver.gt(pkgInfo.version, pkgRecord.latest))
+      if (SemverHelper.isValidVersion(pkgRecord.latest) && ! Semver.gt(pkgInfo.version, pkgRecord.latest))
         throw new Meteor.Error(401, "That's not a new version of the package!");
 
       // Add new version
