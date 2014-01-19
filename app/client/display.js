@@ -167,16 +167,16 @@
     return this.meteor;
   };
 
-  Template.header.events = {
+  Template.header.events({
     'click .page-header a': function(e) {
       if (e.shiftKey || e.ctrlKey || e.metaKey || e.which == 2) return true;
       
       e.preventDefault();
       Meteor.Router.to('/');
     }
-  };
+  });
 
-  Template.content.events = {
+  Template.content.events({
     'click a.nav-link': function(e) {
       if (e.shiftKey || e.ctrlKey || e.metaKey || e.which == 2) return true;
       
@@ -188,7 +188,7 @@
       Meteor.Router.to('/');
       Session.set("search_keywords", e.currentTarget.value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&"));
     }
-  };
+  })
   
   Template.content.search_keywords = function(){
     return Session.get("search_keywords");
