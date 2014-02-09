@@ -25,7 +25,7 @@ Meteor.publish('packages', function(lastModified) {
   };
   
   if (lastModified)
-    query.lastModified = {$gt: +(lastModified)};
+    query.updatedAt = {$gt: +(lastModified)};
 
   return Packages.find(query, {
     sort: {updatedAt: -1}
