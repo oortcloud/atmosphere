@@ -1,0 +1,11 @@
+<template name="accounts">
+  {{#if currentUser}}
+    {{#if currentUser.services.meteor-developer}}
+      You've done it!
+    {{else}}
+      You need a meteor developer account
+    {{/if}}
+  {{else}}
+    You need an account!
+  {{/if}}
+</template>

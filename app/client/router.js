@@ -13,5 +13,6 @@ Meteor.Router.add({
     Session.set("search_keywords", query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&"));
     return 'packages';
   },
+  '/accounts': 'accounts',
   '*':'not_found'
 });

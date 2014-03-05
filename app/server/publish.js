@@ -50,3 +50,8 @@ Meteor.publish('allPackages', function() {
 Meteor.publish('installs', function(since) {
   return Installs.find({when: {$gt: +(since)}});
 })
+
+// auto publish current user services info
+Meteor.publish(null, function() {
+  return Meteor.users.find(this.userId, {fields: {'services.meteor-developer': true}});
+});
