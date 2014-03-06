@@ -1,3 +1,9 @@
+Template.accounts.helpers({
+  loading: function() {
+    return Meteor.loggingIn();
+  }
+});
+
 Template.accounts.events({
   'click .add': function() {
     MeteorDeveloperAccounts.requestCredential(function(tokenOrError) {

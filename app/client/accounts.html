@@ -1,12 +1,27 @@
 <template name="accounts">
-  {{#if currentUser}}
-    {{#if currentUser.services.meteor-developer}}
-      You've done it!
-    {{else}}
-      You need a meteor developer account
-      <button class="add">Add</button>
-    {{/if}}
+  {{#if loading}}
+    <h2>Please wait...</h2>
   {{else}}
-    You need an account!
+    <h2>Connect your Meteor Developer Account</h2>
+    
+    <p>
+      As part of the ongoing transition from packages hosted here (atmosphere.meteor.com) to an <i>official</i> Meteor Development Group hosted package system (supported by the core <code>meteor</code> app, yay!), we've built this page to help you to connect your meteor developer account to your atmosphere account.
+    </p>
+    
+    {{#if currentUser}}
+      <h4><i>Step One:</i> You're signed in as <code>{{currentUser.username}}</code>.</h4>
+
+      {{#if currentUser.services.meteor-developer}}
+        <h4><i>Step Two:</i> You've connected your Meteor Developer account: <code>{{currentUser.services.meteor-developer.username}}</code></h4>
+        
+        <h4><i>Step Three:</i> You're done! Sit back, profit, party, write packages, whatever comes to you.</h4>
+      {{else}}
+      
+        <h4><i>Step Two:</i> You need a Meteor Developer account:
+        <a class="add">Connect</a>.</h4>
+      {{/if}}
+    {{else}}
+      <h4><i>Step One:</i> You need to sign in to your atmosphere account. Please do so with the login buttons in the top right of the page.</h4>
+    {{/if}}
   {{/if}}
 </template>
