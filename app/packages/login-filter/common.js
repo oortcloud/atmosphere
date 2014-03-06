@@ -23,31 +23,35 @@
 //   ]);
 // 
 // 
-// if (Meteor.isServer)
-// 
-//   Filter.methods([
-//     {
-//       handler: function(client, version, options) {
-//         
-//         // Logs.insert({
-//         //   name: 'methods.login',
-//         //   client: client,
-//         //   version: version,
-//         //   options: options,
-//         //   stamp: new Date()
-//         // });
-//         // 
-//         // console.log(version)
-//         // var minVersion = '0.2.0';
-//         // if (!_.contains(['atm', 'mrt'], client) || (client === 'mrt' && version < minVersion))
-//         //   throw new Meteor.Error(400, "Y'oopsy¡ You need a newer version of " +
-//         //                               "Meteorite to use Atmosphere! It must be " +
-//         //                               "greater or equal to v" + minVersion +
-//         //                               " Do this: npm install -g meteorite"
-//         //                               );
-// 
-//         this.next(options);
-//       },
-//       only: 'login',
-//     }
-//   ]);
+if (Meteor.isServer)
+
+  Filter.methods([
+    {
+      handler: function(client, version, options) {
+        
+        // Logs.insert({
+        //   name: 'methods.login',
+        //   client: client,
+        //   version: version,
+        //   options: options,
+        //   stamp: new Date()
+        // });
+        // 
+        // console.log(version)
+        // var minVersion = '0.2.0';
+        // if (!_.contains(['atm', 'mrt'], client) || (client === 'mrt' && version < minVersion))
+        //   throw new Meteor.Error(400, "Y'oopsy¡ You need a newer version of " +
+        //                               "Meteorite to use Atmosphere! It must be " +
+        //                               "greater or equal to v" + minVersion +
+        //                               " Do this: npm install -g meteorite"
+        //                               );
+        
+        // mrt calling us
+        if (client === 'mrt')
+          this.next(options);
+        else
+          this.next(client, version, options);
+      },
+      only: 'login',
+    }
+  ]);
