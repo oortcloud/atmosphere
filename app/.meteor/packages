@@ -18,4 +18,5 @@ irc
 semver
 analytics
 spiderable
-accounts-meteor-developer
+meteor-developer
+service-configuration
