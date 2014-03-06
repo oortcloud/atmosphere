@@ -974,17 +974,19 @@ textarea {
 
   .core (@gridColumnWidth, @gridGutterWidth) {
 
-    // .spanX (@{index}) when (@index > 0) {
-    //   (~".span@{index}") { .span(@index); }
-    //   .spanX(@index - 1);
-    // }
-    // .spanX (0) {}
-    // 
-    // .offsetX (@index) when (@index > 0) {
-    //   (~".offset@{index}") { .offset(@index); }
-    //   .offsetX(@index - 1);
-    // }
-    // .offsetX (0) {}
+    .spanX (@index) when (@index > 0) {
+      @selector: ~".span@{index}";
+      @{selector} { .span(@index); }
+      .spanX(@index - 1);
+    }
+    .spanX (0) {}
+    
+    .offsetX (@index) when (@index > 0) {
+      @selector: ~".offset@{index}";
+      @{selector} { .offset(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (0) {}
 
     .offset (@columns) {
       margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
@@ -1011,8 +1013,8 @@ textarea {
     .navbar-fixed-bottom .container { .span(@gridColumns); }
 
     // generate .spanX and .offsetX
-    // .spanX (@gridColumns);
-    // .offsetX (@gridColumns);
+    .spanX (@gridColumns);
+    .offsetX (@gridColumns);
 
   }
 
