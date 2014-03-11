@@ -15,6 +15,11 @@
         <h4><i>Step Two:</i> You've connected your Meteor Developer account: <code>{{currentUser.services.meteor-developer.username}}</code></h4>
         
         <h4><i>Step Three:</i> You're done! Sit back, profit, party, write packages, whatever comes to you.</h4>
+        
+        <p>
+          For now, you'll continue publishing packages with your old Atmopshere account ({{currentUser.username}}). But soon, you'll <em>need</em> an Meteor Developer account to do so. Congratulations, you are officially ahead of the game!
+        </p>
+        
       {{else}}
       
         <h4><i>Step Two:</i> You need a Meteor Developer account:
@@ -23,5 +28,6 @@
     {{else}}
       <h4><i>Step One:</i> You need to sign in to your atmosphere account. Please do so with the login buttons in the top right of the page.</h4>
     {{/if}}
+    
   {{/if}}
 </template>
