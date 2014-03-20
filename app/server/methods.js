@@ -174,10 +174,12 @@ Meteor.methods({
       version = pkg.latest;
     }
     
-    Packages.update(
-      {name: name, 'versions.version': version},
-      {$inc: {installCount: 1, 'versions.$.installCount': 1}}
-    );
+    // XXX: we don't actually use this stat and it causes a lot of 
+    // updates to the package collection (== perf problems). 
+    // Packages.update(
+    //   {name: name, 'versions.version': version},
+    //   {$inc: {installCount: 1, 'versions.$.installCount': 1}}
+    // );
     
     Installs.insert({name: name, version: version, when: +(new Date)});
   },
