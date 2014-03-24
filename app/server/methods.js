@@ -252,7 +252,14 @@ Meteor.methods({
     if (! canEditPackage(package))
       return "You're not authorized to delete this package";
     
-    Packages.remove({name: packageName});
+    // XXX: don't actually delete a package, just mark it deleted.
+    //
+    // This seems better both because it lets people continue to use
+    // it, as well as simplifying other things.
+    //
+    // The only downside is you can't "reclaim" names
+    // Packages.remove({name: packageName});
+    Packages.update({name: packageName}, {$set: {deleted: true}});
     return "Package removed";
   },
   

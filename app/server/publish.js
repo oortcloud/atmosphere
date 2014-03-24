@@ -1,6 +1,6 @@
 Meteor.publish('packageMetadata', function() {
   return Packages.find({
-    visible: { $ne: false }
+    visible: { $ne: false }, deleted: { $ne: true }
   }, {
     fields: {name: true, description: true, latest: true, updatedAt: true}
   });
