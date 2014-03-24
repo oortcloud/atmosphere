@@ -81,7 +81,6 @@
   };
   
   Template.package.ready = function() {
-    console.log(Session.get('package.ready'));
     return Session.get('package.ready');
   };
 
