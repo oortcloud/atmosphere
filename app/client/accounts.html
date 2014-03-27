@@ -2,19 +2,46 @@
   {{#if loading}}
     <h2>Please wait...</h2>
   {{else}}
-    <h2>Connect your Meteor Developer Account</h2>
+    <h2>Atmosphere v1 Accounts</h2>
     
     <p>
-      As part of the ongoing transition from packages hosted here (atmosphere.meteor.com) to an <i>official</i> Meteor Development Group hosted package system (supported by the core <code>meteor</code> app, yay!), we've built this page to help you to connect your meteor developer account to your atmosphere account.
+      As you may have noticed, Atmosphere has migrated to a <a href="https://atmospherejs.com">new domain</a> and layout. 
+    </p>
+    
+    <p>
+      This is the first stage towards a transition to packages being hosted by the Meteor Development Group, and Atmosphere simply serving as a front end to viewing and listing packages.
+    </p>
+    
+    <p>
+      However, in the interim, Meteorite continues to exist, and uses this site  to access packages. So if you want to publish packages, you'll need an account on this site.
     </p>
     
     {{#if currentUser}}
-      <h4><i>Step One:</i> You're signed in as <code>{{currentUser.username}}</code>.</h4>
+      <p>You already have an account ({{loginButtons align="right"}}). You champ.</p>
+    {{else}}
+      <p>Don't worry, it's simple. Just {{loginButtons align="right"}}</p>
+    {{/if}}
+    
+    <h2>Connect your Meteor Developer Account</h2>
+    
+    <p>
+      The next step of the process will be a migration of packages from this site to an <i>official</i> repository (yay!). One part of that will be associating Meteor Developer accounts with packages.
+    </p>
+    
+    <p>
+      We've built this page to help you to connect your meteor developer account to your atmosphere account.
+    </p>
+    
+    {{#if currentUser}}
+      <h4>Step One:</h4> 
+      <p>You're signed in as <code>{{currentUser.username}}</code>.</p>
 
       {{#if currentUser.services.meteor-developer}}
-        <h4><i>Step Two:</i> You've connected your Meteor Developer account: <code>{{currentUser.services.meteor-developer.username}}</code></h4>
+        <h4>Step Two:</h4>
+        <p>You've connected your Meteor Developer account: <code>{{currentUser.services.meteor-developer.username}}</code></p>
         
-        <h4><i>Step Three:</i> You're done! Sit back, profit, party, write packages, whatever comes to you.</h4>
+        <h4>Step Three:</h5>
+        <p>You're done! Sit back, profit, party, write packages, whatever comes to you.</p>
         
         <p>
           For now, you'll continue publishing packages with your old Atmopshere account ({{currentUser.username}}). But soon, you'll <em>need</em> an Meteor Developer account to do so. Congratulations, you are officially ahead of the game!
@@ -22,11 +49,13 @@
         
       {{else}}
       
-        <h4><i>Step Two:</i> You need a Meteor Developer account:
-        <a class="add">Connect</a>.</h4>
+        <h4>Step Two:</h4>
+        <p>You need a Meteor Developer account:
+        <a class="add">Connect</a>.</p>
       {{/if}}
     {{else}}
-      <h4><i>Step One:</i> You need to sign in to your atmosphere account. Please do so with the login buttons in the top right of the page.</h4>
+      <h4>Step One</h4> 
+      <p>You need to sign in to your atmosphere account, or sign up for one.</p>
     {{/if}}
     
   {{/if}}
