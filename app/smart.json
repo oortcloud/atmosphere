@@ -1,8 +1,7 @@
 {
   "packages": {
-    "moment": {},
-    "router": {},
-    "fast-render": {},
-    "analytics": {}
+    "moment": "2.5.1",
+    "router": "0.5.4.1",
+    "fast-render": "0.1.19"
   }
 }

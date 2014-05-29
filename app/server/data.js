@@ -57,4 +57,4 @@ FastRender.route('/', function(params) {
 });
 
 //Ignores the tail setup process when running locally
-Tail.ignore(true);
+// Tail.ignore(true);

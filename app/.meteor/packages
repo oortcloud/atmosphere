@@ -16,7 +16,6 @@ accounts-ui
 fast-render
 irc
 semver
-analytics
 spiderable
 meteor-developer
 service-configuration
