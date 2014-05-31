@@ -6,9 +6,9 @@ PackageInstalls = new Meteor.Collection("install_count");
 
 Session.set('packages.loading', true);
 
-Meteor.subscribe('packageMetadata', function() {
-  Session.set('packages.loading', false);
-});
+// Meteor.subscribe('packageMetadata', function() {
+  // Session.set('packages.loading', false);
+// });
 
 Deps.autorun(function() {
   Session.set('package.ready', false);
