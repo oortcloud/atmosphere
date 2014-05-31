@@ -10,7 +10,8 @@
       },
       "fast-render": {
         "version": "0.1.19"
-      }
+      },
+      "server-info": {}
     },
     "packages": {
       "moment": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/arunoda/meteor-fast-render.git",
         "tag": "v0.1.19",
         "commit": "9e9a34e51885474c0dd9ed7a64dbff7ee9d4315c"
+      },
+      "server-info": {
+        "git": "https://github.com/percolatestudio/meteor-server-info.git",
+        "tag": "v0.6.1",
+        "commit": "b951de553f5e4ebec874b36b09dff4a4b7fea427"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

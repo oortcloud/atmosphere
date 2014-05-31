@@ -48,6 +48,7 @@ Meteor.publish('allPackages', function() {
 });
 
 Meteor.publish('installs', function(since) {
+  console.log('publishing installs since', moment(since).format('lll'))
   return Installs.find({when: {$gt: +(since)}});
 })
 

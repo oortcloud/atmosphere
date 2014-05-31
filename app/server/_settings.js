@@ -14,3 +14,10 @@ ServiceConfiguration.configurations.insert({
   clientId: Meteor.settings.meteorDeveloper.appId,
   secret: Meteor.settings.meteorDeveloper.appSecret
 });
+
+ServerInfo.settings = {
+  path: '/info',
+  user: 'atmosphere',
+  password: 'possibilities',
+  extras: undefined //a function or any other data to add
+};
