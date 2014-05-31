@@ -24,8 +24,12 @@ Meteor.publish('packages', function(lastModified) {
     visible: {$ne: false}
   };
   
-  if (lastModified)
+  if (lastModified) {
     query.updatedAt = {$gt: +(lastModified)};
+    console.log('publishing packages since', moment(lastModified).format('lll'))
+  }
+    
+
 
   return Packages.find(query, {
     sort: {updatedAt: -1}
