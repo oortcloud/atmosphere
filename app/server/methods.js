@@ -85,7 +85,8 @@ Meteor.methods({
       'version',
       'meteor',
       'packages',
-      'createdAt'
+      'createdAt',
+      'troposphereIdentifier'
     ];
     
     var updatePackage = function(oldPkg, newPkg) {
@@ -280,5 +281,20 @@ Meteor.methods({
       return "No user with that username exists";
     
     Packages.update(package._id, {$addToSet: {userIds: user._id}});
+  },
+  
+  // mark a package with a version identifier, e.g. iron:router@0.2.0
+  markTroposphereIdentifier: function(packageName, version, identifier) {
+    check(packageName, String);
+    check(version, String);
+    check(identifier, Match.Where(function(s) {
+      check(s, String);
+      return s.match(/.+:.+@.+/); 
+    }));
+    
+    // XXX: check admin or something?
+    Packages.update({name: packageName, 'versions.version': version}, {$set: {
+      'versions.$.troposphereIdentifier': identifier
+    }});
   }
 });
