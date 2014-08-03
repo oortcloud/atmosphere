@@ -51,6 +51,10 @@ Meteor.publish('allPackages', function() {
   });
 });
 
+Meteor.publish('usernames', function() {
+  return Meteor.users.find({}, {fields: {'services.meteor-developer.username': 1}});
+});
+
 Meteor.publish('installs', function(since) {
   console.log('publishing installs since', moment(since).format('lll'))
   return Installs.find({when: {$gt: +(since)}});
