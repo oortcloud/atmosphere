@@ -1,4 +1,5 @@
-var V2_URL = 'http://atmospherejs.com';
+// XXX: change this to www.
+var V2_URL = 'http://beta.atmospherejs.com';
 
 var redirectTo = function(path) {
   return [301, {Location: V2_URL + path}, ''];  
