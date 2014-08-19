@@ -77,7 +77,7 @@
   
   Template.packages.packages = function() {
     keywords = new RegExp(Session.get("search_keywords"), "i");
-    return Packages.find({$or:[{name:keywords},{description:keywords}]}, {sort: {'updatedAt': -1}});
+    return Packages.find({$or:[{name:keywords},{description:keywords}]}, {sort: {'updatedAt': -1}, limit: 50});
   };
   
   Template.package.ready = function() {

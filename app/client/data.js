@@ -1,16 +1,16 @@
-
+Session.setDefault('search_keywords', '');
 // Packages
 
 Packages = new Meteor.Collection('packages');
 PackageInstalls = new Meteor.Collection("install_count");
 
-Session.set('packages.loading', true);
-
-// Meteor.subscribe('packageMetadata', function() {
-  // Session.set('packages.loading', false);
-// });
 
 Deps.autorun(function() {
+  Session.set('packages.loading', true);
+  Meteor.subscribe('packageMetadata', Session.get('search_keywords'), function() {
+    Session.set('packages.loading', false);
+  });
+
   Session.set('package.ready', false);
   Session.set('package.installcount', false);
 

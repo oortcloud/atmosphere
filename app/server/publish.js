@@ -1,8 +1,12 @@
-Meteor.publish('packageMetadata', function() {
+Meteor.publish('packageMetadata', function(keywords) {
+  var regexp = new RegExp(keywords, 'i');
   return Packages.find({
-    visible: { $ne: false }, deleted: { $ne: true }
+    visible: { $ne: false }, deleted: { $ne: true },
+    $or:[{name: regexp},{description:regexp}]
   }, {
-    fields: {name: true, description: true, latest: true, updatedAt: true}
+    fields: {name: true, description: true, latest: true, updatedAt: true},
+    sort: {'updatedAt': -1},
+    limit: 50
   });
 });
 
