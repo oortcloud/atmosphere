@@ -77,7 +77,7 @@
   
   Template.modal.events({
     'click [data-dismiss=modal]': function(e, template) {
-      template.$('.modal').removeClass('in');
+      $('.modal').removeClass('in');
     }
   });
   
