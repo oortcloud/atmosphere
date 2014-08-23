@@ -75,6 +75,12 @@
     }, parseInt(seconds) * 1000);
   });
   
+  Template.modal.events({
+    'click [data-dismiss=modal]': function(e, template) {
+      template.$('.modal').removeClass('in');
+    }
+  });
+  
   Template.packages.packages = function() {
     keywords = new RegExp(Session.get("search_keywords"), "i");
     return Packages.find({$or:[{name:keywords},{description:keywords}]}, {sort: {'updatedAt': -1}, limit: 50});
