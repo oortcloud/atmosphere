@@ -296,5 +296,18 @@ Meteor.methods({
     Packages.update({name: packageName, 'versions.version': version}, {$set: {
       'versions.$.troposphereIdentifier': identifier
     }});
+  },
+  
+  getMaintainedPackages: function(username) {
+    var packageNames = [];
+    Meteor.users.find({'services.meteor-developer.username': username}).forEach(function(user) {
+      Packages.find({
+        $or: [{userId: user._id}, {userIds: user._id}]
+      }).forEach(function(pkg) {
+        packageNames.push(pkg.name);
+      });
+    });
+    
+    return packageNames;
   }
 });
