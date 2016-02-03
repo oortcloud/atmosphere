@@ -1,5 +1,5 @@
-# Atmosphere Smart Package Database
+# Old version of Atmospherejs.com
 
-[Atmosphere](https://atmosphere.meteor.com) is a database of smart packages for [Meteor](http://meteor.com), the node.js framework.
+[Atmosphere](https://atmospherejs.com) is a database of smart packages for [Meteor](http://meteor.com), the Node.js framework.
 
-To learn about smart packages and how to use them for your Meteor project, please checkout [Meteorite](http://oortcloud.github.com/meteorite), the smart packager for Meteor.
+This repo contains a very old version of the Atmosphere app. [The new Atmosphere isn't open sourced yet.](https://github.com/percolatestudio/atmosphere/issues/219) However, [that](https://github.com/percolatestudio/atmosphere/issues) is the place to file issues.
